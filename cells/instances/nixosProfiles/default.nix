@@ -3,11 +3,8 @@
   cell,
 }: let
   load = cell.lib.load inputs cell;
-in {
-  core = load ./core;
-  users = load ./users;
-  cachix = load ./cachix;
-  discord = load ./discord;
-  fonts = load ./fonts;
-  networking = load ./networking;
-}
+in
+  cell.lib.rakeLeaves ../unported-digga-profiles/profiles
+  // {
+    users = load ./users;
+  }

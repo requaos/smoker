@@ -5,17 +5,10 @@
   inherit (cell) homeProfiles;
 in rec {
   base = with homeProfiles; [
-    shell.common
-    git.common
     direnv
-    xdg
   ];
 
-  req = with homeProfiles;
-    [
-      git.req
-    ]
-    ++ base;
+  req = base;
 
   nixos = base;
 }

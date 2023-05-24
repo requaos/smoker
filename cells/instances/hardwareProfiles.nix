@@ -5,6 +5,9 @@
   defaults = {
     hardware.opengl.enable = true;
     hardware.enableRedistributableFirmware = true;
+    i18n.defaultLocale = "en_US.utf8";
+    networking.useDHCP = true;
+    networking.networkmanager.enable = true;
   };
 in {
   teeniebox = {
@@ -22,14 +25,16 @@ in {
         "thunderbolt"
       ];
     };
+
+    hardware.cpu.intel.updateMicrocode = hardware.enableRedistributableFirmware;
   };
 
-#   autolycus = {
-#     imports = with inputs.nixos-hardware.nixosModules; [
-#       defaults
-#       lenovo-thinkpad-t420
-#     ];
+  #   autolycus = {
+  #     imports = with inputs.nixos-hardware.nixosModules; [
+  #       defaults
+  #       lenovo-thinkpad-t420
+  #     ];
 
-#     boot.initrd.availableKernelModules = []; # TODO
-#   };
+  #     boot.initrd.availableKernelModules = []; # TODO
+  #   };
 }

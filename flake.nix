@@ -113,7 +113,7 @@
       ];
 
       # To keep proprietary software to a minimum:
-      # allowUnfreePredicate 
+      # allowUnfreePredicate
       # Forces us to keep track of proprietary software.
       nixpkgsConfig.allowUnfreePredicate = pkg:
         lib.elem (lib.getName pkg) [
