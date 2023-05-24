@@ -5,7 +5,7 @@
   inherit (cell) nixosProfiles;
 in
   with nixosProfiles; rec {
-    base = [core cachix fonts gpg users.root];
+    base = [core cachix fonts users.root];
     chat = [discord];
     pc =
       base

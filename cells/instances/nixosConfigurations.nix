@@ -16,25 +16,21 @@ in
       inherit bee time;
 
       imports = with nixosSuites;
-      with nixosProfiles;
-        teeniebox;
+      with nixosProfiles; teeniebox;
 
       home-manager = {
         useUserPackages = true;
         useGlobalPkgs = true;
         users.req = {
-          imports = with homeSuites;
-            req;
+          imports = with homeSuites; req;
           home.stateVersion = "22.11";
         };
       };
 
-      boot.kernelPackages = pkgs.linuxPackages_testing;
-
       boot.loader = {
         systemd-boot = {
-            enable = true;
-            configurationLimit = 25;
+          enable = true;
+          configurationLimit = 25;
         };
         efi = {
           canTouchEfiVariables = true;
@@ -52,8 +48,7 @@ in
         };
       };
 
-      swapDevices =
-        [{ device = "/dev/disk/by-uuid/0ab38578-d63e-42de-b68e-a32acba18ab8"; }];
+      swapDevices = [{device = "/dev/disk/by-uuid/0ab38578-d63e-42de-b68e-a32acba18ab8";}];
 
       system.stateVersion = "22.11";
     };

@@ -5,6 +5,7 @@
   inherit (cell) homeProfiles;
 in rec {
   base = with homeProfiles; [
+    shell.common
     git.common
     direnv
     xdg
@@ -12,9 +13,7 @@ in rec {
 
   req = with homeProfiles;
     [
-      gpg
       git.req
-      shell.bash
     ]
     ++ base;
 
