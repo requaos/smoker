@@ -92,10 +92,6 @@
         # library
         (functions "lib")
 
-        # modules
-        (functions "nixosModules")
-        (functions "homeModules")
-
         # profiles
         (functions "hardwareProfiles")
         (functions "nixosProfiles")

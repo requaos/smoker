@@ -14,7 +14,7 @@ in rec {
     [
       gpg
       git.req
-      shell.nushell
+      shell.bash
     ]
     ++ base;
 

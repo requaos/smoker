@@ -9,11 +9,11 @@ in
     chat = [discord];
     pc =
       base
-      ++ [networking browser];
+      ++ [networking];
     pc' =
       pc
       ++ chat
       ++ [users.req];
 
-    teeniebox = pc' ++ [x11.colemak];
+    teeniebox = pc';
   }
