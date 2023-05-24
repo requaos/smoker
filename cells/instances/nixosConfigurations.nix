@@ -29,45 +29,31 @@ in
         };
       };
 
+      boot.kernelPackages = pkgs.linuxPackages_testing;
+
       boot.loader = {
-        grub = {
-          enable = true;
-          efiSupport = true;
-          device = "nodev";
-          useOSProber = true;
+        systemd-boot = {
+            enable = true;
+            configurationLimit = 25;
         };
         efi = {
           canTouchEfiVariables = true;
-          efiSysMountPoint = "/boot/efi";
         };
       };
 
       fileSystems = {
-        "/boot/efi" = {
-          label = "BOOT";
-          fsType = "vfat";
-        };
-
         "/" = {
-          label = "MAIN";
+          device = "/dev/disk/by-uuid/33a1de74-fe6d-4466-be43-ce02816d1679";
           fsType = "btrfs";
-          options = ["subvol=/@"];
         };
-
-        "/home" = {
-          label = "MAIN";
-          fsType = "btrfs";
-          options = ["subvol=/@home"];
-        };
-
-        "/swap" = {
-          label = "MAIN";
-          fsType = "btrfs";
-          options = ["subvol=/@swap"];
+        "/boot" = {
+          device = "/dev/disk/by-uuid/FBA5-7197";
+          fsType = "vfat";
         };
       };
 
-      swapDevices = [{device = "/swap/swapfile";}];
+      swapDevices =
+        [{ device = "/dev/disk/by-uuid/0ab38578-d63e-42de-b68e-a32acba18ab8"; }];
 
       system.stateVersion = "22.11";
     };
