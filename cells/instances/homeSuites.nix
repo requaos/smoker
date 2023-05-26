@@ -13,7 +13,7 @@ in rec {
 
   req = with homeProfiles;
     [
-      coredns
+      development
     ]
     ++ base;
 
