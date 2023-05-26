@@ -4,7 +4,8 @@
 }: let
   load = cell.lib.load inputs cell;
 in
-  cell.lib.rakeLeaves ../unported-digga-profiles/profiles
-  // {
+  {
+    core = load ./core;
     users = load ./users;
+    greeter = load ./greeter;
   }

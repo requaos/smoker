@@ -5,10 +5,16 @@
   inherit (cell) homeProfiles;
 in rec {
   base = with homeProfiles; [
+    cachix
+    platform
     direnv
+    git
   ];
 
-  req = base;
+  req = with homeProfiles; [
+      coredns
+    ]
+    ++ base;
 
   nixos = base;
 }
