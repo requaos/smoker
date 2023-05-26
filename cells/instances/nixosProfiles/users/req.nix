@@ -10,5 +10,5 @@
   programs.git = {
     userName = "Neil Skinner";
     userEmail = "reqpro@requaos.com";
-  }
+  };
 }
