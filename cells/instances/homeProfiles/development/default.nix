@@ -8,7 +8,7 @@ in {
     vscode = {
       enable = true;
 
-      userSettings = lib.mkForce {};
+      userSettings = cell.lib.mkForce {};
 
       extensions =
         (
