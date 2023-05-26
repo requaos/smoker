@@ -3,6 +3,11 @@
     lazygit.enable = true;
     git = {
       enable = true;
+
+      # hardcoding user specific values until we sort how to pull these values from nixosProfiles.users.req namespace
+      userName = "Neil Skinner";
+      userEmail = "reqpro@requaos.com";
+
       nix-direnv = {
         enable = true;
       };

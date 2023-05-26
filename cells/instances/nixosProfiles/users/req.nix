@@ -6,9 +6,4 @@
     createHome = true;
     extraGroups = ["libvirtd" "networkmanager" "wheel" "docker"];
   };
-
-  programs.git = {
-    userName = "Neil Skinner";
-    userEmail = "reqpro@requaos.com";
-  };
 }

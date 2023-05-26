@@ -11,7 +11,8 @@ in rec {
     git
   ];
 
-  req = with homeProfiles; [
+  req = with homeProfiles;
+    [
       coredns
     ]
     ++ base;
