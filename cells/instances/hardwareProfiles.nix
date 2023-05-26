@@ -26,7 +26,7 @@ in {
       ];
     };
 
-    hardware.cpu.intel.updateMicrocode = hardware.enableRedistributableFirmware;
+    hardware.cpu.intel.updateMicrocode = true;
   };
 
   #   autolycus = {
