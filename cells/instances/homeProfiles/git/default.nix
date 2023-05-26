@@ -8,9 +8,6 @@
       userName = "Neil Skinner";
       userEmail = "reqpro@requaos.com";
 
-      nix-direnv = {
-        enable = true;
-      };
       extraConfig = {
         core = {
           autocrlf = "input";
