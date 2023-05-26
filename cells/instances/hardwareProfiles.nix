@@ -1,18 +1,9 @@
 {
   inputs,
   cell,
-}: let
-  defaults = {
-    hardware.opengl.enable = true;
-    hardware.enableRedistributableFirmware = true;
-    i18n.defaultLocale = "en_US.utf8";
-    networking.useDHCP = true;
-    networking.networkmanager.enable = true;
-  };
-in {
+}: {
   teeniebox = {
     imports = with inputs.nixos-hardware.nixosModules; [
-      defaults
       common-cpu-intel
     ];
 
@@ -29,6 +20,19 @@ in {
       ];
     };
 
-    hardware.cpu.intel.updateMicrocode = true;
+    i18n.defaultLocale = "en_US.utf8";
+
+    networking = {
+      useDHCP = cell.lib.mkForce true;
+      networkmanager = {
+        enable = cell.lib.mkForce true;
+      };
+    };
+
+    hardware = {
+      opengl.enable = true;
+      enableRedistributableFirmware = true;
+      cpu.intel.updateMicrocode = true;
+    };
   };
 }

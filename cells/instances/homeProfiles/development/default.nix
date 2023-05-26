@@ -10,13 +10,15 @@ in {
 
       userSettings = cell.lib.mkForce {};
 
-      extensions =
-        (
-          nixpkgs.vscode-utils.extensionsFromVscodeMarketplace nixpkgs.generatedCodeMarketplaceExtensions
-        )
-        ++ [
-          nixpkgs.vscode-extensions.rust-lang.rust-analyzer-nightly
-        ];
+      # References: https://github.com/hanleym/digga/blob/req/pkgs/default.nix
+      # we'll sort this out after we add gui packages, lol.
+      #   extensions =
+      #     (
+      #       nixpkgs.vscode-utils.extensionsFromVscodeMarketplace nixpkgs.generatedCodeMarketplaceExtensions
+      #     )
+      #     ++ [
+      #       nixpkgs.vscode-extensions.rust-lang.rust-analyzer-nightly
+      #     ];
     };
     starship = {
       enable = true;
