@@ -17,6 +17,9 @@ in {
     ];
 
     boot = {
+      # bleeding-edge kernel:
+      #kernelPackages = inputs.nixpkgs.linuxPackages_testing;
+
       kernelModules = ["kvm-intel"];
       initrd.availableKernelModules = [
         "nvme"
@@ -28,13 +31,4 @@ in {
 
     hardware.cpu.intel.updateMicrocode = true;
   };
-
-  #   autolycus = {
-  #     imports = with inputs.nixos-hardware.nixosModules; [
-  #       defaults
-  #       lenovo-thinkpad-t420
-  #     ];
-
-  #     boot.initrd.availableKernelModules = []; # TODO
-  #   };
 }
