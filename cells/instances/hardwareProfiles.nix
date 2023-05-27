@@ -12,6 +12,10 @@
       kernelPackages = inputs.nixpkgs.linuxPackages_testing;
 
       kernelModules = ["kvm-intel"];
+      blacklistedKernelModules = ["psmouse"];
+      kernelParams = [
+        "i915.force_probe=46a6"
+      ];
       initrd = {
         availableKernelModules = [
           "nvme"
@@ -55,6 +59,7 @@
     # Display scaling
     services = {
       xserver = {
+        videoDrivers = ["iris"];
         dpi = 192;
         displayManager.sessionCommands = ''
           ${inputs.nixpkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
@@ -78,7 +83,15 @@
     };
 
     hardware = {
-      opengl.enable = true;
+      opengl = {
+        enable = true;
+        extraPackages = with inputs.nixpkgs; [
+          intel-media-driver # LIBVA_DRIVER_NAME=iHD
+          vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+          vaapiVdpau
+          libvdpau-va-gl
+        ];
+      };
       enableRedistributableFirmware = true;
       cpu.intel.updateMicrocode = true;
     };
