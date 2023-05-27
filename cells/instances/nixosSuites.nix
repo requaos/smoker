@@ -31,6 +31,8 @@ in
         display.sway
         display.i3
 
+        devices.bluetooth
+
         users.req
       ];
   }

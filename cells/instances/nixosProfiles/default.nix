@@ -11,6 +11,7 @@ in {
   sound = load ./sound;
   users = load ./users;
   cachix = load ./cachix;
+  devices = load ./devices;
   display = load ./display;
   greeter = load ./greeter;
   utilities = load ./utilities;
