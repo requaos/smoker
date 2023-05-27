@@ -61,7 +61,7 @@
 
   shellAliases = {
     # fix nixos-option for flake compat
-    nixos-option = "nixos-option -I nixpkgs=${self}/lib/compat";
+    #nixos-option = "nixos-option -I nixpkgs=${self}/lib/compat";
     userctl = "systemctl --user";
   };
 
