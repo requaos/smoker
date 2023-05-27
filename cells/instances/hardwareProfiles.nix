@@ -1,22 +1,16 @@
 {
   inputs,
   cell,
-}: let
-  defaults = {
-    hardware.opengl.enable = true;
-    hardware.enableRedistributableFirmware = true;
-    i18n.defaultLocale = "en_US.utf8";
-    networking.useDHCP = true;
-    networking.networkmanager.enable = true;
-  };
-in {
+}: {
   teeniebox = {
     imports = with inputs.nixos-hardware.nixosModules; [
-      defaults
       common-cpu-intel
     ];
 
     boot = {
+      # bleeding-edge kernel:
+      #kernelPackages = inputs.nixpkgs.linuxPackages_testing;
+
       kernelModules = ["kvm-intel"];
       initrd.availableKernelModules = [
         "nvme"
@@ -26,15 +20,19 @@ in {
       ];
     };
 
-    hardware.cpu.intel.updateMicrocode = hardware.enableRedistributableFirmware;
+    i18n.defaultLocale = "en_US.utf8";
+
+    networking = {
+      useDHCP = cell.lib.mkForce true;
+      networkmanager = {
+        enable = cell.lib.mkForce true;
+      };
+    };
+
+    hardware = {
+      opengl.enable = true;
+      enableRedistributableFirmware = true;
+      cpu.intel.updateMicrocode = true;
+    };
   };
-
-  #   autolycus = {
-  #     imports = with inputs.nixos-hardware.nixosModules; [
-  #       defaults
-  #       lenovo-thinkpad-t420
-  #     ];
-
-  #     boot.initrd.availableKernelModules = []; # TODO
-  #   };
 }

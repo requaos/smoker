@@ -115,10 +115,17 @@
       # To keep proprietary software to a minimum:
       # allowUnfreePredicate
       # Forces us to keep track of proprietary software.
-      nixpkgsConfig.allowUnfreePredicate = pkg:
-        lib.elem (lib.getName pkg) [
-          "discord"
+      nixpkgsConfig = {
+        allowUnfreePredicate = pkg:
+          lib.elem (lib.getName pkg) [
+            "discord"
+            "clion"
+            "vscode"
+          ];
+        permittedInsecurePackages = [
+          "openssl-1.1.1t"
         ];
+      };
     } {
       lib = std.pick self ["system" "lib"];
       devShells = std.harvest self ["system" "devshells"];
