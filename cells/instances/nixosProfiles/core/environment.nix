@@ -39,6 +39,8 @@
     drill
     curl
     wget
+    # maybe this doesn't go here, or we flag as optional against `home-manager.users.{userName}.programs.networkmanager.enable = true'
+    networkmanager
 
     # PERF TOOLS
     zenith
