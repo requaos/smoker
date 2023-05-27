@@ -16,9 +16,18 @@ in
 
     linuxapps =
       base
-      ++ [linux];
+      ++ [
+        linux
+        utilities.nethogs
+      ];
 
     teeniebox =
       linuxapps
-      ++ [users.req];
+      ++ [
+        display.xserver
+        display.sway
+        display.i3
+
+        users.req
+      ];
   }

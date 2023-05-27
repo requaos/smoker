@@ -10,5 +10,7 @@ in {
   linux = load ./linux;
   users = load ./users;
   cachix = load ./cachix;
+  display = load ./display;
   greeter = load ./greeter;
+  utilities = load ./utilities;
 }

@@ -10,11 +10,21 @@ in rec {
     git
   ];
 
+  gui = with homeProfiles;
+    [
+      display.common
+      display.xserver
+      display.sway
+      display.i3
+      display.i3status
+    ]
+    ++ base;
+
   req = with homeProfiles;
     [
       development
     ]
-    ++ base;
+    ++ gui;
 
   nixos = base;
 }

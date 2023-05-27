@@ -23,6 +23,9 @@
     skim
     whois
 
+    # maybe linux/bash specific. YOLO
+    mcfly
+
     # CORE UTILS
     vim
     gnused # sed

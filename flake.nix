@@ -70,6 +70,16 @@
       url = "github:hercules-ci/arion";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    from-yaml = {
+      url = "github:pegasust/fromYaml";
+      flake = false;
+    };
+
+    base16-schemes = {
+      url = "github:base16-project/base16-schemes";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -121,6 +131,9 @@
             "discord"
             "clion"
             "vscode"
+            "obsidian"
+            "google-chrome"
+            "notion-app-enhanced-v2.0.18"
           ];
         permittedInsecurePackages = [
           "openssl-1.1.1t"

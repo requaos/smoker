@@ -5,7 +5,8 @@
   load = cell.lib.load inputs cell;
 in {
   git = load ./git;
-  platform = load ./platform;
   direnv = load ./direnv;
+  display = load ./display;
+  platform = load ./platform;
   development = load ./development;
 }
