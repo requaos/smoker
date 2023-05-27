@@ -28,6 +28,8 @@
       # thunderbird-bin
       bitwarden
       bitwarden-cli
+      betterlockscreen
+      maim
       #rbw
 
       ## SOCIAL
