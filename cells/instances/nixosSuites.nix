@@ -5,9 +5,20 @@
   inherit (cell) nixosProfiles;
 in
   with nixosProfiles; rec {
-    base = [core cachix dns users.root];
+    base = [
+      core
+      cachix
+      ssh
+      dns
+
+      users.root
+    ];
+
+    linuxapps =
+      base
+      ++ [linux];
 
     teeniebox =
-      base
+      linuxapps
       ++ [users.req];
   }

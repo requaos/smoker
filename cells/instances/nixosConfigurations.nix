@@ -27,29 +27,6 @@ in
         };
       };
 
-      boot.loader = {
-        systemd-boot = {
-          enable = true;
-          configurationLimit = 25;
-        };
-        efi = {
-          canTouchEfiVariables = true;
-        };
-      };
-
-      fileSystems = {
-        "/" = {
-          device = "/dev/disk/by-uuid/33a1de74-fe6d-4466-be43-ce02816d1679";
-          fsType = "btrfs";
-        };
-        "/boot" = {
-          device = "/dev/disk/by-uuid/FBA5-7197";
-          fsType = "vfat";
-        };
-      };
-
-      swapDevices = [{device = "/dev/disk/by-uuid/0ab38578-d63e-42de-b68e-a32acba18ab8";}];
-
       system.stateVersion = "22.11";
     };
   }

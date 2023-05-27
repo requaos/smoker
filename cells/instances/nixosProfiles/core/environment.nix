@@ -46,16 +46,6 @@
     nethogs
     # radeontop
     # nvtop
-
-    # non-darwin, figure that stuff out later
-    dosfstools
-    gptfdisk
-    iputils
-    usbutils
-    utillinux
-
-    neofetch
-    killall
   ];
 
   shellAliases = {
