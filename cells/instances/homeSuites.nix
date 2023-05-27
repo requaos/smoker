@@ -5,7 +5,6 @@
   inherit (cell) homeProfiles;
 in rec {
   base = with homeProfiles; [
-    cachix
     platform
     direnv
     git

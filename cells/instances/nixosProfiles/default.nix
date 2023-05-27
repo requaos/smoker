@@ -3,9 +3,10 @@
   cell,
 }: let
   load = cell.lib.load inputs cell;
-in
-  {
-    core = load ./core;
-    users = load ./users;
-    greeter = load ./greeter;
-  }
+in {
+  dns = load ./dns;
+  core = load ./core;
+  users = load ./users;
+  cachix = load ./cachix;
+  greeter = load ./greeter;
+}

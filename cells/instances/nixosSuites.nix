@@ -5,7 +5,7 @@
   inherit (cell) nixosProfiles;
 in
   with nixosProfiles; rec {
-    base = [core users.root];
+    base = [core cachix dns users.root];
 
     teeniebox =
       base
