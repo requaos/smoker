@@ -18,13 +18,16 @@ in
       base
       ++ [
         linux
+        sound
         utilities.nethogs
+        utilities.docker
       ];
 
     teeniebox =
       linuxapps
       ++ [
         display.xserver
+        display.signal
         display.sway
         display.i3
 

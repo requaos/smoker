@@ -132,11 +132,13 @@
             "clion"
             "vscode"
             "obsidian"
+            "libsciter"
             "google-chrome"
             "notion-app-enhanced-v2.0.18"
           ];
         permittedInsecurePackages = [
           "openssl-1.1.1t"
+          "electron-21.4.0"
         ];
       };
     } {
