@@ -18,10 +18,13 @@ in {
       swtpm.enable = true;
       ovmf = {
         enable = true;
-        package = nixpkgs.OVMFFull.override {
-          secureBoot = true;
-          tpmSupport = true;
-        };
+        packages = [
+          (nixpkgs.OVMFFull.override {
+            secureBoot = true;
+            tpmSupport = true;
+          })
+          .fd
+        ];
       };
     };
 
