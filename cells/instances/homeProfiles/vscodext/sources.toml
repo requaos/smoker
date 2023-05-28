@@ -1,0 +1,17 @@
+# nvfetcher.toml
+# [manix]
+# src.git = "https://github.com/mlvzk/manix"
+# fetch.github = "mlvzk/manix"
+# [appflowy]
+# src.github = "AppFlowy-IO/AppFlowy"
+# fetch.github = "AppFlowy-IO/AppFlowy"
+[discord]
+src.manual = "1vw602k7dzqm2zxic88jaw9pbg5w436x9h2y74f7jmn3wzdg5bm3"
+fetch.tarball = "https://discord.com/api/download?platform=linux&format=tar.gz"
+
+# fetch.force = true
+[i3status-rust]
+# src.git = "https://github.com/greshake/i3status-rust"
+src.manual = "0ee6598173b242e4ee6f58817ef810497937fda9"
+fetch.github = "greshake/i3status-rust"
+cargo_locks = ["Cargo.lock"]

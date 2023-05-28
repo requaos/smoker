@@ -12,13 +12,9 @@ in {
 
       # References: https://github.com/hanleym/digga/blob/req/pkgs/default.nix
       # we'll sort this out after we add gui packages, lol.
-      #   extensions =
-      #     (
-      #       nixpkgs.vscode-utils.extensionsFromVscodeMarketplace nixpkgs.generatedCodeMarketplaceExtensions
-      #     )
-      #     ++ [
-      #       nixpkgs.vscode-extensions.rust-lang.rust-analyzer-nightly
-      #     ];
+      extensions = (
+        nixpkgs.vscode-utils.extensionsFromVscodeMarketplace cell.homeProfiles.vscodext.generatedCodeMarketplaceExtensions
+      );
     };
     starship = {
       enable = true;
