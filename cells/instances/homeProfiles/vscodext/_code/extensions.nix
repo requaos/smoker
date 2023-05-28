@@ -61,6 +61,12 @@
       sha256 = "000zhgzijf3h6abhv4p3cz99ykj6489wfn81j0s691prr8q9lxxh";
     }
     {
+      name = "insta";
+      publisher = "mitsuhiko";
+      version = "1.0.6";
+      sha256 = "1c01wncmv845mqbcq9bkfizm3xrqmkjfw96wbk0j29q63ppd9xk7";
+    }
+    {
       name = "direnv";
       publisher = "mkhl";
       version = "0.12.1";
@@ -117,8 +123,8 @@
     {
       name = "material-theme";
       publisher = "zhuangtongfa";
-      version = "3.15.8";
-      sha256 = "1s7dlklzlyma3yv5bnahla8yg2qm7hn7dq46lpm5szcisarqc19z";
+      version = "3.15.14";
+      sha256 = "1rf8k6hrxkny8f9l3gd2sqsz7w4cqmx8ga5g7fpj3mdhc4bsmys7";
     }
   ];
 }

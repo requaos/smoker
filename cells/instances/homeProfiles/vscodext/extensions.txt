@@ -17,7 +17,5 @@ serayuzgur.crates
 TabNine.tabnine-vscode
 tamasfe.even-better-toml
 TheNuProjectContributors.vscode-nushell-lang
-vscode-extensions.chris-hayes.chatgpt-reborn
-vscode-extensions.genieai.chatgpt-vscode
 yzhang.markdown-all-in-one
 zhuangtongfa.material-theme
