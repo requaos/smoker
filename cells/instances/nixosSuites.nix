@@ -33,6 +33,8 @@ in
 
         devices.bluetooth
 
+        utilities.libvirtd
+
         users.req
       ];
   }
