@@ -1,17 +1,22 @@
-{...}: {
-  users.users.req = {
+{...}: let
+  username = "req";
+  emailuser = "reqpro";
+  domain = "requaos.com";
+  fullname = "Neil Skinner";
+in {
+  users.users.${username} = {
     initialHashedPassword = "$y$j9T$WKj3UyDIuS1i5jl8u62Gm0$trGjHf0T4ob87gdP.qQvwKIjCND.r8ckCdupE1yLgy8";
-    description = "Neil Skinner";
+    description = fullname;
     isNormalUser = true;
     createHome = true;
     extraGroups = ["libvirtd" "networkmanager" "wheel" "docker"];
   };
 
-  home-manager.users.req = {
+  home-manager.users.${username} = {
     programs = {
       git = {
-        userName = "Neil Skinner";
-        userEmail = "reqpro@requaos.com";
+        userName = fullname;
+        userEmail = "${emailuser}@${domain}";
       };
     };
   };
@@ -25,10 +30,10 @@
           health_check 5s
         }
       }
-      requaos.com {
+      ${domain} {
         errors
         log
-        file /etc/coredns/requaos.com.db
+        file /etc/coredns/${domain}.db
       }
     '';
     signald = {
@@ -37,9 +42,9 @@
   };
 
   environment = {
-    etc."coredns/requaos.com.db" = {
+    etc."coredns/${domain}.db" = {
       text = ''
-        $ORIGIN requaos.com.
+        $ORIGIN ${domain}.
         @	3600 IN	SOA sns.dns.icann.org. noc.dns.icann.org. (
                 2017042745 ; serial
                 7200       ; refresh (2 hours)
