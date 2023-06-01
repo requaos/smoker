@@ -6,4 +6,7 @@
   networkmanager = {
     enable = cell.lib.mkForce true;
   };
+  firewall = {
+    enable = cell.lib.mkForce true;
+  };
 }
