@@ -1,8 +1,13 @@
 {
   inputs,
   cell,
-}: let
+}:
+with cell.lib; let
   inherit (inputs) nixpkgs;
+
+  bridgeName = "br0";
+  hostInterface = "wlp0s20f3";
+  infiniteLeaseTime = true;
 in {
   environment = {
     systemPackages = with nixpkgs; [
@@ -31,5 +36,42 @@ in {
     docker = {
       autoPrune.enable = true;
     };
+  };
+
+  # libvirt uses 192.168.122.0
+  networking = {
+    bridges."${bridgeName}".interfaces = [];
+    interfaces."${bridgeName}" = {
+      ipv4.addresses = [
+        {
+          address = "192.168.122.1";
+          prefixLength = 24;
+        }
+      ];
+    };
+    nat = {
+      enable = true;
+      internalInterfaces = [bridgeName];
+      externalInterface = hostInterface;
+      extraCommands = "iptables -t nat -A POSTROUTING -o ${hostInterface} -j MASQUERADE";
+    };
+  };
+
+  services.dhcpd4 = {
+    enable = true;
+    interfaces = [bridgeName];
+    extraConfig = ''
+      option routers 192.168.122.1;
+      option broadcast-address 192.168.122.255;
+      option subnet-mask 255.255.255.0;
+      option domain-name-servers 1.1.1.1, 8.8.8.8, 208.67.222.222, 1.0.0.1, 8.8.4.4, 208.67.220.220;
+      ${optionalString infiniteLeaseTime ''
+        default-lease-time -1;
+        max-lease-time -1;
+      ''}
+      subnet 192.168.122.0 netmask 255.255.255.0 {
+        range 192.168.122.100 192.168.122.200;
+      }
+    '';
   };
 }
