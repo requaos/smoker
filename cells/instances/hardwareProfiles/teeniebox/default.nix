@@ -8,19 +8,6 @@
     common-cpu-intel
   ];
 
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-uuid/33a1de74-fe6d-4466-be43-ce02816d1679";
-      fsType = "btrfs";
-    };
-    "/boot" = {
-      device = "/dev/disk/by-uuid/FBA5-7197";
-      fsType = "vfat";
-    };
-  };
-
-  swapDevices = [{device = "/dev/disk/by-uuid/0ab38578-d63e-42de-b68e-a32acba18ab8";}];
-
   environment.systemPackages = with inputs.nixpkgs; [
     ipu6ep-camera-bin
     gst_all_1.gstreamer
