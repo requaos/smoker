@@ -10,6 +10,8 @@
 
   environment.systemPackages = with inputs.nixpkgs; [
     ipu6ep-camera-bin
+    ipu6ep-camera-hal
+    ivsc-firmware
     gst_all_1.gstreamer.out
     gst_all_1.icamerasrc-ipu6ep
   ];

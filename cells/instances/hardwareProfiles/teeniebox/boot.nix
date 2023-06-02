@@ -16,6 +16,7 @@
   # Intel Webcam
   extraModulePackages = with inputs.nixpkgs.linuxPackages_testing; [
     ipu6-drivers
+    ivsc-drivers
   ];
 
   # virtualization module
