@@ -69,8 +69,8 @@
     {
       name = "direnv";
       publisher = "mkhl";
-      version = "0.12.1";
-      sha256 = "0lizp7r2l6dayhvxkz3ghsgywz9magvy7lzkc5dkcqxcsi1p4klb";
+      version = "0.12.2";
+      sha256 = "1dkasigf6q7g4wqzf7mn4al9fdf391d8jjww419szk5c4sz8aps8";
     }
     {
       name = "compare-folders";
@@ -87,8 +87,8 @@
     {
       name = "material-icon-theme";
       publisher = "PKief";
-      version = "4.27.0";
-      sha256 = "1gz7mxb5ib1yz6gxgkq2451929cfhgpwsgyqz1v2jmlpkkm9vvvj";
+      version = "4.28.0";
+      sha256 = "1hyfr6caahcihnr8hp42zhlwif87jgvjf25xglhk7yg4jdqdvv8c";
     }
     {
       name = "crates";
@@ -99,8 +99,8 @@
     {
       name = "tabnine-vscode";
       publisher = "TabNine";
-      version = "3.6.46";
-      sha256 = "0rcmmrqym047gr9dbb6xr44s23p3lflb9szz2xibw5khly4l5gbn";
+      version = "3.6.51";
+      sha256 = "0lc4g7g5h1p8r49ycn4v97d8mbiadm6jys4dcc4d2qhr571dmb0i";
     }
     {
       name = "even-better-toml";
@@ -123,8 +123,8 @@
     {
       name = "material-theme";
       publisher = "zhuangtongfa";
-      version = "3.15.14";
-      sha256 = "1rf8k6hrxkny8f9l3gd2sqsz7w4cqmx8ga5g7fpj3mdhc4bsmys7";
+      version = "3.15.15";
+      sha256 = "0py86zzfxwr2k2ywq9n29ka0xblpq5m8k1yyn8z8zkpik1mljl2d";
     }
   ];
 }

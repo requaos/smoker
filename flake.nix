@@ -133,7 +133,7 @@
             "notion-app-enhanced-v2.0.18"
           ];
         permittedInsecurePackages = [
-          "openssl-1.1.1t"
+          "openssl-1.1.1u"
           "electron-21.4.0"
         ];
       };

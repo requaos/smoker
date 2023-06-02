@@ -8,11 +8,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1685225605,
-        "narHash": "sha256-4DqNQBmuG5wwSDybkw6o30pK/0K4Ps0RHmbgfJDhVxs=",
+        "lastModified": 1685330108,
+        "narHash": "sha256-r8EnRMwGNMTZWrpINnxIGSt0fyvB+nfUjktF4nnATBc=",
         "owner": "ezKEa",
         "repo": "aagl-gtk-on-nix",
-        "rev": "c74bfda7415909be8bcdb81c12d91160a97585fb",
+        "rev": "9fcf3a6bcdb6d740bf47245fac0cfc25a86bb377",
         "type": "github"
       },
       "original": {
@@ -422,11 +422,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1685189510,
-        "narHash": "sha256-Hq5WF7zIixojPgvhgcd6MBvywwycVZ9wpK/8ogOyoaA=",
+        "lastModified": 1685721552,
+        "narHash": "sha256-ifvq/zlO7lck8q+YkC5uom/h8/MVdMcQEldOL3cDQW0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "2d963854ae2499193c0c72fd67435fee34d3e4fd",
+        "rev": "29519461834c08395b35f840811faf8c23e3b61c",
         "type": "github"
       },
       "original": {
@@ -548,11 +548,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1685000237,
-        "narHash": "sha256-pm+2xP9g9sh6wapk1ulg7/1DdENkTNDB7Kx+6lwGs/k=",
+        "lastModified": 1685446848,
+        "narHash": "sha256-vEU1jynjDXwOJESHeJyABqbY/Y+DoihZq9iDVtYgrMg=",
         "owner": "nix-community",
         "repo": "nixos-generators",
-        "rev": "05bef004794f352ea12475a89f3f55b4102c0728",
+        "rev": "b6114e214e5b546c4cceccd33ee6b72294a76b60",
         "type": "github"
       },
       "original": {
@@ -594,11 +594,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1685168767,
-        "narHash": "sha256-wQgnxz0PdqbyKKpsWl/RU8T8QhJQcHfeC6lh1xRUTfk=",
+        "lastModified": 1685655444,
+        "narHash": "sha256-6EujQNAeaUkWvpEZZcVF8qSfQrNVWFNNGbUJxv/A5a8=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e10802309bf9ae351eb27002c85cfdeb1be3b262",
+        "rev": "e635192892f5abbc2289eaac3a73cdb249abaefd",
         "type": "github"
       },
       "original": {
