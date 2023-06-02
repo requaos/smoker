@@ -8,14 +8,14 @@
   # nested virtualization in qemu/kvm
   extraModprobeConfig = "options kvm_intel nested=1";
 
-  # The touchpad in Dell 13" XPS 9320 confuses the 'psmouse'
+  # The touchpad in Dell 13" XPS Pro 9320 confuses the 'psmouse'
   # module and causes excessive delay and potential freezing
   # on shutdown.
   blacklistedKernelModules = ["psmouse"];
 
   # Intel Webcam
   extraModulePackages = with inputs.nixpkgs.linuxPackages_testing; [
-    ipu6-drivers
+    ivsc-driver
   ];
 
   # virtualization module

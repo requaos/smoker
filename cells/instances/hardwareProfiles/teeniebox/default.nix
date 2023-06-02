@@ -8,13 +8,6 @@
     common-cpu-intel
   ];
 
-  environment.systemPackages = with inputs.nixpkgs; [
-    ipu6ep-camera-bin
-    ipu6ep-camera-hal
-    gst_all_1.gstreamer.out
-    gst_all_1.icamerasrc-ipu6ep
-  ];
-
   # Display scaling
   services = {
     xserver = {
