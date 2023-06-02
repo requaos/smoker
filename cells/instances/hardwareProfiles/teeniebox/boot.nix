@@ -14,7 +14,7 @@
   blacklistedKernelModules = ["psmouse"];
 
   # Intel Webcam
-  extraModulePackages = with kernelPackages; [
+  extraModulePackages = with inputs.nixpkgs.linuxPackages_testing; [
     ipu6-drivers
   ];
 
