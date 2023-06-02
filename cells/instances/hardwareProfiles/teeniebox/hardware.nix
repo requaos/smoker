@@ -9,6 +9,10 @@
   firmware = with inputs.nixpkgs; [
     ipu6ep-camera-bin
   ];
+  ipu6 = {
+    enable = true;
+    platform = "ipu6ep";
+  };
 
   opengl = {
     enable = true;
