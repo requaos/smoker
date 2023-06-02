@@ -37,4 +37,21 @@ in
 
         users.req
       ];
+
+    buukobox =
+      linuxapps
+      ++ [
+        display.xserver
+        display.signal
+        display.sway
+        display.i3
+
+        display.nvidia
+
+        devices.bluetooth
+
+        utilities.libvirtd
+
+        users.req
+      ];
   }

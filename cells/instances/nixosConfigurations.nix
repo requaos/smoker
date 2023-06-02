@@ -29,4 +29,21 @@ in
 
       system.stateVersion = "22.11";
     };
+    buukobox = {
+      inherit bee time;
+
+      imports = with nixosSuites;
+      with nixosProfiles; buukobox;
+
+      home-manager = {
+        useUserPackages = true;
+        useGlobalPkgs = true;
+        users.req = {
+          imports = with homeSuites; req;
+          home.stateVersion = "22.11";
+        };
+      };
+
+      system.stateVersion = "22.11";
+    };
   }

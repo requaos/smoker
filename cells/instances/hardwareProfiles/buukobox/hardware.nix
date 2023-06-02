@@ -5,11 +5,6 @@
   cpu.intel.updateMicrocode = true;
   enableRedistributableFirmware = true;
 
-  # Intel Webcam
-  firmware = with inputs.nixpkgs; [
-    ipu6ep-camera-bin
-  ];
-
   opengl = {
     enable = true;
     extraPackages = with inputs.nixpkgs; [

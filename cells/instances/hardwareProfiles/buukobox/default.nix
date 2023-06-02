@@ -21,13 +21,6 @@
 
   swapDevices = [{device = "/dev/disk/by-uuid/0ab38578-d63e-42de-b68e-a32acba18ab8";}];
 
-  environment.systemPackages = with inputs.nixpkgs; [
-    ipu6ep-camera-bin
-    gst_all_1.gstreamer
-    gst_all_1.icamerasrc
-    gstreamer.out
-  ];
-
   # Display scaling
   services = {
     xserver = {

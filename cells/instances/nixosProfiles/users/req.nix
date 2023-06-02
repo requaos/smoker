@@ -37,7 +37,7 @@ in {
       }
     '';
     signald = {
-      user = "req";
+      user = username;
     };
   };
 

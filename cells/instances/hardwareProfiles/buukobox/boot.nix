@@ -13,11 +13,6 @@
   # on shutdown.
   blacklistedKernelModules = ["psmouse"];
 
-  # Intel Webcam
-  extraModulePackages = with kernelPackages; [
-    ipu6-drivers
-  ];
-
   # virtualization module
   kernelModules = ["kvm-intel"];
 
