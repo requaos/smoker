@@ -23,7 +23,7 @@ in
         useGlobalPkgs = true;
         users.req = {
           imports = with homeSuites; req;
-          home.stateVersion = "22.11";
+          home.stateVersion = "23.05";
         };
       };
 
@@ -60,7 +60,7 @@ in
 
       swapDevices = [{device = "/dev/disk/by-uuid/0ab38578-d63e-42de-b68e-a32acba18ab8";}];
 
-      system.stateVersion = "22.11";
+      system.stateVersion = "23.05";
     };
 
     buukobox = {
