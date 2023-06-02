@@ -126,6 +126,7 @@
             "vscode"
             "obsidian"
             "libsciter"
+            "nvidia-x11"
             "google-chrome"
             "ipu6ep-camera-bin"
             "notion-app-enhanced-v2.0.18"

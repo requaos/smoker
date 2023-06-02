@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   cell,
 }: {
@@ -14,6 +13,6 @@
 
   systemd.services.nvidia-control-devices = {
     wantedBy = ["multi-user.target"];
-    serviceConfig.ExecStart = "${config.boot.kernelPackages.nvidiaPackages.beta.bin}/bin/nvidia-smi";
+    serviceConfig.ExecStart = "${inputs.nixpkgs.linuxPackages_testing.nvidiaPackages.beta.bin}/bin/nvidia-smi";
   };
 }
