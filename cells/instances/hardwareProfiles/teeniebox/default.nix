@@ -12,6 +12,14 @@
     gst_all_1.gstreamer
     gst_all_1.gst-plugins-good
     gst_all_1.icamerasrc-ipu6ep
+
+    mesa
+    intel-media-driver
+    vaapiIntel
+    vaapiVdpau
+    libvdpau-va-gl
+    virglrenderer
+    xdg-desktop-portal-wlr
   ];
 
   # Display scaling

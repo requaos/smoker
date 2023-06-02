@@ -12,7 +12,5 @@
 
     neofetch
     killall
-
-    glibc
   ];
 }

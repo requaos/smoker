@@ -14,20 +14,6 @@
     platform = "ipu6ep";
   };
 
-  inputs.nixpkgs.overlays = [
-    (_: _: {
-      # !!! overlay to force full deps on unstable opengl
-      mesa = unstable.mesa;
-      intel-media-driver = unstable.intel-media-driver;
-      vaapiIntel = unstable.vaapiIntel;
-      vaapiVdpau = unstable.vaapiVdpau;
-      libvdpau-va-gl = unstable.libvdpau-va-gl;
-      virglrenderer = unstable.virglrenderer;
-      xdg-desktop-portal-wlr = unstable.xdg-desktop-portal-wlr;
-      qemu = unstable.qemu;
-    })
-  ];
-
   opengl = {
     enable = true;
     driSupport = true; # for wine with openGL
