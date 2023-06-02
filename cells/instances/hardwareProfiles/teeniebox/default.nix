@@ -8,6 +8,12 @@
     common-cpu-intel
   ];
 
+  environment.systemPackages = with inputs.nixpkgs; [
+    gst_all_1.gstreamer
+    gst_all_1.gst-plugins-good
+    gst_all_1.icamerasrc-ipu6ep
+  ];
+
   # Display scaling
   services = {
     xserver = {
