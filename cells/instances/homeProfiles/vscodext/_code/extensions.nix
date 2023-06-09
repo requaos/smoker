@@ -15,8 +15,8 @@
     {
       name = "mermaid-markdown-syntax-highlighting";
       publisher = "bpruitt-goddard";
-      version = "1.5.1";
-      sha256 = "1j9zbrxb3bslb7gbyib3r8m9wp12k5cjgcw1b5x0ap2gc5daybb8";
+      version = "1.5.2";
+      sha256 = "0a5n3pcg6258kx0xan738sv9dy7zmhz209dy2rris6c1x56gncld";
     }
     {
       name = "path-intellisense";
@@ -81,8 +81,8 @@
     {
       name = "vsliveshare";
       publisher = "MS-vsliveshare";
-      version = "1.0.5864";
-      sha256 = "1dncvc9j8g1wl1k2pp2jgijqp48ljc8198f8iycidz683f4kvlji";
+      version = "1.0.5873";
+      sha256 = "1c5bqz267va6lkg2zrz99drypdskrhyq0573gpy06icfj5pdl1m7";
     }
     {
       name = "material-icon-theme";
@@ -99,8 +99,8 @@
     {
       name = "tabnine-vscode";
       publisher = "TabNine";
-      version = "3.6.51";
-      sha256 = "0lc4g7g5h1p8r49ycn4v97d8mbiadm6jys4dcc4d2qhr571dmb0i";
+      version = "3.6.53";
+      sha256 = "0np4cyk2zyrk9xmih9k7v1hlhb8b2gm9wcd68mhzvf0kp9rvl3n7";
     }
     {
       name = "even-better-toml";
@@ -123,8 +123,8 @@
     {
       name = "material-theme";
       publisher = "zhuangtongfa";
-      version = "3.15.15";
-      sha256 = "0py86zzfxwr2k2ywq9n29ka0xblpq5m8k1yyn8z8zkpik1mljl2d";
+      version = "3.15.17";
+      sha256 = "1w943bn0i4fqch60vlz5hc6bi9hhnqwli4jlsxldfmj5mhjn0kwk";
     }
   ];
 }
