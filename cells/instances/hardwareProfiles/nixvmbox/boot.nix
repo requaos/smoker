@@ -6,15 +6,17 @@
   kernelPackages = inputs.nixpkgs.linuxPackages_testing;
 
   initrd = {
-    availableKernelModules = [
-      "sd_mod"
-      "sr_mod"
-      "dm_mod"
+    kernelModules = [
       "hv_vmbus"
       "hv_utils"
       "hv_storvsc"
       "hv_netvsc"
       "hv_balloon"
+    ];
+    availableKernelModules = [
+      "sd_mod"
+      "sr_mod"
+      "dm_mod"
     ];
   };
 
