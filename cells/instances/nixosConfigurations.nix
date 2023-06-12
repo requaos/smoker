@@ -125,7 +125,7 @@ in
         useGlobalPkgs = true;
         users.req = {
           imports = with homeSuites; req;
-          home.stateVersion = "23.05";
+          home.stateVersion = "22.11";
         };
       };
 
@@ -167,6 +167,6 @@ in
 
       swapDevices = [];
 
-      system.stateVersion = "23.05";
+      system.stateVersion = "22.11";
     };
   }

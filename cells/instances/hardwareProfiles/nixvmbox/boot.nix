@@ -2,9 +2,8 @@
   inputs,
   cell,
 }: {
-  # bleeding-edge kernel: kernelPackages = inputs.nixpkgs.linuxPackages_testing;
-  # Latest release kernel:
-  kernelPackages = inputs.nixpkgs.linuxPackages_latest;
+  # bleeding-edge kernel:
+  kernelPackages = inputs.nixpkgs.linuxPackages_testing;
 
   initrd = {
     availableKernelModules = [
