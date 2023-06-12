@@ -131,20 +131,25 @@ in
 
       # root disk encryption
       boot = {
-        initrd.luks = {
-          devices = {
-            "luks-88fee0a5-a601-49d5-a681-608a20ed9b87" = {
-              device = "/dev/disk/by-uuid/88fee0a5-a601-49d5-a681-608a20ed9b87";
+        initrd = {
+          secrets = {
+            "/crypto_keyfile.bin" = null;
+          };
+          luks = {
+            devices = {
+              "luks-88fee0a5-a601-49d5-a681-608a20ed9b87" = {
+                device = "/dev/disk/by-uuid/88fee0a5-a601-49d5-a681-608a20ed9b87";
+              };
             };
           };
-        };
-        loader = {
-          systemd-boot = {
-            enable = true;
-            configurationLimit = 25;
-          };
-          efi = {
-            canTouchEfiVariables = true;
+          loader = {
+            systemd-boot = {
+              enable = true;
+              configurationLimit = 25;
+            };
+            efi = {
+              canTouchEfiVariables = true;
+            };
           };
         };
       };
