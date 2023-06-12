@@ -133,7 +133,7 @@ in
       boot = {
         initrd.luks = {
           devices = {
-            "root" = {
+            "luks-88fee0a5-a601-49d5-a681-608a20ed9b87" = {
               device = "/dev/disk/by-uuid/88fee0a5-a601-49d5-a681-608a20ed9b87";
             };
           };
@@ -160,7 +160,7 @@ in
         };
       };
 
-      swapDevices = [{device = "/dev/disk/by-uuid/0ab38578-d63e-42de-b68e-a32acba18ab8";}];
+      swapDevices = [];
 
       system.stateVersion = "23.05";
     };
