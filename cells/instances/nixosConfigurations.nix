@@ -147,6 +147,12 @@ in
           systemd-boot = {
             enable = true;
             configurationLimit = 25;
+            extraInstallCommands = ''
+              for i in /boot/loader/entries/nixos-generation-*.conf; do
+                initrd="$(sed -n '/^initrd / {s/.* //;p}' "$i")"
+                sed -i '/^initrd / d; /^options / s|$| initrd='"$initrd|" "$i"
+              done
+            '';
           };
           efi = {
             canTouchEfiVariables = true;
