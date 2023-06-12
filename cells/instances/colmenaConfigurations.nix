@@ -15,6 +15,8 @@ cell
 {
   teeniebox = {
   };
+  nixvmbox = {
+  };
   buukobox = {
   };
 }
