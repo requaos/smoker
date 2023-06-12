@@ -113,4 +113,55 @@ in
 
       system.stateVersion = "22.11";
     };
+
+    nixvmbox = {
+      inherit bee time;
+
+      imports = with nixosSuites;
+      with nixosProfiles; nixvmbox;
+
+      home-manager = {
+        useUserPackages = true;
+        useGlobalPkgs = true;
+        users.req = {
+          imports = with homeSuites; req;
+          home.stateVersion = "23.05";
+        };
+      };
+
+      # root disk encryption
+      boot = {
+        initrd.luks = {
+          devices = {
+            "root" = {
+              device = "/dev/disk/by-uuid/88fee0a5-a601-49d5-a681-608a20ed9b87";
+            };
+          };
+        };
+        loader = {
+          systemd-boot = {
+            enable = true;
+            configurationLimit = 25;
+          };
+          efi = {
+            canTouchEfiVariables = true;
+          };
+        };
+      };
+
+      fileSystems = {
+        "/" = {
+          device = "/dev/disk/by-uuid/40ced919-440e-4aeb-8578-09ffc94621a0";
+          fsType = "ext4";
+        };
+        "/boot" = {
+          device = "/dev/disk/by-uuid/CECC-FEF2";
+          fsType = "vfat";
+        };
+      };
+
+      swapDevices = [{device = "/dev/disk/by-uuid/0ab38578-d63e-42de-b68e-a32acba18ab8";}];
+
+      system.stateVersion = "23.05";
+    };
   }

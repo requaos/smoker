@@ -54,4 +54,15 @@ in
 
         users.req
       ];
+
+    nixvmbox =
+      linuxapps
+      ++ [
+        display.xserver
+        display.signal
+        display.sway
+        display.i3
+
+        users.req
+      ];
   }
