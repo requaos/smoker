@@ -5,13 +5,16 @@
   # bleeding-edge kernel:
   kernelPackages = inputs.nixpkgs.linuxPackages_testing;
 
-  # virtualization module
-  kernelModules = [];
-
   initrd = {
     availableKernelModules = [
       "sd_mod"
       "sr_mod"
+      "dm_mod"
+      "hv_vmbus"
+      "hv_utils"
+      "hv_storvsc"
+      "hv_netvsc"
+      "hv_balloon"
     ];
   };
 
