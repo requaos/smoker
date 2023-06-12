@@ -16,7 +16,7 @@
         };
       };
     };
-    
+
     timers = {
       aws-rotate-key = {
         Unit = {

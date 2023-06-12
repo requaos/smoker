@@ -69,8 +69,8 @@
     {
       name = "direnv";
       publisher = "mkhl";
-      version = "0.12.2";
-      sha256 = "1dkasigf6q7g4wqzf7mn4al9fdf391d8jjww419szk5c4sz8aps8";
+      version = "0.13.0";
+      sha256 = "11rrqmsgsjfnzy10ryq5v9bxckf8x8avml5n4pz3rxp20knwkli9";
     }
     {
       name = "compare-folders";
