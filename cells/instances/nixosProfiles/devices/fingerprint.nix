@@ -5,7 +5,8 @@
   inherit (inputs) nixpkgs;
 in {
   environment.systemPackages = with nixpkgs; [
-    fprintd
+    # fprintd-tod == fprintd /w (T)ouch (O)EM (D)rivers
+    fprintd-tod
   ];
 
   services.fprintd = {
@@ -14,5 +15,10 @@ in {
       enable = true;
       driver = nixpkgs.libfprint-2-tod1-goodix;
     };
+  };
+
+  security.pam.services = {
+    login.fprintAuth = true;
+    xscreensaver.fprintAuth = true;
   };
 }
