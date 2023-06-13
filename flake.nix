@@ -130,6 +130,7 @@
             "ivsc-firmware"
             "google-chrome"
             "ipu6ep-camera-bin"
+            "libfprint-2-tod1-goodix"
             "notion-app-enhanced-v2.0.18"
           ];
         permittedInsecurePackages = [
