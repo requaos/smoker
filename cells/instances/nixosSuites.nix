@@ -35,6 +35,7 @@ in
         devices.fingerprint
 
         utilities.libvirtd
+        utilities.fwupd
 
         users.req
       ];
