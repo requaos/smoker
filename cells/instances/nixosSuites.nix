@@ -32,6 +32,7 @@ in
         display.i3
 
         devices.bluetooth
+        devices.fingerprint
 
         utilities.libvirtd
 

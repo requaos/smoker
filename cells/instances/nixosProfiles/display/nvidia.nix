@@ -3,7 +3,7 @@
   cell,
 }: {
   services.xserver = {
-    videoDrivers = inputs.lib.mkForce ["nvidia"];
+    videoDrivers = cell.lib.mkForce ["nvidia"];
   };
 
   environment.systemPackages = with inputs.nixpkgs; [
