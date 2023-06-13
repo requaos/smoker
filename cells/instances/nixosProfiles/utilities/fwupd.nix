@@ -2,5 +2,5 @@
   inputs,
   cell,
 }: {
-  services.fwupd.enabled = true;
+  services.fwupd.enable = true;
 }
