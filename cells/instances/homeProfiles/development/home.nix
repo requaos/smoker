@@ -8,7 +8,7 @@
     mitmproxy
 
     # nix
-    std
+    #std
     nix-diff
     rnix-lsp
     nixpkgs-fmt

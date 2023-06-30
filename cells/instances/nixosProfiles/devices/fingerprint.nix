@@ -7,6 +7,7 @@ in {
   environment.systemPackages = with nixpkgs; [
     # fprintd-tod == fprintd /w (T)ouch (O)EM (D)rivers
     fprintd-tod
+    libfprint-tod
   ];
 
   services.fprintd = {

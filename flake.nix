@@ -16,20 +16,10 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
-    std = {
-      url = "github:divnix/std";
-      inputs = {
-        blank.follows = "blank";
+    paisano = {
+      url = "github:divnix/paisano";
+      inputs ={ 
         nixpkgs.follows = "nixpkgs";
-        arion.follows = "arion";
-      };
-    };
-
-    std-data-collection = {
-      url = "github:divnix/std-data-collection";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        std.follows = "std";
       };
     };
 
@@ -78,7 +68,7 @@
   outputs = {
     self,
     hive,
-    std,
+    paisano,
     ...
   } @ inputs: let
     # I don't need to worry about name collisions.
@@ -90,29 +80,52 @@
       inherit inputs;
 
       cellsFrom = ./cells;
-      cellBlocks = with std.blockTypes;
-      with hive.blockTypes; [
+      cellBlocks = with hive.blockTypes; [
         # library
-        (functions "lib")
+        {
+          name = "lib";
+          type = "functions";
+        }
 
         # profiles
-        (functions "hardwareProfiles")
-        (functions "nixosProfiles")
-        (functions "homeProfiles")
+        {
+          name = "hardwareProfiles";
+          type = "functions";
+        }
+        {
+          name = "nixosProfiles";
+          type = "functions";
+        }
+        {
+          name = "homeProfiles";
+          type = "functions";
+        }
 
         # suites
-        (functions "nixosSuites")
-        (functions "homeSuites")
+        {
+          name = "nixosSuites";
+          type = "functions";
+        }
+        {
+          name = "homeSuites";
+          type = "functions";
+        }
 
         # configurations
         nixosConfigurations
         colmenaConfigurations
 
         # pkgs
-        (pkgs "pkgs")
+        {
+          name = "pkgs";
+          type = "pkgs";
+        }
 
         # devshells
-        (devshells "devshells")
+        {
+          name = "devshells";
+          type = "devshells";
+        }
       ];
 
       # To keep proprietary software to a minimum:
@@ -132,6 +145,8 @@
             "ipu6ep-camera-bin"
             "libfprint-2-tod1-goodix"
             "notion-app-enhanced-v2.0.18"
+            "ivsc-firmware-unstable"
+            "ipu6ep-camera-bin-unstable"
           ];
         permittedInsecurePackages = [
           "openssl-1.1.1u"
@@ -139,8 +154,8 @@
         ];
       };
     } {
-      lib = std.pick self ["system" "lib"];
-      devShells = std.harvest self ["system" "devshells"];
+      lib = paisano.pick self ["system" "lib"];
+      devShells = paisano.harvest self ["system" "devshells"];
     } {
       nixosConfigurations = collect self "nixosConfigurations";
       colmenaHive = collect self "colmenaConfigurations";

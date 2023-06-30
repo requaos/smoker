@@ -9,8 +9,8 @@
     {
       name = "markdown-mermaid";
       publisher = "bierner";
-      version = "1.18.1";
-      sha256 = "1357sszmicz0jcvf1z9dbbqbls40jjvki5piwvw9sbbznnrr4rr5";
+      version = "1.19.0";
+      sha256 = "1kip6f6mlys3r36sbxnpsy92zz9g06dvgqc51q2jrqz3vbyi9rpy";
     }
     {
       name = "mermaid-markdown-syntax-highlighting";
@@ -69,8 +69,8 @@
     {
       name = "direnv";
       publisher = "mkhl";
-      version = "0.13.0";
-      sha256 = "11rrqmsgsjfnzy10ryq5v9bxckf8x8avml5n4pz3rxp20knwkli9";
+      version = "0.14.0";
+      sha256 = "1ssh577b0fx1cnkj52fiy1x41lcf56vk85sq7yrlmkmy9gmfvrjg";
     }
     {
       name = "compare-folders";
@@ -99,8 +99,8 @@
     {
       name = "tabnine-vscode";
       publisher = "TabNine";
-      version = "3.6.53";
-      sha256 = "0np4cyk2zyrk9xmih9k7v1hlhb8b2gm9wcd68mhzvf0kp9rvl3n7";
+      version = "3.6.61";
+      sha256 = "0h8v3qb5jk4p93gpvjk3p08q4nbvcga4ipmhva54wlqcidiahfgb";
     }
     {
       name = "even-better-toml";
@@ -111,8 +111,8 @@
     {
       name = "vscode-nushell-lang";
       publisher = "TheNuProjectContributors";
-      version = "1.5.1";
-      sha256 = "16kg5q6jijrlsxy0s2vi2zl8sl96c3a1hx387lsqy1z5ghkvq6qd";
+      version = "1.6.0";
+      sha256 = "19cq6b0267bfvkmhcrk9n67m820p6acvbild1p44xmbkv5kzafji";
     }
     {
       name = "markdown-all-in-one";
