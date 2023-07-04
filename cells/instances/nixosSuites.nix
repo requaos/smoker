@@ -21,6 +21,7 @@ in
         sound
         utilities.nethogs
         utilities.docker
+        utilities.tio
       ];
 
     teeniebox =

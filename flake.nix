@@ -16,12 +16,12 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
-    paisano = {
-      url = "github:divnix/paisano";
-      inputs ={ 
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
+    #paisano = {
+    #  url = "github:divnix/paisano";
+    #  inputs ={ 
+    #    nixpkgs.follows = "nixpkgs";
+    #  };
+    #};
 
     hive = {
       url = "github:divnix/hive";
@@ -68,7 +68,6 @@
   outputs = {
     self,
     hive,
-    paisano,
     ...
   } @ inputs: let
     # I don't need to worry about name collisions.
@@ -154,8 +153,8 @@
         ];
       };
     } {
-      lib = paisano.pick self ["system" "lib"];
-      devShells = paisano.harvest self ["system" "devshells"];
+      lib = hive.pick self ["system" "lib"];
+      devShells = hive.harvest self ["system" "devshells"];
     } {
       nixosConfigurations = collect self "nixosConfigurations";
       colmenaHive = collect self "colmenaConfigurations";
