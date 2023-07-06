@@ -11,7 +11,7 @@
   # The touchpad in Dell 13" XPS 9320 confuses the 'psmouse'
   # module and causes excessive delay and potential freezing
   # on shutdown.
-  blacklistedKernelModules = ["psmouse"];
+  #blacklistedKernelModules = ["psmouse"];
 
   # virtualization module
   kernelModules = ["kvm-intel"];

@@ -49,11 +49,13 @@ in
         display.sway
         display.i3
 
-        display.nvidia
+        #display.nvidia
 
         devices.bluetooth
+        devices.fingerprint
 
         utilities.libvirtd
+        utilities.fwupd
 
         users.req
       ];
