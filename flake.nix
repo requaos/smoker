@@ -128,9 +128,11 @@
       nixpkgsConfig = {
         allowUnfreePredicate = pkg:
           lib.elem (lib.getName pkg) [
-            "discord"
+            "zoom"
+            "slack"
             "clion"
             "vscode"
+            "discord"
             "obsidian"
             "libsciter"
             "nvidia-x11"

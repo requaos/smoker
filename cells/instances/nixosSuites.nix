@@ -32,6 +32,7 @@ in
         display.sway
         display.i3
 
+        devices.thunderbolt
         devices.bluetooth
         devices.fingerprint
 
@@ -51,11 +52,15 @@ in
 
         #display.nvidia
 
+        devices.thunderbolt
         devices.bluetooth
         devices.fingerprint
 
         utilities.libvirtd
         utilities.fwupd
+
+        communication.slack
+        communication.zoom
 
         users.req
       ];

@@ -4,18 +4,8 @@
 }: let
   inherit (inputs) nixpkgs;
 in {
-  environment.systemPackages = with nixpkgs; [
-    # fprintd-tod == fprintd /w (T)ouch (O)EM (D)rivers
-    fprintd-tod
-    libfprint-tod
-  ];
-
   services.fprintd = {
     enable = true;
-    tod = {
-      enable = true;
-      driver = nixpkgs.libfprint-2-tod1-goodix;
-    };
   };
 
   security.pam.services = {

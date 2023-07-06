@@ -29,6 +29,12 @@
     fstrim = {
       enable = true;
     };
+    fprintd = {
+      tod = {
+        enable = true;
+        driver = inputs.nixpkgs.libfprint-2-tod1-goodix;
+      };
+    };
   };
   environment = {
     variables = {
@@ -48,6 +54,10 @@
       libvdpau-va-gl
       virglrenderer
       xdg-desktop-portal-wlr
+
+      # fprintd-tod == fprintd /w (T)ouch (O)EM (D)rivers
+      fprintd-tod
+      libfprint-tod
     ];
   };
   console.font = "${inputs.nixpkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
