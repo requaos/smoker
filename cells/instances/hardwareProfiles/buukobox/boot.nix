@@ -17,15 +17,17 @@
   kernelModules = ["kvm-intel"];
 
   # graphics fix from dell for 'iris' opengl support
-  kernelParams = [
-    "i915.force_probe=46a6"
-  ];
+  # kernelParams = [
+    # "i915.force_probe=46a6"
+  # ];
 
   initrd = {
     availableKernelModules = [
       "nvme"
       "xhci_pci"
-      "vmd"
+      "usb_storage"
+      "sd_mod"
+      "rtsx_pci_sdmmc"
       "thunderbolt"
     ];
   };
