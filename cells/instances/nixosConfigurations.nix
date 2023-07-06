@@ -83,7 +83,7 @@ in
         initrd.luks = {
           devices = {
             "root" = {
-              device = "/dev/disk/by-uuid/cc582743-c00f-457a-bea0-841a72b945ec";
+              device = "/dev/disk/by-uuid/0463b269-67b8-4fd2-a9d1-a60d244ef12e";
             };
           };
         };
@@ -100,16 +100,16 @@ in
 
       fileSystems = {
         "/" = {
-          device = "/dev/disk/by-uuid/33a1de74-fe6d-4466-be43-ce02816d1679";
+          device = "/dev/disk/by-uuid/ffae4d62-edb8-41a5-ade9-dd371490ebd8";
           fsType = "btrfs";
         };
         "/boot" = {
-          device = "/dev/disk/by-uuid/FBA5-7197";
+          device = "/dev/disk/by-uuid/7E50-3EFA";
           fsType = "vfat";
         };
       };
 
-      swapDevices = [{device = "/dev/disk/by-uuid/0ab38578-d63e-42de-b68e-a32acba18ab8";}];
+      swapDevices = [];
 
       system.stateVersion = "22.11";
     };

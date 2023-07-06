@@ -3,3 +3,4 @@
 /.conform.yaml
 /lefthook.yml
 /treefmt.toml
+.direnv
