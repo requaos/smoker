@@ -13,6 +13,6 @@ in {
     '';
   };
   environment.systemPackages = with nixpkgs; [
-    bolt
+    thunderbolt
   ];
 }
