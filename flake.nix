@@ -16,12 +16,7 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
-    #paisano = {
-    #  url = "github:divnix/paisano";
-    #  inputs ={ 
-    #    nixpkgs.follows = "nixpkgs";
-    #  };
-    #};
+    devshell.url = "github:numtide/devshell";
 
     hive = {
       url = "github:divnix/hive";

@@ -4,15 +4,9 @@
 }: let
   lib = inputs.nixpkgs.lib // builtins;
 in
-  lib.mapAttrs (_: inputs.std.lib.dev.mkShell) {
+  lib.mapAttrs (_: inputs.devshell.mkShell) {
     default = {...}: {
       name = "Hive";
-      nixago = with inputs.std-data-collection.data.configs; [
-        treefmt
-        lefthook
-        editorconfig
-        (conform {data = {inherit (inputs) cells;};})
-      ];
       commands = let
         inherit (inputs) nixos-generators colmena;
         hexagon = attrset: attrset // {category = "hexagon";};
