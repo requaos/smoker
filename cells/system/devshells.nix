@@ -4,7 +4,7 @@
 }: let
   lib = inputs.nixpkgs.lib // builtins;
 in
-  lib.mapAttrs (_: inputs.devshell.mkShell) {
+  lib.mapAttrs (_: inputs.devshell.legacyPackages.mkShell) {
     default = {...}: {
       name = "Hive";
       commands = let
