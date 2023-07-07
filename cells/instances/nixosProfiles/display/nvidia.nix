@@ -5,6 +5,14 @@
   services.xserver = {
     videoDrivers = cell.lib.mkForce ["nvidia"];
   };
+  hardware.nvidia = {
+    modesetting.enable = true;
+    prime = {
+      reverseSync.enable = true;
+      nvidiaBusId = "PCI:1:0:0"; # dedicated gpu
+      intelBusId = "PCI:0:2:0";
+    };
+  };
 
   environment.systemPackages = with inputs.nixpkgs; [
     pciutils

@@ -136,13 +136,15 @@
             "obsidian"
             "libsciter"
             "nvidia-x11"
+            "cudatoolkit"
             "ivsc-firmware"
             "google-chrome"
+            "nvidia-settings"
             "ipu6ep-camera-bin"
-            "libfprint-2-tod1-goodix"
-            "notion-app-enhanced-v2.0.18"
             "ivsc-firmware-unstable"
+            "libfprint-2-tod1-goodix"
             "ipu6ep-camera-bin-unstable"
+            "notion-app-enhanced-v2.0.18"
           ];
         permittedInsecurePackages = [
           "openssl-1.1.1u"

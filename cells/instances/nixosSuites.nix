@@ -50,7 +50,7 @@ in
         display.sway
         display.i3
 
-        #display.nvidia
+        display.nvidia
 
         devices.thunderbolt
         devices.bluetooth
