@@ -19,6 +19,9 @@
         EOF
       '';
     };
+    udev = {
+      extraRules = ''ACTION=="change", SUBSYSTEM=="drm", RUN+="${inputs.nixpkgs.autorandr}/bin/autorandr -c"'';
+    };
   };
   environment.variables = {
     GDK_SCALE = "2";

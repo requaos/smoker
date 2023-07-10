@@ -12,11 +12,17 @@
     nix-diff
     rnix-lsp
     nixpkgs-fmt
+    alejandra
+    treefmt
 
     # editors
     # https://helix-editor.com/
     helix
     jetbrains.clion
+
+    # .Net
+    jetbrains.rider
+    dotnet-sdk
 
     # fonts
     powerline-fonts
@@ -34,5 +40,6 @@
     #aws-mfa
     #terraform
     aws-rotate-key
+    _1password-gui
   ];
 }

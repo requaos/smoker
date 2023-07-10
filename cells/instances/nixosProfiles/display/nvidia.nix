@@ -9,6 +9,10 @@
     modesetting.enable = true;
     prime = {
       reverseSync.enable = true;
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
       nvidiaBusId = "PCI:1:0:0"; # dedicated gpu
       intelBusId = "PCI:0:2:0";
     };

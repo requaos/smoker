@@ -39,6 +39,7 @@
   # };
 
   environment.systemPackages = with inputs.nixpkgs; [
+    autorandr
     libnotify
     xterm
     xclip
