@@ -18,13 +18,26 @@
     };
   };
 
+  boot = {
+    initrd.kernelModules = [
+      "nvidia"
+      "nvidia_modeset"
+      "nvidia_uvm"
+      "nvidia_drm"
+    ];
+  };
+
   environment.systemPackages = with inputs.nixpkgs; [
+    linuxPackages_testing.nvidiaPackages.vulkan_beta
+    linuxPackages_testing.nvidia_x11_vulkan_beta
+    vulkan-tools
     pciutils
     cudatoolkit
+    zenith-nvidia
   ];
 
   systemd.services.nvidia-control-devices = {
     wantedBy = ["multi-user.target"];
-    serviceConfig.ExecStart = "${inputs.nixpkgs.linuxPackages_testing.nvidiaPackages.beta.bin}/bin/nvidia-smi";
+    serviceConfig.ExecStart = "${inputs.nixpkgs.linuxPackages_testing.nvidiaPackages.vulkan_beta.bin}/bin/nvidia-smi";
   };
 }

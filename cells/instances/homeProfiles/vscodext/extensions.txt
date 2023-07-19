@@ -14,7 +14,7 @@ moshfeu.compare-folders
 MS-vsliveshare.vsliveshare
 PKief.material-icon-theme
 serayuzgur.crates
-TabNine.tabnine-vscode
+sourcegraph.cody-ai
 tamasfe.even-better-toml
 TheNuProjectContributors.vscode-nushell-lang
 yzhang.markdown-all-in-one

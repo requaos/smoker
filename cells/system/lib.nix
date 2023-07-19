@@ -16,7 +16,7 @@ in
     #  seive = file: type:
     #  # Only rake `.nix` files or directories
     #    (type == "regular" && lib.hasSuffix ".nix" file) || (type == "directory");
-#
+    #
     #  collect = file: type: {
     #    name = lib.removeSuffix ".nix" file;
     #    value = let
@@ -29,7 +29,7 @@ in
     #      # recurse on directories that don't contain a `default.nix`
     #      else rakeLeaves path;
     #  };
-#
+    #
     #  files = lib.filterAttrs seive (lib.readDir dirPath);
     #in
     #  lib.filterAttrs (name: value: value != {}) (lib.mapAttrs' collect files);

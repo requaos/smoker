@@ -1,10 +1,17 @@
 {
+  inputs,
+  cell,
+}: {
   programs = {
     lazygit.enable = true;
     git = {
       enable = true;
+      package = inputs.nixpkgs.gitAndTools.gitFull;
 
       extraConfig = {
+        credential = {
+          helper = "libsecret";
+        };
         core = {
           autocrlf = "input";
         };

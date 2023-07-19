@@ -23,6 +23,9 @@
     skim
     whois
 
+    # debug info
+    dmidecode
+
     # maybe linux/bash specific. YOLO
     mcfly
 

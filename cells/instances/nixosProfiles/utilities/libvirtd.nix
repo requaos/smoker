@@ -33,9 +33,17 @@ in {
       };
     };
 
+    spiceUSBRedirection.enable = true;
+
     docker = {
       autoPrune.enable = true;
     };
+  };
+
+  boot = {
+    initrd.kernelModules = [
+      "vfio_pci"
+    ];
   };
 
   # libvirt uses 192.168.122.0

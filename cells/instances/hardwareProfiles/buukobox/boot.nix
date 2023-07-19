@@ -18,7 +18,7 @@
 
   # graphics fix from dell for 'iris' opengl support
   # kernelParams = [
-    # "i915.force_probe=46a6"
+  # "i915.force_probe=46a6"
   # ];
 
   initrd = {
@@ -31,6 +31,19 @@
       "thunderbolt"
     ];
   };
+
+  # enable vfio
+  kernelParams = [
+    # enable IOMMU
+    "intel_iommu=on"
+
+    # #isolate the GPU
+    # ("vfio-pci.ids="
+    # + cell.lib.concatStringsSep "," [
+    # "10de:2438" # Graphics
+    # "10de:2288" # Audio
+    # ])
+  ];
 
   # used for cross-compiling for aarch64.
   # https://github.com/nix-community/nixos-generators#cross-compiling

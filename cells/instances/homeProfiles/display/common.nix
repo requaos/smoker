@@ -19,9 +19,12 @@
       xdg-utils
       nnn
       xfce.thunar
-      brave
-      chromium
-      firefox
+      xfce.thunar-volman
+      xfce.thunar-archive-plugin
+      archiver
+      # brave
+      # chromium
+      # firefox
       google-chrome
       # thunderbird
       # thunderbird-wayland
@@ -31,6 +34,9 @@
       betterlockscreen
       maim
       #rbw
+
+      # icons for lutris
+      dracula-icon-theme
 
       ## SOCIAL
       # see discord.nix

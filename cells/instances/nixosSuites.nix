@@ -50,8 +50,6 @@ in
         display.sway
         display.i3
 
-        display.nvidia
-
         devices.thunderbolt
         devices.bluetooth
         devices.fingerprint
@@ -59,8 +57,12 @@ in
         utilities.libvirtd
         utilities.fwupd
 
+        display.nvidia
+
         communication.slack
         communication.zoom
+
+        display.lutris
 
         users.req
       ];
