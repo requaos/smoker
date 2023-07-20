@@ -16,6 +16,10 @@
     #media-session.enable = true;
   };
 
+  environment.systemPackages = with inputs.nixpkgs; [
+    pipewire
+  ];
+
   # required for easyeffects settings to save correctly.
   programs.dconf.enable = true;
 }

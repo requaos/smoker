@@ -58,6 +58,7 @@ in
         utilities.fwupd
 
         display.nvidia
+        display.displaylink
 
         communication.slack
         communication.zoom

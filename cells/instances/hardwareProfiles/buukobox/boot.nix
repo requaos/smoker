@@ -36,6 +36,7 @@
   kernelParams = [
     # enable IOMMU
     "intel_iommu=on"
+    "module_blacklist=i915" # in bios it's set to only use the nvidia gpu
 
     # #isolate the GPU
     # ("vfio-pci.ids="

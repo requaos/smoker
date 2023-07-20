@@ -39,6 +39,7 @@
   # };
 
   environment.systemPackages = with inputs.nixpkgs; [
+    xorg.xdpyinfo
     autorandr
     libnotify
     xterm

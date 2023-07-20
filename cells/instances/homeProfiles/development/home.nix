@@ -6,6 +6,8 @@
     # tools
     imagemagick
     mitmproxy
+    pango
+    gnome.zenity
 
     # nix
     #std

@@ -8,10 +8,14 @@
     common-cpu-intel
   ];
 
-  # Display scaling
+  # Display scaling and drivers
   services = {
     xserver = {
-      videoDrivers = ["iris"];
+      # host-based hardwareProfile is the appropriate place to set drivers.
+      videoDrivers = [
+        "nvidia"
+        "displaylink"
+      ];
       dpi = 192;
       displayManager.sessionCommands = ''
         ${inputs.nixpkgs.xorg.xrdb}/bin/xrdb -merge <<EOF

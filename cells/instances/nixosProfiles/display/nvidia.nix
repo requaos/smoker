@@ -3,18 +3,16 @@
   cell,
 }: {
   services.xserver = {
-    videoDrivers = cell.lib.mkForce ["nvidia"];
+    videoDrivers = ["nvidia"];
   };
-  hardware.nvidia = {
-    modesetting.enable = true;
-    prime = {
-      reverseSync.enable = true;
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
-      nvidiaBusId = "PCI:1:0:0"; # dedicated gpu
-      intelBusId = "PCI:0:2:0";
+  hardware = {
+    opengl.extraPackages = with inputs.nixpkgs; [
+      linuxPackages_testing.nvidiaPackages.vulkan_beta
+      linuxPackages_testing.nvidia_x11_vulkan_beta
+    ];
+    nvidia = {
+      nvidiaSettings = true;
+      modesetting.enable = true;
     };
   };
 
@@ -30,6 +28,7 @@
   environment.systemPackages = with inputs.nixpkgs; [
     linuxPackages_testing.nvidiaPackages.vulkan_beta
     linuxPackages_testing.nvidia_x11_vulkan_beta
+    #linuxPackages_testing.nvidiabl # laptop screen brightness utility (find another way)
     vulkan-tools
     pciutils
     cudatoolkit

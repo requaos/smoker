@@ -6,6 +6,7 @@
     lutris
     protonup-qt
     protontricks
+    winetricks
     #(lutris.override {
     #  extraPkgs = pkgs: [
     #    innoextract
