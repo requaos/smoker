@@ -8,6 +8,7 @@
     libinput = {
       enable = true;
       mouse.accelProfile = "flat";
+      touchpad.clickMethod = "clickfinger";
     };
 
     # Configure keymap in X11

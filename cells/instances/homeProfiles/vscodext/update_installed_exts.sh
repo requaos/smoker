@@ -53,12 +53,12 @@ function get_vsixpkg() {
   # I don't like 'rm -Rf' lurking in my scripts but this seems appropriate.
 
   cat <<-EOF
-  {
-    name = "$2";
-    publisher = "$1";
-    version = "$VER";
-    sha256 = "$SHA";
-  }
+    {
+      name = "$2";
+      publisher = "$1";
+      version = "$VER";
+      sha256 = "$SHA";
+    }
 EOF
 }
 
@@ -78,7 +78,7 @@ fi
 trap clean_up SIGINT
 
 # Begin the printing of the nix expression that will house the list of extensions.
-printf '{ extensions = [\n'
+printf '{\n  extensions = [\n'
 
 # Note that we are only looking to update extensions that are already installed.
 for i in $(cat extensions.txt); do
@@ -88,4 +88,4 @@ for i in $(cat extensions.txt); do
   get_vsixpkg "$OWNER" "$EXT"
 done
 # Close off the nix expression.
-printf '];\n}'
+printf '  ];\n}'

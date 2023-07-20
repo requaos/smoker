@@ -39,6 +39,8 @@ in
         utilities.libvirtd
         utilities.fwupd
 
+        communication.slack
+
         users.req
       ];
 
