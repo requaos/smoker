@@ -2,9 +2,6 @@
   inputs,
   cell,
 }: {
-  services.xserver = {
-    videoDrivers = ["nvidia"];
-  };
   hardware = {
     opengl.extraPackages = with inputs.nixpkgs; [
       linuxPackages_testing.nvidiaPackages.vulkan_beta
@@ -12,7 +9,9 @@
     ];
     nvidia = {
       nvidiaSettings = true;
-      modesetting.enable = true;
+
+      # only needed for optimus-enabled configurations, conflicts with modesetting driver for displaylink
+      #modesetting.enable = true;
     };
   };
 

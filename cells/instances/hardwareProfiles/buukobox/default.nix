@@ -15,6 +15,7 @@
       videoDrivers = [
         "nvidia"
         "displaylink"
+        "modesetting"
       ];
       dpi = 192;
       displayManager.sessionCommands = ''
