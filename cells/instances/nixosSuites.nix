@@ -55,6 +55,7 @@ in
         devices.thunderbolt
         devices.bluetooth
         devices.fingerprint
+        devices.cdburn
 
         utilities.libvirtd
         utilities.fwupd

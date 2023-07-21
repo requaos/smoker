@@ -9,7 +9,7 @@ in {
     description = fullname;
     isNormalUser = true;
     createHome = true;
-    extraGroups = ["libvirtd" "networkmanager" "wheel" "docker"];
+    extraGroups = ["libvirtd" "networkmanager" "wheel" "docker" "cdrom"];
   };
 
   home-manager.users.${username} = {
