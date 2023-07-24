@@ -3,8 +3,8 @@
     {
       name = "openscad";
       publisher = "Antyos";
-      version = "1.1.1";
-      sha256 = "1adcw9jj3npk3l6lnlfgji2l529c4s5xp9jl748r9naiy3w3dpjv";
+      version = "1.2.0";
+      sha256 = "1wjblhjj9rrqprmjx1cc28pr2rhdrrh775qbnyisi7dqxww2w6hi";
     }
     {
       name = "markdown-mermaid";
@@ -99,8 +99,8 @@
     {
       name = "cody-ai";
       publisher = "sourcegraph";
-      version = "0.7.1689865470";
-      sha256 = "0fkl28s7awzfw2b6wyp8pzcky0hyb531sdrzzxqdj5c18h8v6lp0";
+      version = "0.7.1690211068";
+      sha256 = "09vb1dmzfpyrj97c0bir3lwqqnfsl3vdj3grw64wxvmms2jqbpna";
     }
     {
       name = "even-better-toml";
@@ -123,8 +123,8 @@
     {
       name = "material-theme";
       publisher = "zhuangtongfa";
-      version = "3.15.18";
-      sha256 = "16sgzv9gslm077q5zdv013bhfdd867f60nqjvs7p91f56wvzlvfa";
+      version = "3.16.0";
+      sha256 = "04zg2xbrji4mmqakc5smzjzpap546y07abgn2dlm979pyl9pcn78";
     }
   ];
 }
