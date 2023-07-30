@@ -7,6 +7,8 @@
     protonup-qt
     protontricks
     winetricks
+    xivlauncher
+    gamescope
     #(lutris.override {
     #  extraPkgs = pkgs: [
     #    innoextract
@@ -22,6 +24,10 @@
     #  ];
     #})
   ];
+
+  programs.gamescope = {
+    enable = true;
+  };
 
   systemd.extraConfig = ''
     DefaultLimitNOFILE=1048576

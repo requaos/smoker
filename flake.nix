@@ -141,6 +141,7 @@
             "steam-run"
             "nvidia-x11"
             "cudatoolkit"
+            "cuda_cudart"
             "displaylink"
             "ivsc-firmware"
             "google-chrome"

@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: {
-  fonts = with inputs.nixpkgs; [
+  packages = with inputs.nixpkgs; [
     nerdfonts
     hack-font
     dejavu_fonts
