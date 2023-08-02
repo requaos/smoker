@@ -3,7 +3,7 @@
   cell,
 }: {
   # bleeding-edge kernel:
-  kernelPackages = inputs.nixpkgs.linuxPackages_testing;
+  kernelPackages = inputs.nixpkgs.linuxPackages_latest;
 
   initrd = {
     kernelModules = [

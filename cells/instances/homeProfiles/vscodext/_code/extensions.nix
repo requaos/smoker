@@ -3,8 +3,8 @@
     {
       name = "openscad";
       publisher = "Antyos";
-      version = "1.2.0";
-      sha256 = "1wjblhjj9rrqprmjx1cc28pr2rhdrrh775qbnyisi7dqxww2w6hi";
+      version = "1.2.1";
+      sha256 = "1rnqq03krabsmsjq3434xlv7ywkywmlj0jwmmw2j5x07s631zvpz";
     }
     {
       name = "markdown-mermaid";
@@ -33,8 +33,8 @@
     {
       name = "nix-ide";
       publisher = "jnoortheen";
-      version = "0.2.1";
-      sha256 = "0bibb3r4cb7chnx6vpyl41ig12pc0cbg0sb8f2khs52c71nk4bn8";
+      version = "0.2.2";
+      sha256 = "1264027sjh9a112si0y0p3pk3y36shj5b4qkpsj207z7lbxqq0wg";
     }
     {
       name = "vscode-graphviz";
@@ -99,8 +99,8 @@
     {
       name = "cody-ai";
       publisher = "sourcegraph";
-      version = "0.7.1690211068";
-      sha256 = "09vb1dmzfpyrj97c0bir3lwqqnfsl3vdj3grw64wxvmms2jqbpna";
+      version = "0.7.1690988758";
+      sha256 = "0gf6ay3s1hpqi2yjr8qg6nvsl7aiy535kqwf4gj6i0bhizc70w2p";
     }
     {
       name = "even-better-toml";

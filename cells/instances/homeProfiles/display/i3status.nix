@@ -48,6 +48,16 @@ in {
         blocks =
           [
             {
+              block = "custom";
+              command = "whoami";
+              interval = "once";
+            }
+            {
+              block = "custom";
+              command = "echo `uname` `uname -r | tr - . | cut -d. -f1-2`";
+              interval = "once";
+            }
+            {
               block = "cpu";
               interval = 5;
               click = [
@@ -70,7 +80,7 @@ in {
             }
             {
               block = "net";
-              device = "enp7s0";
+              device = "wlp0s20f3";
               icons_format = "{icon}";
               format = " ^icon_net_down $speed_down.eng(prefix:K) / ^icon_net_up $speed_up.eng(prefix:K) ";
               interval = 30;
@@ -128,6 +138,12 @@ in {
               format = " $icon {$volume|MUTED} ";
               step_width = 5;
               max_vol = 120;
+            }
+            {
+              block = "battery";
+              format = " $icon $percentage {$time |}";
+              # hide this block if no battery on system
+              missing_format = "";
             }
             {
               block = "time";

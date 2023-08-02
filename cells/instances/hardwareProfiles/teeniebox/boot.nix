@@ -3,7 +3,7 @@
   cell,
 }: {
   # bleeding-edge kernel: inputs.nixpkgs.linuxPackages_testing
-  kernelPackages = inputs.nixpkgs.linuxPackages_testing;
+  kernelPackages = inputs.nixpkgs.linuxPackages_latest;
 
   # nested virtualization in qemu/kvm
   extraModprobeConfig = "options kvm_intel nested=1";
