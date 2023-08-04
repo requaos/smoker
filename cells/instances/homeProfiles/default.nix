@@ -8,6 +8,5 @@ in {
   direnv = load ./direnv;
   display = load ./display;
   platform = load ./platform;
-  vscodext = load ./vscodext;
   development = load ./development;
 }

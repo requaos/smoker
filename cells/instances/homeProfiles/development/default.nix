@@ -2,7 +2,9 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs;
+  inherit (inputs) nixpkgs nix-vscode-extensions;
+  # TODO: get $system
+  extensions = nix-vscode-extensions.extensions.x86_64-linux;
 in {
   programs = {
     vscode = {
@@ -10,11 +12,41 @@ in {
 
       userSettings = cell.lib.mkForce {};
 
-      # References: https://github.com/hanleym/digga/blob/req/pkgs/default.nix
-      # we'll sort this out after we add gui packages, lol.
-      extensions = (
-        nixpkgs.vscode-utils.extensionsFromVscodeMarketplace cell.homeProfiles.vscodext.generatedCodeMarketplaceExtensions
-      );
+      extensions =
+        (with extensions.open-vsx; [
+          antyos.openscad
+          bierner.markdown-mermaid
+          bpruitt-goddard.mermaid-markdown-syntax-highlighting
+          christian-kohler.path-intellisense
+          gruntfuggly.todo-tree
+          jnoortheen.nix-ide
+          kamadorueda.alejandra
+          mhutchie.git-graph
+          mkhl.direnv
+          moshfeu.compare-folders
+          pkief.material-icon-theme
+          serayuzgur.crates
+          sourcegraph.cody-ai
+          tamasfe.even-better-toml
+          yzhang.markdown-all-in-one
+          zhuangtongfa.material-theme
+        ])
+        ++ (with extensions.vscode-marketplace; [
+          joaompinto.vscode-graphviz
+          jscearcy.rust-doc-viewer
+          mitsuhiko.insta
+          ms-vsliveshare.vsliveshare
+          thenuprojectcontributors.vscode-nushell-lang
+          vscjava.vscode-java-pack
+          redhat.java
+          vscjava.vscode-java-debug
+          vscjava.vscode-maven
+          vscjava.vscode-java-test
+          vscjava.vscode-java-dependency
+        ])
+        ++ [
+          inputs.fenix.packages.rust-analyzer-vscode-extension
+        ];
     };
     starship = {
       enable = true;

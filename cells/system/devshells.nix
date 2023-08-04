@@ -57,16 +57,6 @@ in
           help = "Check flake";
           command = "nix flake check $PRJ_ROOT $@";
         }
-        {
-          category = "vscode-ext";
-          name = "update-vsce";
-          help = "Update vscode extensions";
-          command = ''
-            cd $PRJ_ROOT/cells/instances/homeProfiles/vscodext
-            ${toString ../instances/homeProfiles/vscodext/update_installed_exts.sh} > ./_code/extensions.nix
-            git add .
-          '';
-        }
       ];
     };
   }

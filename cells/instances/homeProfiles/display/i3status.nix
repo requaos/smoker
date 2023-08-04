@@ -49,12 +49,12 @@ in {
           [
             {
               block = "custom";
-              command = "whoami";
+              command = "cat /etc/hostname";
               interval = "once";
             }
             {
               block = "custom";
-              command = "echo `uname` `uname -r | tr - . | cut -d. -f1-2`";
+              command = "echo `uname` `uname -r | tr - . | cut -d. -f1-3`";
               interval = "once";
             }
             {
@@ -125,17 +125,78 @@ in {
             #   block = "music";
             # }
             {
+              block = "backlight";
+              format = " $icon $brightness";
+              # hide this block if no backlight controls available
+              missing_format = "";
+            }
+            {
               block = "sound";
-              device_kind = "sink";
-              format = " $icon {$volume|MUTED} ";
+              name = "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink";
+              format = " $icon $output_name {$volume|MUTED} ";
+              click = [
+                {
+                  button = "left";
+                  cmd = ''qpwgraph'';
+                }
+              ];
               step_width = 5;
               max_vol = 120;
               headphones_indicator = true;
+              mappings = {
+                "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink" = "💻";
+                "alsa_output.pci-0000_01_00.1.hdmi-stereo" = "📺";
+                "alsa_output.usb-DisplayLink_USB3.0_5K_Graphic_Docking_4310338626955-02.analog-stereo" = "🖥️";
+              };
+            }
+            {
+              block = "sound";
+              name = "alsa_output.pci-0000_01_00.1.hdmi-stereo";
+              format = " $icon $output_name {$volume|MUTED} ";
+              click = [
+                {
+                  button = "left";
+                  cmd = ''qpwgraph'';
+                }
+              ];
+              step_width = 5;
+              max_vol = 120;
+              headphones_indicator = true;
+              mappings = {
+                "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink" = "💻";
+                "alsa_output.pci-0000_01_00.1.hdmi-stereo" = "📺";
+                "alsa_output.usb-DisplayLink_USB3.0_5K_Graphic_Docking_4310338626955-02.analog-stereo" = "🖥️";
+              };
+            }
+            {
+              block = "sound";
+              name = "alsa_output.usb-DisplayLink_USB3.0_5K_Graphic_Docking_4310338626955-02.analog-stereo";
+              format = " $icon $output_name {$volume|MUTED} ";
+              click = [
+                {
+                  button = "left";
+                  cmd = ''qpwgraph'';
+                }
+              ];
+              step_width = 5;
+              max_vol = 120;
+              headphones_indicator = true;
+              mappings = {
+                "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink" = "💻";
+                "alsa_output.pci-0000_01_00.1.hdmi-stereo" = "📺";
+                "alsa_output.usb-DisplayLink_USB3.0_5K_Graphic_Docking_4310338626955-02.analog-stereo" = "🖥️";
+              };
             }
             {
               block = "sound";
               device_kind = "source";
               format = " $icon {$volume|MUTED} ";
+              click = [
+                {
+                  button = "left";
+                  cmd = ''qpwgraph'';
+                }
+              ];
               step_width = 5;
               max_vol = 120;
             }

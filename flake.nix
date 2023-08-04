@@ -33,6 +33,11 @@
       inputs.flake-compat.follows = "blank";
     };
 
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -57,6 +62,11 @@
     base16-schemes = {
       url = "github:base16-project/base16-schemes";
       flake = false;
+    };
+
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -154,7 +164,7 @@
             "notion-app-enhanced-v2.0.18"
           ];
         permittedInsecurePackages = [
-          "openssl-1.1.1u"
+          "openssl-1.1.1v"
           "electron-21.4.0"
         ];
       };

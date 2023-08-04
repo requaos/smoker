@@ -18,6 +18,8 @@
 
   environment.systemPackages = with inputs.nixpkgs; [
     pipewire
+    qpwgraph
+    pamixer
   ];
 
   # required for easyeffects settings to save correctly.
