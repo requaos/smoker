@@ -65,27 +65,40 @@ in {
       externalInterface = hostInterface;
       extraCommands = "iptables -t nat -A POSTROUTING -o ${hostInterface} -j MASQUERADE";
     };
+    dhcpcd = {
+      enable = true;
+      allowInterfaces = [bridgeName];
+      extraConfig = ''
+        noipv6rs
+        static routers=192.168.122.1
+        static broadcast_address=192.168.122.255
+        static subnet_mask=255.255.255.0
+        static domain_name_servers=1.1.1.1, 8.8.8.8, 208.67.222.222, 1.0.0.1, 8.8.4.4, 208.67.220.220
+        static leasetime=-1
+        static ip_address=192.168.122.100/24
+      '';
+    };
   };
 
   # Deprecated way, hopefully the systemd.network settings below suffice
   # Seems to be the only way that works for now...
-  services.dhcpd4 = {
-    enable = true;
-    interfaces = [bridgeName];
-    extraConfig = ''
-      option routers 192.168.122.1;
-      option broadcast-address 192.168.122.255;
-      option subnet-mask 255.255.255.0;
-      option domain-name-servers 1.1.1.1, 8.8.8.8, 208.67.222.222, 1.0.0.1, 8.8.4.4, 208.67.220.220;
-      ${optionalString infiniteLeaseTime ''
-        default-lease-time -1;
-        max-lease-time -1;
-      ''}
-      subnet 192.168.122.0 netmask 255.255.255.0 {
-        range 192.168.122.100 192.168.122.200;
-      }
-    '';
-  };
+  #services.dhcpd4 = {
+  #  enable = true;
+  #  interfaces = [bridgeName];
+  #  extraConfig = ''
+  #    option routers 192.168.122.1;
+  #    option broadcast-address 192.168.122.255;
+  #    option subnet-mask 255.255.255.0;
+  #    option domain-name-servers 1.1.1.1, 8.8.8.8, 208.67.222.222, 1.0.0.1, 8.8.4.4, 208.67.220.220;
+  #    ${optionalString infiniteLeaseTime ''
+  #      default-lease-time -1;
+  #      max-lease-time -1;
+  #    ''}
+  #    subnet 192.168.122.0 netmask 255.255.255.0 {
+  #      range 192.168.122.100 192.168.122.200;
+  #    }
+  #  '';
+  #};
 
   # systemd.network = {
   #   netdevs = {
