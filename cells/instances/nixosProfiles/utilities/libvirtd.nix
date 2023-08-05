@@ -67,8 +67,9 @@ in {
     };
     dhcpcd = {
       enable = true;
-      allowInterfaces = [bridgeName];
+      allowInterfaces = [bridgeName hostInterface];
       extraConfig = ''
+        interface ${bridgeName}
         noipv6rs
         static routers=192.168.122.1
         static broadcast_address=192.168.122.255
