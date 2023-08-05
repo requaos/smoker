@@ -1,7 +1,13 @@
 {
   inputs,
   cell,
-}: {
+}:
+with cell.lib; let
+  inherit (inputs) nixpkgs;
+
+  hostInterface = "wlp0s20f3";
+  hostMacAddress = "de:ad:be:ef:de:ad";
+in {
   useDHCP = cell.lib.mkForce true;
   networkmanager = {
     enable = cell.lib.mkForce true;
@@ -12,4 +18,12 @@
   firewall = {
     enable = cell.lib.mkForce true;
   };
+
+  #useNetworkd = true;
+  interfaces."${hostInterface}".macAddress = hostMacAddress;
+  localCommands = ''
+    link set dev "${hostInterface}" down
+    link set "${hostInterface}" address "${hostMacAddress}"
+    link set dev "${hostInterface}" up
+  '';
 }

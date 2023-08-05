@@ -7,7 +7,6 @@ with cell.lib; let
 
   bridgeName = "br0";
   hostInterface = "wlp0s20f3";
-  hostMacAddress = "de:ad:be:ef:de:ad";
   infiniteLeaseTime = true;
 in {
   environment = {
@@ -50,12 +49,6 @@ in {
   # libvirt uses 192.168.122.0
   networking = {
     #useNetworkd = true;
-    interfaces."${hostInterface}".macAddress = hostMacAddress;
-    localCommands = ''
-      link set dev "${hostInterface}" down
-      link set "${hostInterface}" address "${hostMacAddress}"
-      link set dev "${hostInterface}" up
-    '';
 
     bridges."${bridgeName}".interfaces = [];
     interfaces."${bridgeName}" = {
