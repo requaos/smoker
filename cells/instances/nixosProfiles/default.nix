@@ -15,5 +15,6 @@ in {
   display = load ./display;
   greeter = load ./greeter;
   utilities = load ./utilities;
+  development = load ./development;
   communication = load ./communication;
 }

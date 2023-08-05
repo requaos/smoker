@@ -66,6 +66,8 @@ in
         communication.slack
         communication.zoom
 
+        development.java
+
         display.lutris
 
         users.req

@@ -24,14 +24,10 @@
 
     # .Net
     jetbrains.rider
-    (with dotnetCorePackages;
-      combinePackages [
-        sdk_6_0
-        sdk_7_0
-      ])
+    dotnet-sdk
 
     # java
-    jetbrains.jdk
+    #jetbrains.jdk
 
     # fonts
     powerline-fonts
