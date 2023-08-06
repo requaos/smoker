@@ -24,6 +24,23 @@ in
         utilities.tio
       ];
 
+    babybox =
+      linuxapps
+      ++ [
+        display.xserver
+        display.signal
+        display.sway
+        display.i3
+
+        devices.bluetooth
+        devices.cdburn
+
+        utilities.libvirtd
+        utilities.fwupd
+
+        users.req
+      ];
+
     teeniebox =
       linuxapps
       ++ [

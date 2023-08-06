@@ -7,4 +7,5 @@ in {
   teeniebox = load ./teeniebox;
   buukobox = load ./buukobox;
   nixvmbox = load ./nixvmbox;
+  babybox = load ./babybox;
 }
