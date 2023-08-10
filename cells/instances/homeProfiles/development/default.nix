@@ -43,6 +43,7 @@ in {
           vscjava.vscode-maven
           vscjava.vscode-java-test
           vscjava.vscode-java-dependency
+          hashicorp.terraform
         ])
         ++ [
           inputs.fenix.packages.rust-analyzer-vscode-extension

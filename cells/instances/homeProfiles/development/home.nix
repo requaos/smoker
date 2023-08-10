@@ -39,6 +39,9 @@
     werf
     argocd
 
+    # iac
+    terraform
+
     # aws
     awscli2
     #awslocal
