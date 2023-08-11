@@ -9,6 +9,7 @@
     winetricks
     xivlauncher
     gamescope
+    scanmem
     #(lutris.override {
     #  extraPkgs = pkgs: [
     #    innoextract
