@@ -19,6 +19,7 @@ in
       ++ [
         linux
         sound
+        greeter
         utilities.nethogs
         utilities.docker
         utilities.tio
@@ -48,7 +49,6 @@ in
         display.signal
         display.sway
         display.i3
-        greeter
 
         devices.thunderbolt
         devices.bluetooth
