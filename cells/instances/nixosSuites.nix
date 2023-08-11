@@ -48,6 +48,7 @@ in
         display.signal
         display.sway
         display.i3
+        greeter
 
         devices.thunderbolt
         devices.bluetooth
