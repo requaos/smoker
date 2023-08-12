@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: {
-  services.blueman = {
+  blueman = {
     enable = true;
   };
 }
