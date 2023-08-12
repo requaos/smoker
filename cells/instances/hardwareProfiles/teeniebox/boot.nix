@@ -28,6 +28,13 @@
       "vmd"
       "thunderbolt"
     ];
+    luks = {
+      devices = {
+        "root" = {
+          device = "/dev/disk/by-uuid/cc582743-c00f-457a-bea0-841a72b945ec";
+        };
+      };
+    };
   };
 
   # used for cross-compiling for aarch64.

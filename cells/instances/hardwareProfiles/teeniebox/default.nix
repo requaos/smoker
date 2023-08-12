@@ -32,6 +32,19 @@ in {
     common-gpu-intel
   ];
 
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/33a1de74-fe6d-4466-be43-ce02816d1679";
+      fsType = "btrfs";
+    };
+    "/boot" = {
+      device = "/dev/disk/by-uuid/FBA5-7197";
+      fsType = "vfat";
+    };
+  };
+
+  swapDevices = [{device = "/dev/disk/by-uuid/0ab38578-d63e-42de-b68e-a32acba18ab8";}];
+
   # Display scaling
   services = {
     xserver = {
@@ -88,147 +101,151 @@ in {
   };
   console.font = "${inputs.nixpkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
 
-  home-manager.sharedModules = [
-    {
-      programs.i3status-rust = {
-        bars = {
-          default = {
-            # theme = "modern";
-            # icons = "awesome6";
-            settings = {
-              theme = {
-                theme = "plain"; # plain | semi-native | native
+  home-manager = {
+    useUserPackages = true;
+    useGlobalPkgs = true;
+    sharedModules = [
+      {
+        programs.i3status-rust = {
+          bars = {
+            default = {
+              # theme = "modern";
+              # icons = "awesome6";
+              settings = {
+                theme = {
+                  theme = "plain"; # plain | semi-native | native
+                };
+                icons = {
+                  icons = "material-nf";
+                };
               };
-              icons = {
-                icons = "material-nf";
-              };
-            };
-            blocks =
-              [
-                {
-                  block = "custom";
-                  command = "cat /etc/hostname";
-                  interval = "once";
-                }
-                {
-                  block = "custom";
-                  command = "echo `uname` `uname -r | tr - . | cut -d. -f1-3`";
-                  interval = "once";
-                }
-                {
-                  block = "cpu";
-                  interval = 5;
-                  click = [
-                    {
-                      button = "left";
-                      cmd = openWithTerminal "htop --sort-key=PERCENT_CPU";
-                    }
-                  ];
-                }
-                {
-                  block = "memory";
-                  format = " $icon $mem_used_percents ";
-                  interval = 5;
-                  click = [
-                    {
-                      button = "left";
-                      cmd = openWithTerminal "htop --sort-key=PERCENT_MEM";
-                    }
-                  ];
-                }
-                {
-                  block = "net";
-                  device = "wlp0s20f3";
-                  icons_format = "{icon}";
-                  format = " ^icon_net_down $speed_down.eng(prefix:K) / ^icon_net_up $speed_up.eng(prefix:K) ";
-                  interval = 30;
-                  click = [
-                    {
-                      button = "left";
-                      cmd = openWithTerminal "sudo ${nethogsPath}";
-                    }
-                  ];
-                  icons_overrides = {
-                    net_wired = "";
-                  };
-                }
-              ]
-              ++ (
-                forEach [
-                  "/"
+              blocks =
+                [
+                  {
+                    block = "custom";
+                    command = "cat /etc/hostname";
+                    interval = "once";
+                  }
+                  {
+                    block = "custom";
+                    command = "echo `uname` `uname -r | tr - . | cut -d. -f1-3`";
+                    interval = "once";
+                  }
+                  {
+                    block = "cpu";
+                    interval = 5;
+                    click = [
+                      {
+                        button = "left";
+                        cmd = openWithTerminal "htop --sort-key=PERCENT_CPU";
+                      }
+                    ];
+                  }
+                  {
+                    block = "memory";
+                    format = " $icon $mem_used_percents ";
+                    interval = 5;
+                    click = [
+                      {
+                        button = "left";
+                        cmd = openWithTerminal "htop --sort-key=PERCENT_MEM";
+                      }
+                    ];
+                  }
+                  {
+                    block = "net";
+                    device = "wlp0s20f3";
+                    icons_format = "{icon}";
+                    format = " ^icon_net_down $speed_down.eng(prefix:K) / ^icon_net_up $speed_up.eng(prefix:K) ";
+                    interval = 30;
+                    click = [
+                      {
+                        button = "left";
+                        cmd = openWithTerminal "sudo ${nethogsPath}";
+                      }
+                    ];
+                    icons_overrides = {
+                      net_wired = "";
+                    };
+                  }
                 ]
-                (path: {
-                  inherit path;
-                  block = "disk_space";
-                  format = " $icon $percentage ";
-                  info_type = "used";
-                  alert = 90;
-                  warning = 75;
-                  interval = 60;
-                  click = [
-                    {
-                      button = "left";
-                      cmd = openWithFileManager "${path}";
-                    }
-                    {
-                      button = "right";
-                      cmd = openWithStorageViewer "${path}";
-                    }
-                  ];
-                })
-              )
-              ++ [
-                # https://github.com/greshake/i3status-rust/blob/v0.22.0/doc/blocks.md#music
-                # {
-                #   block = "music";
-                # }
-                {
-                  block = "backlight";
-                  format = " $icon $brightness";
-                  # hide this block if no backlight controls available
-                  missing_format = "";
-                }
-                {
-                  block = "sound";
-                  format = " $icon {$volume|MUTED} ";
-                  click = [
-                    {
-                      button = "left";
-                      cmd = ''qpwgraph'';
-                    }
-                  ];
-                  step_width = 5;
-                  max_vol = 120;
-                  headphones_indicator = true;
-                }
-                {
-                  block = "sound";
-                  device_kind = "source";
-                  format = " $icon {$volume|MUTED} ";
-                  click = [
-                    {
-                      button = "left";
-                      cmd = ''qpwgraph'';
-                    }
-                  ];
-                  step_width = 5;
-                  max_vol = 120;
-                }
-                {
-                  block = "battery";
-                  format = " $icon $percentage {$time |}";
-                  # hide this block if no battery on system
-                  missing_format = "";
-                }
-                {
-                  block = "time";
-                  format = " $timestamp.datetime(f:'%a %-m/%d/%Y %-I:%M %p') ";
-                  interval = 60;
-                }
-              ];
+                ++ (
+                  forEach [
+                    "/"
+                  ]
+                  (path: {
+                    inherit path;
+                    block = "disk_space";
+                    format = " $icon $percentage ";
+                    info_type = "used";
+                    alert = 90;
+                    warning = 75;
+                    interval = 60;
+                    click = [
+                      {
+                        button = "left";
+                        cmd = openWithFileManager "${path}";
+                      }
+                      {
+                        button = "right";
+                        cmd = openWithStorageViewer "${path}";
+                      }
+                    ];
+                  })
+                )
+                ++ [
+                  # https://github.com/greshake/i3status-rust/blob/v0.22.0/doc/blocks.md#music
+                  # {
+                  #   block = "music";
+                  # }
+                  {
+                    block = "backlight";
+                    format = " $icon $brightness";
+                    # hide this block if no backlight controls available
+                    missing_format = "";
+                  }
+                  {
+                    block = "sound";
+                    format = " $icon {$volume|MUTED} ";
+                    click = [
+                      {
+                        button = "left";
+                        cmd = ''qpwgraph'';
+                      }
+                    ];
+                    step_width = 5;
+                    max_vol = 120;
+                    headphones_indicator = true;
+                  }
+                  {
+                    block = "sound";
+                    device_kind = "source";
+                    format = " $icon {$volume|MUTED} ";
+                    click = [
+                      {
+                        button = "left";
+                        cmd = ''qpwgraph'';
+                      }
+                    ];
+                    step_width = 5;
+                    max_vol = 120;
+                  }
+                  {
+                    block = "battery";
+                    format = " $icon $percentage {$time |}";
+                    # hide this block if no battery on system
+                    missing_format = "";
+                  }
+                  {
+                    block = "time";
+                    format = " $timestamp.datetime(f:'%a %-m/%d/%Y %-I:%M %p') ";
+                    interval = 60;
+                  }
+                ];
+            };
           };
         };
-      };
-    }
-  ];
+      }
+    ];
+  };
 }
