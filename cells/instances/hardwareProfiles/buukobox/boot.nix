@@ -30,6 +30,15 @@
       "rtsx_pci_sdmmc"
       "thunderbolt"
     ];
+
+    # root disk encryption
+    luks = {
+      devices = {
+        "root" = {
+          device = "/dev/disk/by-uuid/0463b269-67b8-4fd2-a9d1-a60d244ef12e";
+        };
+      };
+    };
   };
 
   # enable vfio
