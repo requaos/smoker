@@ -1,7 +1,8 @@
 {
   inputs,
   cell,
-}: let
+}:
+with cell.lib.lists; let
   inherit (inputs) nixpkgs;
   inherit (cell) lib;
 
@@ -11,6 +12,18 @@
     size = 12.0;
   };
 in {
+  home.packages = with nixpkgs; [
+    neofetch
+    #zenith
+    htop
+    nethogs
+    baobab
+  ];
+
+  programs.i3status-rust = {
+    enable = true;
+  };
+
   services.betterlockscreen = {
     enable = true;
     arguments = ["--off" "5"];

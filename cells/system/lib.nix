@@ -58,9 +58,10 @@ in
       )
       configurations;
 
-    load = inputs: cell: src:
-      inputs.hive.load {
-        inherit inputs cell src;
+    load = inputs: cell:
+      inputs.hive.findLoad {
+        inherit inputs cell;
+        block = ./.;
       };
   }
   // lib

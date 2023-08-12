@@ -11,7 +11,7 @@ in
       ssh
       dns
 
-      users.root
+      users-root
     ];
 
     linuxapps =
@@ -20,85 +20,85 @@ in
         linux
         sound
         greeter
-        utilities.nethogs
-        utilities.docker
-        utilities.tio
+        utilities-nethogs
+        utilities-docker
+        utilities-tio
       ];
 
     babybox =
       linuxapps
       ++ [
-        display.xserver
-        display.signal
-        display.sway
-        display.i3
+        display-xserver
+        display-signal
+        display-sway
+        display-i3
 
-        devices.bluetooth
-        devices.cdburn
+        devices-bluetooth
+        devices-cdburn
 
-        utilities.libvirtd
-        utilities.fwupd
+        utilities-libvirtd
+        utilities-fwupd
 
-        users.req
+        users-req
       ];
 
     teeniebox =
       linuxapps
       ++ [
-        display.xserver
-        display.signal
-        display.sway
-        display.i3
+        display-xserver
+        display-signal
+        display-sway
+        display-i3
 
-        devices.thunderbolt
-        devices.bluetooth
-        devices.fingerprint
+        devices-thunderbolt
+        devices-bluetooth
+        devices-fingerprint
 
-        utilities.libvirtd
-        utilities.fwupd
+        utilities-libvirtd
+        utilities-fwupd
 
-        communication.slack
+        communication-slack
 
-        users.req
+        users-req
       ];
 
     buukobox =
       linuxapps
       ++ [
-        display.xserver
-        display.signal
-        display.sway
-        display.i3
+        display-xserver
+        display-signal
+        display-sway
+        display-i3
 
-        devices.thunderbolt
-        devices.bluetooth
-        devices.fingerprint
-        devices.cdburn
+        devices-thunderbolt
+        devices-bluetooth
+        devices-fingerprint
+        devices-cdburn
 
-        utilities.libvirtd
-        utilities.fwupd
+        utilities-libvirtd
+        utilities-fwupd
 
-        display.nvidia
-        display.displaylink
+        display-nvidia
+        display-displaylink
 
-        communication.slack
-        communication.zoom
+        communication-slack
+        communication-zoom
 
-        development.java
+        development-java
 
-        display.lutris
+        games
 
-        users.req
+        users-req
       ];
 
     nixvmbox =
       linuxapps
       ++ [
-        display.xserver
-        display.signal
-        display.sway
-        display.i3
+        display-xserver
+        display-signal
+        display-sway
+        display-i3
 
-        users.req
+        users-req
       ];
   }

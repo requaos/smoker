@@ -12,18 +12,17 @@ in rec {
 
   gui = with homeProfiles;
     [
-      display.rustdesk
-      display.discord
-      display.espanso
-      display.xserver
-      display.common
-      display.pidgin
-      display.signal
-      display.dunst
-      display.rofi
-      display.sway
-      display.i3
-      display.i3status
+      display-rustdesk
+      display-discord
+      display-espanso
+      display-xserver
+      display-common
+      display-pidgin
+      display-signal
+      display-dunst
+      display-rofi
+      display-sway
+      display-i3
     ]
     ++ base;
 
