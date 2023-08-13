@@ -9,7 +9,7 @@ in {
   vscode = {
     enable = true;
 
-    userSettings = cell.lib.mkForce {};
+    #userSettings = cell.lib.mkForce {};
 
     extensions =
       (with extensions.open-vsx; [
