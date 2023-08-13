@@ -56,6 +56,6 @@ in
             imports = [cell.nixosConfigurations.${name}] ++ getImports value ++ getImports defaults;
           }
       )
-      configurations;
+      configurations; 
   }
   // lib
