@@ -93,7 +93,7 @@ in {
       in
         lib.mkOptionDefault {
           #"${mod}+Return" = "exec ${nixpkgs.alacritty}/bin/alacritty";
-          "${mod}+space" = "exec ${nixpkgs.rofi}/bin/rofi -show drun -dpi 192";
+          "${mod}+space" = "exec ${nixpkgs.rofi}/bin/rofi -show drun -dpi 0";
           "${mod}+l" = "exec ${nixpkgs.swaylock}/bin/swaylock";
           "Mod4+l" = "exec ${nixpkgs.swaylock}/bin/swaylock";
           # TODO: migrate to https://github.com/lgmys/savr soon?
