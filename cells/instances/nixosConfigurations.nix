@@ -20,10 +20,10 @@ in
       home-manager = {
         users.req = {
           imports = with homeSuites; req;
-          home.stateVersion = "23.05";
+          home.stateVersion = "23.11";
         };
       };
-      system.stateVersion = "23.05";
+      system.stateVersion = "23.11";
     };
 
     teeniebox = {
@@ -37,7 +37,7 @@ in
           home.stateVersion = "23.11";
         };
       };
-      system.stateVersion = "23.11";
+      system.stateVersion = "23.11"; 
     };
 
     buukobox = {
@@ -48,10 +48,10 @@ in
       home-manager = {
         users.req = {
           imports = with homeSuites; req;
-          home.stateVersion = "22.11";
+          home.stateVersion = "23.11";
         };
       };
-      system.stateVersion = "22.11";
+      system.stateVersion = "23.11";
     };
 
     nixvmbox = {
@@ -62,9 +62,9 @@ in
       home-manager = {
         users.req = {
           imports = with homeSuites; req;
-          home.stateVersion = "22.11";
+          home.stateVersion = "23.11";
         };
       };
-      system.stateVersion = "22.11";
+      system.stateVersion = "23.11";
     };
   }

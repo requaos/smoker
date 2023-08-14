@@ -73,6 +73,7 @@
   outputs = {
     self,
     hive,
+    fenix,
     ...
   } @ inputs: let
     # I don't need to worry about name collisions.
@@ -167,6 +168,10 @@
           "openssl-1.1.1v"
           "electron-21.4.0"
         ];
+        # These needed to be added afer I used 'appimageTools.wrapType2'
+        # to install SourceGraph's Cody App from an AppImage
+        #allowUnsupportedSystem = true;
+        #allowBroken = true;
       };
     } {
       lib = hive.pick self ["system" "lib"];
