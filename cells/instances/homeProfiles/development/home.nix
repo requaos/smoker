@@ -24,7 +24,7 @@
 
     # .Net
     jetbrains.rider
-    dotnet-sdk
+    dotnet-sdk_7
 
     # java
     #jetbrains.jdk
