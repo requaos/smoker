@@ -2,7 +2,7 @@
   systemPackages = with builtins.removeAttrs
     (
       inputs.fenix.packages.latest //
-      { inherit (inputs.fenix.packages) rust-analyzer; }
+      { inherit (inputs.fenix.packages) rust-analyzer targets; }
     )
     [ "withComponents" ]; [
       cargo
@@ -11,5 +11,6 @@
       rustc
       rustfmt
       rust-analyzer
+      targets.wasm32-unknown-unknown.latest.rust-std
     ];
 }
