@@ -13,12 +13,12 @@ in {
 
     extensions =
       (with extensions.open-vsx; [
+        jnoortheen.nix-ide
         antyos.openscad
         bierner.markdown-mermaid
         bpruitt-goddard.mermaid-markdown-syntax-highlighting
         christian-kohler.path-intellisense
         gruntfuggly.todo-tree
-        jnoortheen.nix-ide
         kamadorueda.alejandra
         mhutchie.git-graph
         mkhl.direnv
@@ -29,6 +29,7 @@ in {
         tamasfe.even-better-toml
         yzhang.markdown-all-in-one
         zhuangtongfa.material-theme
+        hashicorp.terraform
       ])
       ++ (with extensions.vscode-marketplace; [
         joaompinto.vscode-graphviz
@@ -42,7 +43,6 @@ in {
         vscjava.vscode-maven
         vscjava.vscode-java-test
         vscjava.vscode-java-dependency
-        hashicorp.terraform
       ])
       ++ [
         inputs.fenix.packages.rust-analyzer-vscode-extension
