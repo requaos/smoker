@@ -12,7 +12,8 @@ in {
     #userSettings = cell.lib.mkForce {};
 
     extensions =
-      (with extensions.open-vsx; [
+      /*
+        (with extensions.open-vsx; [
         jnoortheen.nix-ide
         antyos.openscad
         bierner.markdown-mermaid
@@ -31,7 +32,28 @@ in {
         zhuangtongfa.material-theme
         hashicorp.terraform
       ])
-      ++ (with extensions.vscode-marketplace; [
+      ++
+      */
+      (with extensions.vscode-marketplace; [
+        # put these back after open-vsx comes back online
+        jnoortheen.nix-ide
+        antyos.openscad
+        bierner.markdown-mermaid
+        bpruitt-goddard.mermaid-markdown-syntax-highlighting
+        christian-kohler.path-intellisense
+        gruntfuggly.todo-tree
+        kamadorueda.alejandra
+        mhutchie.git-graph
+        mkhl.direnv
+        moshfeu.compare-folders
+        pkief.material-icon-theme
+        serayuzgur.crates
+        sourcegraph.cody-ai
+        tamasfe.even-better-toml
+        yzhang.markdown-all-in-one
+        zhuangtongfa.material-theme
+        hashicorp.terraform
+
         joaompinto.vscode-graphviz
         jscearcy.rust-doc-viewer
         mitsuhiko.insta
