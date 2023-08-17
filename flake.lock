@@ -43,6 +43,27 @@
         "type": "github"
       }
     },
+    "awsvpnclient": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1687179098,
+        "narHash": "sha256-YNDC3NlIlGGPT0ZJOMu1ZGieB/WTn6sB9JYwcuUVdU0=",
+        "owner": "ymatsiuk",
+        "repo": "awsvpnclient",
+        "rev": "22c2b7e6ee3e1c0db3c756797166fcd86193572c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ymatsiuk",
+        "repo": "awsvpnclient",
+        "type": "github"
+      }
+    },
     "base16-schemes": {
       "flake": false,
       "locked": {
@@ -94,7 +115,7 @@
         "flake-compat": [
           "blank"
         ],
-        "flake-utils": "flake-utils",
+        "flake-utils": "flake-utils_2",
         "nixpkgs": "nixpkgs",
         "stable": "stable"
       },
@@ -222,6 +243,21 @@
     },
     "flake-utils": {
       "locked": {
+        "lastModified": 1667395993,
+        "narHash": "sha256-nuEHfE/LcWyuSWnS8t12N1wc105Qtau+/OdUAjtQ0rA=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "5aed5285a952e0b949eb3ba02c12fa4fcfef535f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_2": {
+      "locked": {
         "lastModified": 1659877975,
         "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
         "owner": "numtide",
@@ -235,7 +271,7 @@
         "type": "github"
       }
     },
-    "flake-utils_2": {
+    "flake-utils_3": {
       "inputs": {
         "systems": "systems_2"
       },
@@ -362,7 +398,7 @@
     "nix-vscode-extensions": {
       "inputs": {
         "flake-compat": "flake-compat_2",
-        "flake-utils": "flake-utils_2",
+        "flake-utils": "flake-utils_3",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -510,6 +546,7 @@
       "inputs": {
         "aagl-gtk-on-nix": "aagl-gtk-on-nix",
         "arion": "arion",
+        "awsvpnclient": "awsvpnclient",
         "base16-schemes": "base16-schemes",
         "blank": "blank",
         "colmena": "colmena",

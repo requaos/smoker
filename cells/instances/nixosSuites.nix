@@ -88,6 +88,8 @@ in
         #development-cody
         development-rust
 
+        corporate-vpn
+
         games
 
         users-req
