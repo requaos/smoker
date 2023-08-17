@@ -3,14 +3,19 @@
   cell,
 }: {
   packages = with inputs.nixpkgs; [
-    nerdfonts
-    hack-font
-    dejavu_fonts
-    roboto
+    (nerdfonts.override {
+      fonts = [
+        "Hack"
+        "Iosevka"
+        "RobotoMono"
+        "JetBrainsMono"
+        "DejaVuSansMono"
+      ];
+    })
   ];
 
   fontconfig.defaultFonts = {
-    monospace = ["DejaVu Sans Mono for Powerline"];
-    sansSerif = ["DejaVu Sans"];
+    monospace = ["DejaVuSansMono"];
+    sansSerif = ["Hack"];
   };
 }

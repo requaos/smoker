@@ -10,8 +10,7 @@ in {
   rofi = {
     enable = true;
     terminal = "${nixpkgs.alacritty}/bin/alacritty";
-    theme = {
-      "@import" = "${nixpkgs.rofi-unwrapped}/share/rofi/themes/DarkBlue.rasi";
-    };
+    # Gonna match i3wn iconic appeal
+    theme = ./theme.rasi;
   };
 }

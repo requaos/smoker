@@ -1,7 +1,9 @@
 {
   inputs,
   cell,
-}: {
+}: let
+  themeName = "circuit";
+in {
   initrd = {
     systemd = {
       enable = true;
@@ -12,9 +14,13 @@
   ];
   plymouth = {
     enable = true;
-    theme = "circuit";
+    theme = themeName;
     themePackages = [
-      inputs.nixpkgs.adi1090x-plymouth-themes
+      (inputs.nixpkgs.adi1090x-plymouth-themes.override {
+        selected_themes = [
+          themeName
+        ];
+      })
     ];
   };
 }
