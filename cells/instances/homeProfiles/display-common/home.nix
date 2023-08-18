@@ -4,7 +4,7 @@
 }: {
   pointerCursor = {
     package = inputs.nixpkgs.gnome.adwaita-icon-theme;
-    name = "Adwaita";
+    name = "Adwaita-Dark";
     gtk.enable = true;
     # size = if meta.scalingFactor <= 1.25 then 16 else 32;
   };

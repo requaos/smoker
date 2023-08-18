@@ -17,6 +17,9 @@
         greeters = {
           slick = {
             enable = true;
+            theme = {
+              name = "Adwaita-Dark";
+            };
           };
           gtk = {
             enable = false;
