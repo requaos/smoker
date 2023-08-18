@@ -22,6 +22,7 @@
     ripgrep
     skim
     whois
+    graphviz
 
     # debug info
     dmidecode
