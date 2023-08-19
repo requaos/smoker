@@ -172,6 +172,7 @@
         permittedInsecurePackages = [
           "openssl-1.1.1v"
           "electron-21.4.0"
+          "qtwebkit-5.212.0-alpha4"
         ];
         # These needed to be added afer I used 'appimageTools.wrapType2'
         # to install SourceGraph's Cody App from an AppImage
