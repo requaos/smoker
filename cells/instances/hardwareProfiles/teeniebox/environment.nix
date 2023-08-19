@@ -11,8 +11,10 @@
     gst_all_1.gstreamer
     gst_all_1.gst-plugins-good
 
+    ipu6ep-camera-hal
+    ipu6ep-camera-bin
     # broken until https://github.com/NixOS/nixpkgs/pull/244378 is merged in.
-    #gst_all_1.icamerasrc-ipu6ep
+    gst_all_1.icamerasrc-ipu6ep
 
     mesa
     vulkan-tools # use vkcube to test if vulkan is working properly

@@ -10,11 +10,10 @@
     ivsc-firmware
   ];
 
-  # broken until https://github.com/NixOS/nixpkgs/pull/244378 is merged in.
-  # ipu6 = {
-  # enable = true;
-  # platform = "ipu6ep";
-  # };
+  ipu6 = {
+    enable = true;
+    platform = "ipu6ep";
+  };
 
   opengl = {
     enable = true;
