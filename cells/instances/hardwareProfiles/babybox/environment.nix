@@ -17,5 +17,10 @@
     libvdpau-va-gl
     virglrenderer
     xdg-desktop-portal-wlr
+
+    # Low-power netbook needs youtube player setup
+    mpv
+    smtube
+    yt-dlp-light
   ];
 }
