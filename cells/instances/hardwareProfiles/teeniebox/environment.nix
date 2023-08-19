@@ -26,9 +26,5 @@
     libvdpau-va-gl
     virglrenderer
     xdg-desktop-portal-wlr
-
-    # fprintd-tod == fprintd /w (T)ouch (O)EM (D)rivers
-    fprintd-tod
-    libfprint-tod
   ];
 }
