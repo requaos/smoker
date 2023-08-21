@@ -19,7 +19,7 @@ in
 
       home-manager = {
         users.req = {
-          imports = with homeSuites; req;
+          imports = with homeSuites; thin;
           home.stateVersion = "23.11";
         };
       };
@@ -33,11 +33,11 @@ in
 
       home-manager = {
         users.req = {
-          imports = with homeSuites; req;
+          imports = with homeSuites; thick;
           home.stateVersion = "23.11";
         };
       };
-      system.stateVersion = "23.11"; 
+      system.stateVersion = "23.11";
     };
 
     buukobox = {
@@ -47,7 +47,7 @@ in
 
       home-manager = {
         users.req = {
-          imports = with homeSuites; req;
+          imports = with homeSuites; thick;
           home.stateVersion = "23.11";
         };
       };
@@ -61,7 +61,7 @@ in
 
       home-manager = {
         users.req = {
-          imports = with homeSuites; req;
+          imports = with homeSuites; thin;
           home.stateVersion = "23.11";
         };
       };

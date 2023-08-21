@@ -34,40 +34,24 @@ in {
       ])
       ++
       */
-      (with extensions.vscode-marketplace; [
+      with extensions.vscode-marketplace; [
         # put these back after open-vsx comes back online
         jnoortheen.nix-ide
-        antyos.openscad
         bierner.markdown-mermaid
         bpruitt-goddard.mermaid-markdown-syntax-highlighting
         christian-kohler.path-intellisense
-        gruntfuggly.todo-tree
         kamadorueda.alejandra
         mhutchie.git-graph
         mkhl.direnv
         moshfeu.compare-folders
         pkief.material-icon-theme
-        serayuzgur.crates
-        sourcegraph.cody-ai
         tamasfe.even-better-toml
         yzhang.markdown-all-in-one
         zhuangtongfa.material-theme
         hashicorp.terraform
 
         joaompinto.vscode-graphviz
-        jscearcy.rust-doc-viewer
-        mitsuhiko.insta
-        ms-vsliveshare.vsliveshare
         thenuprojectcontributors.vscode-nushell-lang
-        vscjava.vscode-java-pack
-        redhat.java
-        vscjava.vscode-java-debug
-        vscjava.vscode-maven
-        vscjava.vscode-java-test
-        vscjava.vscode-java-dependency
-      ])
-      ++ [
-        inputs.fenix.packages.rust-analyzer-vscode-extension
       ];
   };
   starship = {

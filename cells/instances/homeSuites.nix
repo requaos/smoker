@@ -26,11 +26,17 @@ in rec {
     ]
     ++ base;
 
-  req = with homeProfiles;
+  thin = with homeProfiles;
     [
       development
     ]
     ++ gui;
+
+  thick = with homeProfiles;
+    [
+      development-heavy-extensions
+    ]
+    ++ thin;
 
   nixos = base;
 }
