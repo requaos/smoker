@@ -10,5 +10,7 @@ in {
     htop
     nethogs
     baobab
+
+    betterlockscreen
   ];
 }
