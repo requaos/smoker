@@ -1,5 +1,7 @@
-{ inputs, cell, }:
-let
+{
+  inputs,
+  cell,
+}: let
   inherit (inputs) nixpkgs;
   name = "cody";
   fakeDir = "/tmp/.mount_${name}";
@@ -9,36 +11,48 @@ let
     hash = "sha256-PLytWmf5EtsEL4nJbezoR3G19HHJF4HHj8Da1VYAUvY=";
   };
   # Raw AppImage extracted contents:
-  #appimageContents = inputs.nixpkgs.appimageTools.extract { 
+  #appimageContents = inputs.nixpkgs.appimageTools.extract {
   #  inherit name;
   #  src = "${appimageSource}/cody_2023.7.11+1384.7d20a90ce7_amd64.AppImage";
   #};
   cody-app = inputs.nixpkgs.appimageTools.wrapType2 {
     inherit name;
     src = "${appimageSource}/cody_2023.7.11+1384.7d20a90ce7_amd64.AppImage";
-    extraPkgs = pkgs: with inputs.nixpkgs; [
-      libthai
-    ];
+    extraPkgs = pkgs:
+      with inputs.nixpkgs; [
+        libthai
+      ];
     meta = with inputs.nixpkgs.lib; {
       description = "Cody AI App from SourceGraph";
       homepage = "https://github.com/sourcegraph/app";
       license = licenses.asl20;
-      maintainers = with maintainers; [ extends ];
-      platforms = [ "x86_64-linux" ];
+      maintainers = with maintainers; [extends];
+      platforms = ["x86_64-linux"];
     };
   };
   cody = inputs.nixpkgs.writeShellScriptBin "cody" ''
     mkdir -p ${fakeDir}
-    ${inputs.nixpkgs.bindfs}/bin/bindfs ${cody-app} ${fakeDir}
-    ${fakeDir}/bin/cody
+    sudo mount -o bind ${cody-app} ${fakeDir}
+    xhost si:localuser:root
+    APPDIR= APPIMAGE= ${fakeDir}/bin/cody $@
+    xhost -si:localuser:root
     sleep 0.3
-    umount ${fakeDir}
-    rmdir ${fakeDir}
+    sudo umount ${fakeDir}
+    sleep 0.3
+    sudo rmdir ${fakeDir}
   '';
-in
-{
-  programs.fuse.userAllowOther = true;
-  environment.systemPackages = with nixpkgs; [
+in {
+  #programs.fuse.userAllowOther = true;
+  environment.systemPackages = [
+    inputs.nixpkgs.xorg.xhost
     cody
   ];
+  security.wrappers = {
+    cody = {
+      setuid = true;
+      owner = "root";
+      group = "root";
+      source = "${cody}/bin/cody";
+    };
+  };
 }

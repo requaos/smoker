@@ -28,6 +28,8 @@ in
     babybox =
       linuxapps
       ++ [
+        pretty-boot
+
         display-xserver
         display-signal
         display-sway
@@ -45,6 +47,8 @@ in
     teeniebox =
       linuxapps
       ++ [
+        pretty-boot
+
         display-xserver
         display-signal
         display-sway
@@ -65,6 +69,8 @@ in
     buukobox =
       linuxapps
       ++ [
+        pretty-boot
+
         display-xserver
         display-signal
         display-sway
@@ -85,7 +91,7 @@ in
         communication-zoom
 
         development-java
-        #development-cody
+        development-cody
         development-rust
 
         corporate-vpn

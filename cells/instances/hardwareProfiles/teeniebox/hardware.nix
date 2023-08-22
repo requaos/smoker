@@ -7,7 +7,7 @@
 
   # Intel Webcam
   firmware = with inputs.nixpkgs; [
-    ivsc-firmware
+    #ivsc-firmware
   ];
 
   ipu6 = {
