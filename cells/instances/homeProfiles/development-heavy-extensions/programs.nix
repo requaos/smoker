@@ -37,6 +37,7 @@ in {
         serayuzgur.crates
         sourcegraph.cody-ai
 
+        humao.rest-client
         jscearcy.rust-doc-viewer
         mitsuhiko.insta
         ms-vsliveshare.vsliveshare
