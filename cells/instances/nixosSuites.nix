@@ -92,7 +92,7 @@ in
 
         development-java
         development-cody
-        development-rust
+        #development-rust
 
         corporate-vpn
 
