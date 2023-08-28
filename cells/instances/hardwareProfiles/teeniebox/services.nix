@@ -20,10 +20,4 @@
   fstrim = {
     enable = true;
   };
-  fprintd = {
-    tod = {
-      enable = true;
-      driver = inputs.nixpkgs.libfprint-2-tod1-goodix;
-    };
-  };
 }

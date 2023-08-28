@@ -29,6 +29,7 @@
 
     # maybe linux/bash specific. YOLO
     mcfly
+    brightnessctl
 
     # CORE UTILS
     vim

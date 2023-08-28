@@ -121,6 +121,16 @@ in {
         # "${mod}+Control+Shift+Down" = "move down";
         "${mod}+Control+Shift+Left" = "move workspace to output left";
         "${mod}+Control+Shift+Right" = "move workspace to output right";
+
+        # Laptop Mediakeys:
+        # Pulse Audio controls
+        "XF86AudioRaiseVolume" = ''exec pamixer --increase 5''; #increase sound volume
+        "XF86AudioLowerVolume" = ''exec pamixer --decrease 5''; #decrease sound volume
+        "XF86AudioMute" = "exec ${nixpkgs.bash}/bin/bash -c '[[ `pamixer --get-mute` = \"false\" ]] && pamixer --mute || pamixer --unmute'"; # mute sound
+        "XF86AudioMicMute" = "exec ${nixpkgs.bash}/bin/bash -c '[[ `pamixer --default-source --get-mute` = \"false\" ]] && pamixer --default-source --mute || pamixer --default-source --unmute'"; # mute mic
+        # Sreen brightness controls
+        "XF86MonBrightnessUp" = ''exec brightnessctl s +10%''; # increase screen brightness
+        "XF86MonBrightnessDown" = ''exec brightnessctl s 10%-''; # decrease screen brightness
       };
     };
   };

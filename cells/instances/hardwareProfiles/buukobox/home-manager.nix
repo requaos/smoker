@@ -150,6 +150,7 @@ in {
                   block = "sound";
                   name = "alsa_output.pci-0000_01_00.1.hdmi-stereo";
                   format = " $icon $output_name {$volume|MUTED} ";
+                  missing_format = "";
                   click = [
                     {
                       button = "left";
@@ -169,6 +170,7 @@ in {
                   block = "sound";
                   name = "alsa_output.usb-DisplayLink_USB3.0_5K_Graphic_Docking_4310338626955-02.analog-stereo";
                   format = " $icon $output_name {$volume|MUTED} ";
+                  missing_format = "";
                   click = [
                     {
                       button = "left";
