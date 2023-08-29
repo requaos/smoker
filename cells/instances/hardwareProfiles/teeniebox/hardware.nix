@@ -10,10 +10,10 @@
   #  ivsc-firmware
   #];
 
-  ipu6 = {
-    enable = true;
-    platform = "ipu6ep";
-  };
+  #ipu6 = {
+  #  enable = true;
+  #  platform = "ipu6ep";
+  #};
 
   opengl = {
     enable = true;
