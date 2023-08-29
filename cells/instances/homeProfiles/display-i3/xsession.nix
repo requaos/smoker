@@ -129,8 +129,8 @@ in {
         "XF86AudioMute" = "exec ${nixpkgs.bash}/bin/bash -c '[[ `pamixer --get-mute` = \"false\" ]] && pamixer --mute || pamixer --unmute'"; # mute sound
         "XF86AudioMicMute" = "exec ${nixpkgs.bash}/bin/bash -c '[[ `pamixer --default-source --get-mute` = \"false\" ]] && pamixer --default-source --mute || pamixer --default-source --unmute'"; # mute mic
         # Sreen brightness controls
-        "XF86MonBrightnessUp" = ''exec brightnessctl s +10%''; # increase screen brightness
-        "XF86MonBrightnessDown" = ''exec brightnessctl s 10%-''; # decrease screen brightness
+        "XF86MonBrightnessUp" = ''exec brightnessctl s +5%''; # increase screen brightness
+        "XF86MonBrightnessDown" = ''exec brightnessctl s 5%-''; # decrease screen brightness
       };
     };
   };
