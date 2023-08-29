@@ -13,8 +13,8 @@
     gst_all_1.gst-plugins-good
     gst_all_1.gst-plugins-ugly
 
-    ipu6ep-camera-hal
-    ipu6ep-camera-bin
+    #ipu6ep-camera-hal
+    #ipu6ep-camera-bin
     # broken until https://github.com/NixOS/nixpkgs/pull/244378 is merged in.
     gst_all_1.icamerasrc-ipu6ep
 
