@@ -23,6 +23,7 @@
     skim
     whois
     graphviz
+    unzip
 
     # debug info
     dmidecode
