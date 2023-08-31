@@ -76,6 +76,17 @@ in {
                   ];
                 }
                 {
+                  block = "nvidia_gpu";
+                  format = " $icon $utilization $memory ";
+                  interval = 5;
+                  click = [
+                    {
+                      button = "left";
+                      cmd = "nvidia-settings";
+                    }
+                  ];
+                }
+                {
                   block = "net";
                   device = "wlp0s20f3";
                   icons_format = "{icon}";
@@ -134,16 +145,15 @@ in {
                   click = [
                     {
                       button = "left";
-                      cmd = ''qpwgraph'';
+                      cmd = ''helvum'';
                     }
                   ];
                   step_width = 5;
                   max_vol = 120;
                   headphones_indicator = true;
+                  mappings_use_regex = false;
                   mappings = {
                     "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink" = "💻";
-                    "alsa_output.pci-0000_01_00.1.hdmi-stereo" = "📺";
-                    "alsa_output.usb-DisplayLink_USB3.0_5K_Graphic_Docking_4310338626955-02.analog-stereo" = "🖥️";
                   };
                 }
                 {
@@ -154,16 +164,15 @@ in {
                   click = [
                     {
                       button = "left";
-                      cmd = ''qpwgraph'';
+                      cmd = ''helvum'';
                     }
                   ];
                   step_width = 5;
                   max_vol = 120;
                   headphones_indicator = true;
+                  mappings_use_regex = false;
                   mappings = {
-                    "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink" = "💻";
                     "alsa_output.pci-0000_01_00.1.hdmi-stereo" = "📺";
-                    "alsa_output.usb-DisplayLink_USB3.0_5K_Graphic_Docking_4310338626955-02.analog-stereo" = "🖥️";
                   };
                 }
                 {
@@ -174,15 +183,14 @@ in {
                   click = [
                     {
                       button = "left";
-                      cmd = ''qpwgraph'';
+                      cmd = ''helvum'';
                     }
                   ];
                   step_width = 5;
                   max_vol = 120;
                   headphones_indicator = true;
+                  mappings_use_regex = false;
                   mappings = {
-                    "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink" = "💻";
-                    "alsa_output.pci-0000_01_00.1.hdmi-stereo" = "📺";
                     "alsa_output.usb-DisplayLink_USB3.0_5K_Graphic_Docking_4310338626955-02.analog-stereo" = "🖥️";
                   };
                 }
@@ -193,7 +201,7 @@ in {
                   click = [
                     {
                       button = "left";
-                      cmd = ''qpwgraph'';
+                      cmd = ''helvum'';
                     }
                   ];
                   step_width = 5;
