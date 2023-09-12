@@ -14,7 +14,9 @@
   blacklistedKernelModules = ["psmouse"];
 
   # virtualization module
-  kernelModules = ["kvm-intel"];
+  kernelModules = [
+    "kvm-intel"
+  ];
 
   # graphics fix from dell for 'iris' opengl support
   kernelParams = [
