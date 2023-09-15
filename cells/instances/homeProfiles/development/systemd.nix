@@ -1,6 +1,6 @@
-{
-  inputs,
-  cell,
+{ inputs
+, cell
+,
 }: {
   user = {
     services = {
@@ -10,7 +10,7 @@
         };
         Service = {
           Type = "oneshot";
-          ExecStart = "${inputs.nixpkgs.aws-rotate-key}/bin/aws-rotate-key -y -d";
+          ExecStart = "${inputs.nixpkgs.aws-rotate-key}/bin/aws-rotate-key -y -d --profiles default,prod";
           Restart = "on-failure";
           RestartSec = "5m";
         };
@@ -27,7 +27,7 @@
           Persistent = true;
         };
         Install = {
-          WantedBy = ["timers.target"];
+          WantedBy = [ "timers.target" ];
         };
       };
     };

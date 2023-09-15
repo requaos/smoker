@@ -1,6 +1,6 @@
-{
-  inputs,
-  cell,
+{ inputs
+, cell
+,
 }: {
   xserver = {
     # host-based hardwareProfile is the appropriate place to set drivers.
@@ -9,10 +9,10 @@
       "displaylink"
       "modesetting"
     ];
-    dpi = 192;
+    dpi = 144;
     displayManager.sessionCommands = ''
       ${inputs.nixpkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
-      Xft.dpi: 192
+      Xft.dpi: 144
       EOF
     '';
   };
