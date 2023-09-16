@@ -8,7 +8,7 @@ in
     default = {...}: {
       name = "Hive";
       commands = let
-        inherit (inputs) nixos-generators colmena;
+        inherit (inputs) nixos-generators colmena nixpkgs;
         hexagon = attrset: attrset // {category = "hexagon";};
       in [
         (hexagon {package = colmena.packages.colmena;})
@@ -50,6 +50,12 @@ in
           name = "update";
           help = "Update inputs";
           command = "nix flake update $PRJ_ROOT $@";
+        }
+        {
+          category = "nix";
+          name = "whatif";
+          help = "Compare current-system to flake";
+          command = "nixos-rebuild build --flake $PRJ_ROOT $@ && ${inputs.nixpkgs.nvd}/bin/nvd diff /run/current-system result && unlink result";
         }
         {
           category = "nix";

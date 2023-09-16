@@ -170,7 +170,7 @@
             "notion-app-enhanced-v2.0.18"
           ];
         permittedInsecurePackages = [
-          "openssl-1.1.1v"
+          "openssl-1.1.1w"
           "electron-21.4.0"
           "qtwebkit-5.212.0-alpha4"
         ];

@@ -4,6 +4,9 @@
 }: {
   # Selection of sysadmin tools that can come in handy
   systemPackages = with inputs.nixpkgs; [
+    # niff tool, rust port of nvd should be used instead, but...
+    nvd
+
     # TODO: must come from unstable channel
     # alejandra
     binutils

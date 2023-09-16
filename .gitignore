@@ -4,3 +4,6 @@
 /lefthook.yml
 /treefmt.toml
 .direnv
+
+# temp derivition dir for nvd compares
+result
