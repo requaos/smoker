@@ -9,6 +9,7 @@
     blank.url = "github:divnix/blank";
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -75,118 +76,122 @@
     };
   };
 
-  outputs = {
-    self,
-    hive,
-    fenix,
-    ...
-  } @ inputs: let
-    # I don't need to worry about name collisions.
-    # If you think you might, don't do this.
-    collect = hive.collect // {renamer = cell: target: "${target}";};
-    lib = inputs.nixpkgs.lib // builtins;
-  in
-    hive.growOn {
-      inherit inputs;
+  outputs =
+    { self
+    , hive
+    , fenix
+    , ...
+    } @ inputs:
+    let
+      # I don't need to worry about name collisions.
+      # If you think you might, don't do this.
+      collect = hive.collect // { renamer = cell: target: "${target}"; };
+      lib = inputs.nixpkgs.lib // builtins;
+    in
+    hive.growOn
+      {
+        inherit inputs;
 
-      cellsFrom = ./cells;
-      cellBlocks = with hive.blockTypes; [
-        # library
-        {
-          name = "lib";
-          type = "functions";
-        }
+        cellsFrom = ./cells;
+        cellBlocks = with hive.blockTypes; [
+          # library
+          {
+            name = "lib";
+            type = "functions";
+          }
 
-        # profiles
-        {
-          name = "hardwareProfiles";
-          type = "functions";
-        }
-        {
-          name = "nixosProfiles";
-          type = "functions";
-        }
-        {
-          name = "homeProfiles";
-          type = "functions";
-        }
+          # profiles
+          {
+            name = "hardwareProfiles";
+            type = "functions";
+          }
+          {
+            name = "nixosProfiles";
+            type = "functions";
+          }
+          {
+            name = "homeProfiles";
+            type = "functions";
+          }
 
-        # suites
-        {
-          name = "nixosSuites";
-          type = "functions";
-        }
-        {
-          name = "homeSuites";
-          type = "functions";
-        }
+          # suites
+          {
+            name = "nixosSuites";
+            type = "functions";
+          }
+          {
+            name = "homeSuites";
+            type = "functions";
+          }
 
-        # configurations
-        nixosConfigurations
-        colmenaConfigurations
+          # configurations
+          nixosConfigurations
+          colmenaConfigurations
 
-        # pkgs
-        {
-          name = "pkgs";
-          type = "pkgs";
-        }
+          # pkgs
+          {
+            name = "pkgs";
+            type = "pkgs";
+          }
 
-        # devshells
-        {
-          name = "devshells";
-          type = "devshells";
-        }
-      ];
-
-      # To keep proprietary software to a minimum:
-      # allowUnfreePredicate
-      # Forces us to keep track of proprietary software.
-      nixpkgsConfig = {
-        allowUnfreePredicate = pkg:
-          lib.elem (lib.getName pkg) [
-            "zoom"
-            "clion"
-            "rider"
-            "slack"
-            "steam"
-            "vscode"
-            "discord"
-            "obsidian"
-            "1password"
-            "libsciter"
-            "steam-run"
-            "nvidia-x11"
-            "cudatoolkit"
-            "cuda_cudart"
-            "displaylink"
-            "ivsc-firmware"
-            "google-chrome"
-            "steam-original"
-            "nvidia-settings"
-            "ipu6ep-camera-bin"
-            "ivsc-firmware-unstable"
-            "libfprint-2-tod1-goodix"
-            "ipu6ep-camera-bin-unstable"
-            "notion-app-enhanced-v2.0.18"
-          ];
-        permittedInsecurePackages = [
-          "openssl-1.1.1w"
-          "electron-21.4.0"
-          "qtwebkit-5.212.0-alpha4"
+          # devshells
+          {
+            name = "devshells";
+            type = "devshells";
+          }
         ];
-        # These needed to be added afer I used 'appimageTools.wrapType2'
-        # to install SourceGraph's Cody App from an AppImage
-        #allowUnsupportedSystem = true;
-        #allowBroken = true;
+
+        # To keep proprietary software to a minimum:
+        # allowUnfreePredicate
+        # Forces us to keep track of proprietary software.
+        nixpkgsConfig = {
+          allowUnfreePredicate = pkg:
+            lib.elem (lib.getName pkg) [
+              "zoom"
+              "clion"
+              "rider"
+              "slack"
+              "steam"
+              "vscode"
+              "discord"
+              "obsidian"
+              "1password"
+              "libsciter"
+              "steam-run"
+              "nvidia-x11"
+              "cudatoolkit"
+              "cuda_cudart"
+              "displaylink"
+              "ivsc-firmware"
+              "google-chrome"
+              "steam-original"
+              "nvidia-settings"
+              "ipu6ep-camera-bin"
+              "ivsc-firmware-unstable"
+              "libfprint-2-tod1-goodix"
+              "ipu6ep-camera-bin-unstable"
+              "notion-app-enhanced-v2.0.18"
+            ];
+          permittedInsecurePackages = [
+            "openssl-1.1.1w"
+            "electron-21.4.0"
+            "qtwebkit-5.212.0-alpha4"
+          ];
+          # These needed to be added afer I used 'appimageTools.wrapType2'
+          # to install SourceGraph's Cody App from an AppImage
+          #allowUnsupportedSystem = true;
+          #allowBroken = true;
+        };
+      }
+      {
+        lib = hive.pick self [ "system" "lib" ];
+        devShells = hive.harvest self [ "system" "devshells" ];
+      }
+      {
+        nixosConfigurations = collect self "nixosConfigurations";
+        colmenaHive = collect self "colmenaConfigurations";
+        # TODO: implement
+        # nixosModules = collect self "nixosModules";
+        # hmModules = collect self "homeModules";
       };
-    } {
-      lib = hive.pick self ["system" "lib"];
-      devShells = hive.harvest self ["system" "devshells"];
-    } {
-      nixosConfigurations = collect self "nixosConfigurations";
-      colmenaHive = collect self "colmenaConfigurations";
-      # TODO: implement
-      # nixosModules = collect self "nixosModules";
-      # hmModules = collect self "homeModules";
-    };
 }

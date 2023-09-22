@@ -1,6 +1,6 @@
-{
-  inputs,
-  cell,
+{ inputs
+, cell
+,
 }: {
   # Selection of sysadmin tools that can come in handy
   systemPackages = with inputs.nixpkgs; [
@@ -66,5 +66,9 @@
     # fix nixos-option for flake compat
     #nixos-option = "nixos-option -I nixpkgs=${self}/lib/compat";
     userctl = "systemctl --user";
+  };
+  variables = {
+    EDITOR = "${inputs.nixpkgs.vim}/bin/vim";
+    VISUAL = "${inputs.nixpkgs.vim}/bin/vim";
   };
 }
