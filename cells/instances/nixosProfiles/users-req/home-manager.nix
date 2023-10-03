@@ -1,14 +1,13 @@
-{...}: let
-  username = "req";
-  emailuser = "reqpro";
-  domain = "requaos.com";
-  fullname = "Neil Skinner";
-in {
+{ ... }:
+let
+  inherit (cell.configProfiles) username fullname email;
+in
+{
   users.${username} = {
     programs = {
       git = {
         userName = fullname;
-        userEmail = "${emailuser}@${domain}";
+        userEmail = email;
       };
     };
   };

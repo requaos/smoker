@@ -1,6 +1,6 @@
 { ... }:
 let
-  username = "req";
+  inherit (cell.configProfiles) username;
 in
 {
   signald = {

@@ -92,6 +92,10 @@
 
         cellsFrom = ./cells;
         cellBlocks = with hive.blockTypes; [
+          {
+            name = "configProfiles";
+            type = "functions";
+          }
           # library
           {
             name = "lib";
