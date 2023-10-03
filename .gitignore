@@ -7,3 +7,6 @@
 
 # temp derivition dir for nvd compares
 result
+
+# linked local archives, like the non-free displaylink firmware package
+*.zip
