@@ -1,6 +1,6 @@
-{
-  inputs,
-  cell,
+{ inputs
+, cell
+,
 }:
 with cell.lib.lists; let
   inherit (inputs) nixpkgs;
@@ -8,10 +8,11 @@ with cell.lib.lists; let
 
   mod = "Mod1";
   fonts = {
-    names = ["Hack Nerd Font"];
+    names = [ "Hack Nerd Font" ];
     size = 12.0;
   };
-in {
+in
+{
   enable = true;
   windowManager.i3 = {
     enable = true;
@@ -26,6 +27,7 @@ in {
       # pressing the current workspace keybind will return to previous workspace
       # workspaceAutoBackAndForth = true;
       workspaceLayout = "tabbed";
+      defaultWorkspace = "1";
 
       startup = [
         # { command = "systemctl --user restart polybar"; always = true; notification = false; }
@@ -42,7 +44,7 @@ in {
       bars = [
         {
           statusCommand = "i3status-rs ~/.config/i3status-rust/config-default.toml";
-          fonts = fonts // {size = 10.0;};
+          fonts = fonts // { size = 10.0; };
           position = "bottom";
           # height = "16";
           # status_padding = 0;
@@ -132,6 +134,7 @@ in {
         "XF86MonBrightnessUp" = ''exec brightnessctl s +5%''; # increase screen brightness
         "XF86MonBrightnessDown" = ''exec brightnessctl s 5%-''; # decrease screen brightness
       };
+
     };
   };
 }

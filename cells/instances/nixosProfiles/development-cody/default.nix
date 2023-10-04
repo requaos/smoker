@@ -1,20 +1,21 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs
+, cell
+,
+}:
+let
   inherit (inputs) nixpkgs;
   cody-deb = inputs.nixpkgs.stdenv.mkDerivation {
     name = "cody-deb";
     builder = ./builder.sh;
     dpkg = inputs.nixpkgs.dpkg;
     src = inputs.nixpkgs.fetchurl {
-      url = "https://github.com/sourcegraph/sourcegraph/releases/download/app-v2023.7.11%2B1384.7d20a90ce7/cody_2023.7.11+1384.7d20a90ce7_amd64.deb";
-      hash = "sha256-qrqE0/dDe5mI8sYPlESOu/we7Kk7UKoQtSQ0vToPYyk=";
+      url = "https://github.com/sourcegraph/sourcegraph/releases/download/app-v2023.9.22%2B1398.91e4161d32/cody_2023.9.22+1398.91e4161d32_amd64.deb";
+      hash = "sha256-nSr8hXOfeZDaiYPXsCaGVW9FJvKtIfSxZF1PXQA06pY=";
     };
   };
   cody = inputs.nixpkgs.buildFHSUserEnv {
     name = "cody";
-    targetPkgs = pkgs: [cody-deb];
+    targetPkgs = pkgs: [ cody-deb ];
     multiPkgs = pkgs:
       with inputs.nixpkgs; [
         cairo
@@ -33,7 +34,8 @@
     '';
     runScript = "cody";
   };
-in {
+in
+{
   environment.systemPackages = [
     cody
   ];
