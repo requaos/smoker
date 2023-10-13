@@ -1,9 +1,12 @@
-{
-  inputs,
-  cell,
+{ inputs
+, cell
+,
 }: {
   pipewire = {
     enable = true;
+    audio.enable = true;
+
+    # sound sub-systems:
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;

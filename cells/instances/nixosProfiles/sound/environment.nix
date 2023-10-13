@@ -6,7 +6,7 @@
     pipewire
     pw-viz
     easyeffects
-    pw-volume
+    wireplumber
 
     # utilities to support pulseaudio stuff under pipewire
     pulseaudio
