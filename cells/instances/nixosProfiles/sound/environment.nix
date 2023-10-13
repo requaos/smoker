@@ -1,11 +1,12 @@
-{
-  inputs,
-  cell,
+{ inputs
+, cell
+,
 }: {
   systemPackages = with inputs.nixpkgs; [
     pipewire
-    helvum
+    pw-viz
     easyeffects
+    pw-volume
 
     # utilities to support pulseaudio stuff under pipewire
     pulseaudio

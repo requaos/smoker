@@ -20,7 +20,7 @@
     devshell.url = "github:numtide/devshell";
 
     hive = {
-      url = "github:divnix/hive";
+      url = "github:whs-dot-hk/hive/remove-nixpkgs-config";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         colmena.follows = "colmena";
@@ -160,6 +160,7 @@
               "1password"
               "libsciter"
               "steam-run"
+              "terraform"
               "nvidia-x11"
               "cudatoolkit"
               "cuda_cudart"
@@ -172,7 +173,7 @@
               "ivsc-firmware-unstable"
               "libfprint-2-tod1-goodix"
               "ipu6ep-camera-bin-unstable"
-              "notion-app-enhanced-v2.0.18"
+              "notion-app-enhanced-v2.0.18-1"
             ];
           permittedInsecurePackages = [
             "openssl-1.1.1w"
@@ -180,10 +181,6 @@
             "electron-12.2.3"
             "qtwebkit-5.212.0-alpha4"
           ];
-          # These needed to be added afer I used 'appimageTools.wrapType2'
-          # to install SourceGraph's Cody App from an AppImage
-          #allowUnsupportedSystem = true;
-          #allowBroken = true;
         };
       }
       {

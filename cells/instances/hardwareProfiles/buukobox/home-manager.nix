@@ -1,6 +1,6 @@
-{
-  inputs,
-  cell,
+{ inputs
+, cell
+,
 }:
 with cell.lib.lists; let
   inherit (inputs) nixpkgs base16-schemes;
@@ -8,7 +8,7 @@ with cell.lib.lists; let
 
   home-manager = inputs.home-manager.nixosModules.home-manager;
 
-  fromYaml = import "${inputs.from-yaml}/fromYaml.nix" {lib = nixpkgs.lib;};
+  fromYaml = import "${inputs.from-yaml}/fromYaml.nix" { lib = nixpkgs.lib; };
 
   colors = fromYaml (builtins.readFile "${base16-schemes}/onedark.yaml");
 
@@ -24,7 +24,8 @@ with cell.lib.lists; let
   openWithFileManager = path: ''dbus-send --session --dest=org.freedesktop.FileManager1 --type=method_call /org/freedesktop/FileManager1 org.freedesktop.FileManager1.ShowFolders array:string:"file://${path}" string:""'';
   openWithStorageViewer = path: ''baobab ${path}'';
   nethogsPath = "/run/wrappers/bin/nethogs";
-in {
+in
+{
   useUserPackages = true;
   useGlobalPkgs = true;
   sharedModules = [
@@ -107,25 +108,25 @@ in {
                 forEach [
                   "/"
                 ]
-                (path: {
-                  inherit path;
-                  block = "disk_space";
-                  format = " $icon $percentage ";
-                  info_type = "used";
-                  alert = 90;
-                  warning = 75;
-                  interval = 60;
-                  click = [
-                    {
-                      button = "left";
-                      cmd = openWithFileManager "${path}";
-                    }
-                    {
-                      button = "right";
-                      cmd = openWithStorageViewer "${path}";
-                    }
-                  ];
-                })
+                  (path: {
+                    inherit path;
+                    block = "disk_space";
+                    format = " $icon $percentage ";
+                    info_type = "used";
+                    alert = 90;
+                    warning = 75;
+                    interval = 60;
+                    click = [
+                      {
+                        button = "left";
+                        cmd = openWithFileManager "${path}";
+                      }
+                      {
+                        button = "right";
+                        cmd = openWithStorageViewer "${path}";
+                      }
+                    ];
+                  })
               )
               ++ [
                 # https://github.com/greshake/i3status-rust/blob/v0.22.0/doc/blocks.md#music
@@ -145,7 +146,7 @@ in {
                   click = [
                     {
                       button = "left";
-                      cmd = ''helvum'';
+                      cmd = ''pw-viz'';
                     }
                   ];
                   step_width = 5;
@@ -164,7 +165,7 @@ in {
                   click = [
                     {
                       button = "left";
-                      cmd = ''helvum'';
+                      cmd = ''pw-viz'';
                     }
                   ];
                   step_width = 5;
@@ -183,7 +184,7 @@ in {
                   click = [
                     {
                       button = "left";
-                      cmd = ''helvum'';
+                      cmd = ''pw-viz'';
                     }
                   ];
                   step_width = 5;
@@ -201,7 +202,7 @@ in {
                   click = [
                     {
                       button = "left";
-                      cmd = ''helvum'';
+                      cmd = ''pw-viz'';
                     }
                   ];
                   step_width = 5;
