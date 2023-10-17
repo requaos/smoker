@@ -20,7 +20,7 @@
     devshell.url = "github:numtide/devshell";
 
     hive = {
-      url = "github:whs-dot-hk/hive/remove-nixpkgs-config";
+      url = "github:divnix/hive";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         colmena.follows = "colmena";
