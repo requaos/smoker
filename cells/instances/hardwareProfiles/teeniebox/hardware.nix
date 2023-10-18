@@ -3,17 +3,6 @@
   cell,
 }: {
   cpu.intel.updateMicrocode = true;
-  enableRedistributableFirmware = true;
-
-  # Intel Webcam
-  firmware = with inputs.nixpkgs; [
-    ivsc-firmware
-  ];
-
-  #ipu6 = {
-  #  enable = true;
-  #  platform = "ipu6ep";
-  #};
 
   opengl = {
     enable = true;

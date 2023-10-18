@@ -47,9 +47,10 @@ with nixosProfiles; rec {
       users-req
     ];
 
-  teeniebox =
+  teeniebox = 
     linuxapps
     ++ [
+      xps9320pro
       pretty-boot
 
       display-xserver

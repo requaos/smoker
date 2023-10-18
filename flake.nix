@@ -147,34 +147,7 @@
         # allowUnfreePredicate
         # Forces us to keep track of proprietary software.
         nixpkgsConfig = {
-          allowUnfreePredicate = pkg:
-            lib.elem (lib.getName pkg) [
-              "zoom"
-              "clion"
-              "rider"
-              "slack"
-              "steam"
-              "vscode"
-              "discord"
-              "obsidian"
-              "1password"
-              "libsciter"
-              "steam-run"
-              "terraform"
-              "nvidia-x11"
-              "cudatoolkit"
-              "cuda_cudart"
-              "displaylink"
-              "ivsc-firmware"
-              "google-chrome"
-              "steam-original"
-              "nvidia-settings"
-              "ipu6ep-camera-bin"
-              "ivsc-firmware-unstable"
-              "libfprint-2-tod1-goodix"
-              "ipu6ep-camera-bin-unstable"
-              "notion-app-enhanced-v2.0.18-1"
-            ];
+          allowUnfree =true;
           permittedInsecurePackages = [
             "openssl-1.1.1w"
             "electron-21.4.0"
