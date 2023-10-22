@@ -11,6 +11,32 @@
   etc = let
     json = inputs.nixpkgs.formats.json {};
   in {
+    "pipewire/pipewire.conf.d/10-defaults.conf".source = json.generate "10-defaults.conf" {
+      context = {
+        objects = [
+          {
+            factory = "metadata";
+            args = {
+              metadata.name = "default";
+              metadata.values = [
+                {
+                  key = "default.audio.sink";
+                  value = {
+                    name = "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink";
+                  };
+                }
+                {
+                  key = "default.audio.source";
+                  value = {
+                    name = "alsa_input.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp_6__source";
+                  };
+                }
+              ];
+            };
+          }
+        ];
+      };
+    };
     "pipewire/pipewire.conf.d/92-low-latency.conf".source = json.generate "92-low-latency.conf" {
       context = {
         properties = {

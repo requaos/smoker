@@ -1,6 +1,6 @@
-{
-  inputs,
-  cell,
+{ inputs
+, cell
+,
 }: {
   packages = with inputs.nixpkgs; [
     # tools
@@ -25,6 +25,7 @@
     # .Net
     jetbrains.rider
     dotnet-sdk_7
+    protobuf
 
     # java
     #jetbrains.jdk
