@@ -11,7 +11,7 @@ in {
     enable = true;
     dockerCompat = true;
     extraPackages = with nixpkgs; [
-      gvisor
+      #gvisor
     ];
     defaultNetwork = {
       settings = {
