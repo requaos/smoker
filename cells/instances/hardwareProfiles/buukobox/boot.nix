@@ -1,15 +1,15 @@
-{
-  inputs,
-  cell,
+{ inputs
+, cell
+,
 }: {
   # bleeding-edge kernel:
-  kernelPackages = inputs.nixpkgs.linuxPackages_latest;
+  kernelPackages = inputs.nixpkgs.linuxPackages_6_5;
 
   # nested virtualization in qemu/kvm
   extraModprobeConfig = "options kvm_intel nested=1";
 
   # virtualization module
-  kernelModules = ["kvm-intel"];
+  kernelModules = [ "kvm-intel" ];
 
   # graphics fix from dell for 'iris' opengl support
   # kernelParams = [
@@ -63,5 +63,5 @@
 
   # used for cross-compiling for aarch64.
   # https://github.com/nix-community/nixos-generators#cross-compiling
-  binfmt.emulatedSystems = ["aarch64-linux"];
+  binfmt.emulatedSystems = [ "aarch64-linux" ];
 }

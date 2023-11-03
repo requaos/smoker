@@ -1,14 +1,14 @@
-{
-  inputs,
-  cell,
+{ inputs
+, cell
+,
 }: {
   # bleeding-edge kernel: inputs.nixpkgs.linuxPackages_testing
-  kernelPackages = inputs.nixpkgs.linuxPackages_latest;
+  kernelPackages = inputs.nixpkgs.linuxPackages_6_5;
 
   # The touchpad in Dell 13" XPS Pro 9320 confuses the 'psmouse'
   # module and causes excessive delay and potential freezing
   # on shutdown.
-  blacklistedKernelModules = ["psmouse"];
+  blacklistedKernelModules = [ "psmouse" ];
 
   # graphics fix from dell for 'iris' opengl support
   kernelParams = [
@@ -33,5 +33,5 @@
 
   # used for cross-compiling for aarch64.
   # https://github.com/nix-community/nixos-generators#cross-compiling
-  binfmt.emulatedSystems = ["aarch64-linux"];
+  binfmt.emulatedSystems = [ "aarch64-linux" ];
 }

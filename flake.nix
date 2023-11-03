@@ -8,7 +8,7 @@
   inputs = {
     blank.url = "github:divnix/blank";
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -147,7 +147,7 @@
         # allowUnfreePredicate
         # Forces us to keep track of proprietary software.
         nixpkgsConfig = {
-          allowUnfree =true;
+          allowUnfree = true;
           permittedInsecurePackages = [
             "openssl-1.1.1w"
             "electron-21.4.0"
