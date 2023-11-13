@@ -1,0 +1,141 @@
+#! /usr/bin/perl
+#rerouteprintoption - Entry point to linux printpath
+
+use File::Basename;
+
+$dir = dirname($0);
+($job, $user, $title, $copies, $options, $fname) = @ARGV;
+$fname = "" unless(defined($fname));
+
+$title =~ tr/"`/ /d;
+$options =~ tr/"`/ /d;
+$ppdpath = $ENV{'PPD'};
+
+# --------------------------------------------
+#  use the lines below to record the options passed by CUPS to this filter
+# --------------------------------------------
+# open logFile, ">/tmp/arguments_log";
+# foreach(@ARGV)
+# {
+# print logFile "$_";
+# print logFile "\n";	
+# }
+# close logFile;
+# --------------------------------------------
+
+# --------------------------------------------
+# use the liens below to save the PS file provided by CUPS before it enters
+# this filter
+# applicable in 10.6 OS and below (no sandboxing)
+# --------------------------------------------
+# $host;
+# while($hostTmp = <STDIN>)
+# {
+# 	$host .= $hostTmp;
+# }
+# $filename = "";
+# if (-e "/tmp/jobFile")
+# {
+# 	$filename = ">/tmp/jobFile1";
+# }
+# else
+# {
+# 	$filename = ">/tmp/jobFile";
+# }
+# open jobFile, $filename;
+# print jobFile "$host";
+# close jobFile;
+# --------------------------------------------
+
+$pnhfilter = "fax-pnh-filter";
+$hbpFilter = "LexHBPFilter";
+
+if ($options =~ m/ FaxNumber=/) 
+{
+    $options = $options." OutputFormat=postscript";
+    exec qq{$dir/$hbpFilter "$job" "$user" "$title" "$copies" "$options" $fname | $dir/pstops "$job" "$user" "$title" "$copies" "$options" $fname | $dir/$pnhfilter "$job" "$user" "$title" "$copies" "$options"};
+} 
+else 
+{
+    my $flag = 0;
+    my $flagRequired = 3;
+    my @requiredFeatures;
+    my @features = ("PageSize", "MediaType", "LXResolution", "InputSlot", "OutputBin", "TonerDarkness", "PnH", "Halftone", "LexBrightness", "LexContrast", "LexSaturation", "LexPixelBoost", "ColorSaver", "ColorMode", "MediaColor", "ManualRGBImage", "ManualRGBText", "ManualRGBGraphics", "CyanBalance", "MagentaBalance", "YellowBalance", "BlackBalance", "SepPages", "SepSource", "Collate", "LexBlankPage");
+    my $index = 0;
+    foreach $feature (@features) 
+    {
+        if (!($options  =~ m/$feature/ ))
+        {
+            $requiredFeatures[$index++] = $feature;
+        }
+    }
+
+    $flagRequired += scalar(@requiredFeatures);
+    open(PPD,$ppdpath) or die("[ERROR]: Unable to open file $fname.\n");
+    while(<PPD>)
+    {
+        $line = $_;
+        if ($line  =~ m/HBPStripHeight:/ )
+        {
+            my @tFieldsH = split /:/, $line;
+            my $valH = @tFieldsH[1];
+            $valH =~ s/[" \n]+//g;
+            my $tStrH = " StripHeight=";
+            my $strH = $tStrH.$valH;
+            $options = $options.$strH;
+            $flag++;
+        }
+
+        if ($line  =~ m/HBPVendorSignature:/ )
+        {
+            my @tFieldsV = split /:/, $line;
+            my $valV = @tFieldsV[1];
+            $valV =~ s/[" \n]+//g;
+            my $tStrV = " VendorSignature=";
+            my $strV = $tStrV.$valV;
+            $options = $options.$strV;
+            $flag++;
+        }
+
+        if ($line  =~ m/DefaultPnH:/)
+        {
+            if ($line  =~ m/Custom./)
+            {
+                my @tFieldsH = split /\./, $line;
+                my $valH = @tFieldsH[1];
+                $valH =~ s/[" \n]+//g;
+                my $tStrH = " Pin=";
+                my $strH = $tStrH.$valH;
+                $options = $options.$strH;
+                $flag++;
+            }
+        }
+
+        $index = 0;
+        foreach $ppdFeature (@requiredFeatures) 
+        {
+            if ($line  =~ m/Default$ppdFeature:/)
+            {
+                my @tFieldsH = split /:/, $line;
+                my $valH = @tFieldsH[1];
+                $valH =~ s/[" \n]+//g;
+                my $tStrH = " $ppdFeature=";
+                my $strH = $tStrH.$valH;
+                $options = $options.$strH;
+                $flag++;
+                splice(@requiredFeatures, $index, 1);
+                last;
+            }
+            $index++
+        }
+
+        if ( $flag >= $flagRequired )
+        {
+            last;
+        }
+    }
+    close(PPD);
+
+    exec qq{$dir/$hbpFilter "$job" "$user" "$title" "$copies" "$options"};
+}
+

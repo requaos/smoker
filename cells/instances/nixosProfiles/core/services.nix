@@ -12,7 +12,11 @@ in {
   printing = {
     enable = true;
     browsing = true;
-    drivers = [inputs.nixpkgs.gutenprint];
+    drivers = with inputs.nixpkgs; [
+      gutenprint
+      hplip
+      postscript-lexmark
+    ];
     browsedConf = ''
       BrowseDNSSDSubTypes _cups,_print
       BrowseLocalProtocols all

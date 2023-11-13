@@ -1,118 +1,124 @@
-{ inputs
-, cell
-,
-}:
-let
+{
+  inputs,
+  cell,
+}: let
   inherit (cell) nixosProfiles;
 in
-with nixosProfiles; rec {
-  base = [ inputs.cells.system.nixosSuites.overrides ]
-    ++
-    [
-      core
-      cachix
-      ssh
-      dns
+  with nixosProfiles; rec {
+    base =
+      [inputs.cells.system.nixosSuites.overrides]
+      ++ [
+        core
+        cachix
+        ssh
+        dns
 
-      users-root
+        users-root
+      ];
+
+    linuxapps =
+      base
+      ++ [
+        linux
+        sound
+        greeter
+        utilities-nethogs
+        utilities-docker
+        utilities-tio
+      ];
+
+    home-printers = [
+      devices-lexmarkC3224dw
     ];
 
-  linuxapps =
-    base
-    ++ [
-      linux
-      sound
-      greeter
-      utilities-nethogs
-      utilities-docker
-      utilities-tio
-    ];
+    babybox =
+      linuxapps
+      ++ home-printers
+      ++ [
+        pretty-boot
 
-  babybox =
-    linuxapps
-    ++ [
-      pretty-boot
+        display-xserver
+        display-signal
+        display-sway
+        display-i3
 
-      display-xserver
-      display-signal
-      display-sway
-      display-i3
+        devices-bluetooth
+        devices-cdburn
 
-      devices-bluetooth
-      devices-cdburn
+        utilities-libvirtd
+        utilities-fwupd
 
-      utilities-libvirtd
-      utilities-fwupd
+        users-req
+      ];
 
-      users-req
-    ];
+    teeniebox =
+      linuxapps
+      ++ home-printers
+      ++ [
+        xps9320pro
+        pretty-boot
 
-  teeniebox = 
-    linuxapps
-    ++ [
-      xps9320pro
-      pretty-boot
+        display-xserver
+        display-signal
+        display-sway
+        display-i3
 
-      display-xserver
-      display-signal
-      display-sway
-      display-i3
+        devices-thunderbolt
+        devices-bluetooth
+        devices-fingerprint
 
-      devices-thunderbolt
-      devices-bluetooth
-      devices-fingerprint
+        utilities-libvirtd
+        utilities-fwupd
 
-      utilities-libvirtd
-      utilities-fwupd
+        communication-slack
 
-      communication-slack
+        users-req
+      ];
 
-      users-req
-    ];
+    buukobox =
+      linuxapps
+      ++ home-printers
+      ++ [
+        pretty-boot
 
-  buukobox =
-    linuxapps
-    ++ [
-      pretty-boot
+        display-xserver
+        display-signal
+        display-sway
+        display-i3
 
-      display-xserver
-      display-signal
-      display-sway
-      display-i3
+        devices-thunderbolt
+        devices-bluetooth
+        devices-fingerprint
+        devices-cdburn
 
-      devices-thunderbolt
-      devices-bluetooth
-      devices-fingerprint
-      devices-cdburn
+        utilities-libvirtd
+        utilities-fwupd
 
-      utilities-libvirtd
-      utilities-fwupd
+        display-nvidia
+        display-displaylink
 
-      display-nvidia
-      display-displaylink
+        communication-slack
+        communication-zoom
 
-      communication-slack
-      communication-zoom
+        development-java
+        development-cody
+        development-rust
 
-      development-java
-      development-cody
-      development-rust
+        corporate-vpn
 
-      corporate-vpn
+        games
 
-      games
+        users-req
+      ];
 
-      users-req
-    ];
+    nixvmbox =
+      linuxapps
+      ++ [
+        display-xserver
+        display-signal
+        display-sway
+        display-i3
 
-  nixvmbox =
-    linuxapps
-    ++ [
-      display-xserver
-      display-signal
-      display-sway
-      display-i3
-
-      users-req
-    ];
-}
+        users-req
+      ];
+  }
