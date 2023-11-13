@@ -20,7 +20,7 @@
 
         mkdir -p $out/lib/cups/filter/
         cp rerouteprintoption $out/lib/cups/filter/
-        cp lib/CommandFileFilterG2 $out/lib/cups/filter/
+        cp CommandFileFilterG2 $out/lib/cups/filter/
 
         # (if the ppd also comes with executables you may need to also patch the executables)
         substituteInPlace $out/share/cups/model/Lexmark_C3200_Series.ppd \
