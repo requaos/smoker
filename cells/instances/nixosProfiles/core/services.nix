@@ -8,6 +8,13 @@ in {
 
   gnome.gnome-keyring.enable = true;
 
+  # Printers
+  avahi = {
+    enable = true;
+    nssmdns = true;
+    openFirewall = true;
+  };
+
   # Service that makes Out of Memory Killer more effective
   earlyoom.enable = true;
 }
