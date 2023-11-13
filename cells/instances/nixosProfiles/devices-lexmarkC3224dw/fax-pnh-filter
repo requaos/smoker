@@ -1,0 +1,31 @@
+#!/bin/sh
+
+########################################################################
+#             Copyright 2010-2012 Lexmark International, Inc.          #
+#                        All rights reserved                           #
+########################################################################
+#
+# This filter is a helper script to provide dynamic username & hostname 
+# for Fax and Print & Hold print jobs.    
+#
+########################################################################
+#
+#-------------------------
+#-- BEGIN: System Commands
+#-------------------------
+PRINT_CMD="/bin/echo"
+SED_CMD="/bin/sed"
+HOSTNAME="/bin/hostname"
+if [ -x "/bin/awk" ];then AWK_CMD="/bin/awk" ; else AWK_CMD="/usr/bin/awk" ; fi
+
+myhost=`${HOSTNAME}`
+myuser=$2
+#myjob=`${PRINT_CMD} "$3" | ${SED_CMD} -e 's|&|\\\&|g' | ${SED_CMD} -e "s|\"|'|g"`
+myjob=`${PRINT_CMD} "$3" | ${AWK_CMD} -F'\' -v OFS="\\\\\\\\\\\\" '$1=$1' | ${SED_CMD} -e 's|&|\\\&|g' | ${SED_CMD} -e "s|\"|'|g" | ${SED_CMD} -e 's|\/|\\\/|g'`
+mycopies=$4
+
+#-- Uncomment line below for debugging purposes.  If fax-pnh-filter.debug is created in /tmp, 
+#-- then that means that this fax-pnh-filter was successfully called.
+#${PRINT_CMD} user=$myuser job=$myjob >> /tmp/fax-pnh-filter.debug
+
+${SED_CMD} -e "s/STATIONID = GETMYHOST/STATIONID = \"${myhost}\"/g" -e "s/PJL SET USERNAME = GEYMYUSERNAME/PJL SET USERNAME = \"${myuser}\"/g" -e "s/PJL SET JOBNAME = GETMYJOBNAME/PJL SET JOBNAME = \"${myjob}\"/g" -e "s/PJL SET QTY = GETMYCOPIES/PJL SET QTY = ${mycopies}/g" -e "s/PJL LJOBINFO USERID = GEYMYUSERNAME HOSTID = GETMYHOST/PJL LJOBINFO USERID = \"${myuser}\" HOSTID = \"${myhost}\"/g"

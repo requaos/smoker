@@ -28,7 +28,7 @@ in
       ];
 
     home-printers = [
-      #devices-lexmarkC3224dw
+      devices-lexmarkC3224dw
     ];
 
     babybox =
