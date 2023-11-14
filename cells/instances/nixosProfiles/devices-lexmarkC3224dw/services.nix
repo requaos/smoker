@@ -11,9 +11,9 @@
     stdenv.mkDerivation rec {
       pname = "lexmark-c3224dw";
       version = "main";
-
       src = ./.;
 
+      nativeBuildInputs = [makeWrapper];
       installPhase = ''
         mkdir -p $out/share/cups/model/
         cp Lexmark_C3200_Series.ppd $out/share/cups/model/
@@ -29,26 +29,38 @@
         substituteInPlace $out/share/cups/model/Lexmark_C3200_Series.ppd \
           --replace "/usr/lib/cups/filter/" "$out/lib/cups/filter/"
 
-        substituteInPlace $out/lib/cups/filter/rerouteprintoption \
-          --replace "/usr/bin/perl" "${perl}/bin/perl"
+        patchShebangs $out/lib/cups/filter/rerouteprintoption
+        patchShebangs $out/lib/cups/filter/fax-pnh-filter
 
         substituteInPlace $out/lib/cups/filter/fax-pnh-filter \
-          --replace "/bin/sh" "${bash}/bin/sh" \
           --replace "/bin/echo" "${uutils-coreutils-noprefix}/bin/echo" \
           --replace "/bin/sed" "${gnused}/bin/sed" \
           --replace "/bin/hostname" "${uutils-coreutils-noprefix}/bin/hostname" \
           --replace "/bin/awk" "${gawk}/bin/awk"
       '';
       preFixup = ''
+        wrapProgram $out/lib/cups/filter/rerouteprintoption \
+          --prefix PATH ":" ${lib.makeBinPath [perl bash gnused gawk uutils-coreutils-noprefix]}
+        wrapProgram $out/lib/cups/filter/fax-pnh-filter \
+          --prefix PATH ":" ${lib.makeBinPath [bash gnused gawk uutils-coreutils-noprefix]}
+
         patchelf \
-          --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
+          --set-interpreter ${glibc.out}/lib/ld-linux.so.2 \
           $out/lib/cups/filter/cupsversion
+        wrapProgram $out/lib/cups/filter/cupsversion \
+          --prefix PATH ":" ${lib.makeBinPath [bash gnused uutils-coreutils-noprefix]}
+
         patchelf \
-          --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
+          --set-interpreter ${glibc.out}/lib/ld-linux.so.2 \
           $out/lib/cups/filter/LexHBPFilter
+        wrapProgram $out/lib/cups/filter/LexHBPFilter \
+          --prefix PATH ":" ${lib.makeBinPath [ghostscript a2ps file gnused gawk uutils-coreutils-noprefix]}
+
         patchelf \
-          --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
+          --set-interpreter ${glibc.out}/lib/ld-linux.so.2 \
           $out/lib/cups/filter/CommandFileFilterG2
+        wrapProgram $out/lib/cups/filter/CommandFileFilterG2 \
+          --prefix PATH ":" ${lib.makeBinPath [ghostscript a2ps file gnused gawk uutils-coreutils-noprefix]}
       '';
     };
 in {
