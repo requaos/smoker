@@ -1,6 +1,6 @@
-{ inputs
-, cell
-,
+{
+  inputs,
+  cell,
 }: {
   # bleeding-edge kernel:
   kernelPackages = inputs.nixpkgs.linuxPackages_6_5;
@@ -9,7 +9,7 @@
   extraModprobeConfig = "options kvm_intel nested=1";
 
   # virtualization module
-  kernelModules = [ "kvm-intel" ];
+  kernelModules = ["kvm-intel"];
 
   # graphics fix from dell for 'iris' opengl support
   # kernelParams = [
@@ -50,6 +50,12 @@
     # ])
   ];
 
+  plymouth = {
+    extraConfig = ''
+      DeviceScale=2
+    '';
+  };
+
   # Quiet boot so that plymouth animations look sweet and seemless, disable or modify here for debugging hardware issues
   # 7 = Debug
   # 6 = Info
@@ -63,5 +69,5 @@
 
   # used for cross-compiling for aarch64.
   # https://github.com/nix-community/nixos-generators#cross-compiling
-  binfmt.emulatedSystems = [ "aarch64-linux" ];
+  binfmt.emulatedSystems = ["aarch64-linux"];
 }
