@@ -11,8 +11,7 @@
 
     mesa
     vulkan-tools # use vkcube to test if vulkan is working properly
-    intel-media-driver
-    vaapiIntel
+    intel-vaapi-driver
     vaapiVdpau
     libvdpau-va-gl
     virglrenderer
