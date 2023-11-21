@@ -1,6 +1,6 @@
-{ inputs
-, cell
-,
+{
+  inputs,
+  cell,
 }: {
   packages = with inputs.nixpkgs; [
     # tools
@@ -44,7 +44,9 @@
     terraform
 
     # aws
-    awscli2
+    awscli
+    # awscli2 seems to be having some python/font problems, let's check back later since awscli v1 works fine
+    #awscli2
     #awslocal
     #aws-mfa
     #terraform

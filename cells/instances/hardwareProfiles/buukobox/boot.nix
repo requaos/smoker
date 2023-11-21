@@ -11,11 +11,6 @@
   # virtualization module
   kernelModules = ["kvm-intel"];
 
-  # graphics fix from dell for 'iris' opengl support
-  # kernelParams = [
-  # "i915.force_probe=46a6"
-  # ];
-
   initrd = {
     availableKernelModules = [
       "nvme"
@@ -42,6 +37,9 @@
     "intel_iommu=on"
     #"module_blacklist=i915" # in bios it's set to only use the nvidia gpu
 
+    # acpi_backlight=none allows the backlight save/load systemd service to work.
+    "acpi_backlight=none"
+
     # #isolate the GPU
     # ("vfio-pci.ids="
     # + cell.lib.concatStringsSep "," [
@@ -52,7 +50,7 @@
 
   plymouth = {
     extraConfig = ''
-      DeviceScale=2
+      DeviceScale=4
     '';
   };
 
