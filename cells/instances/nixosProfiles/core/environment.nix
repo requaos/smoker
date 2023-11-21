@@ -1,6 +1,6 @@
-{ inputs
-, cell
-,
+{
+  inputs,
+  cell,
 }: {
   # Selection of sysadmin tools that can come in handy
   systemPackages = with inputs.nixpkgs; [
@@ -55,7 +55,6 @@
     networkmanager
 
     # PERF TOOLS
-    zenith
     htop
     nethogs
     # radeontop

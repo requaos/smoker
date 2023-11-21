@@ -9,6 +9,6 @@
     vulkan-tools
     pciutils
     cudatoolkit
-    zenith-nvidia
+    #zenith-nvidia #not as useful as it seemed
   ];
 }
