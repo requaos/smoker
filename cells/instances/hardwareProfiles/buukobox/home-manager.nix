@@ -145,7 +145,7 @@ in {
                   click = [
                     {
                       button = "left";
-                      cmd = ''pw-viz'';
+                      cmd = ''${inputs.nixpkgs.pw-viz}/bin/pw-viz'';
                     }
                   ];
                   step_width = 5;
@@ -163,7 +163,7 @@ in {
                   click = [
                     {
                       button = "left";
-                      cmd = ''pw-viz'';
+                      cmd = ''${inputs.nixpkgs.pw-viz}/bin/pw-viz'';
                     }
                   ];
                   step_width = 5;
@@ -181,7 +181,7 @@ in {
                   click = [
                     {
                       button = "left";
-                      cmd = ''pw-viz'';
+                      cmd = ''${inputs.nixpkgs.pw-viz}/bin/pw-viz'';
                     }
                   ];
                   step_width = 5;
@@ -199,7 +199,7 @@ in {
                   click = [
                     {
                       button = "left";
-                      cmd = ''pw-viz'';
+                      cmd = ''${inputs.nixpkgs.pw-viz}/bin/pw-viz'';
                     }
                   ];
                   step_width = 5;

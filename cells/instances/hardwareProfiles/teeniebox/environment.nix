@@ -16,5 +16,6 @@
     libvdpau-va-gl
     virglrenderer
     xdg-desktop-portal-wlr
+    v4l2-relayd
   ];
 }

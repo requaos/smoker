@@ -3,6 +3,17 @@
   cell,
 }: {
   cpu.intel.updateMicrocode = true;
+  enableAllFirmware = true;
+
+  firmware = with inputs.nixpkgs; [
+    ipu6-camera-bin
+    ivsc-firmware
+  ];
+
+  # ipu6 = {
+  #   enable = true;
+  #   platform = "ipu6ep";
+  # };
 
   opengl = {
     enable = true;

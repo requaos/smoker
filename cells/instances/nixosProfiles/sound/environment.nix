@@ -4,7 +4,7 @@
 }: {
   systemPackages = with inputs.nixpkgs; [
     pipewire
-    pw-viz
+    #pw-viz
     easyeffects
     wireplumber
 

@@ -20,4 +20,7 @@
   fstrim = {
     enable = true;
   };
+  hardware.bolt.enable = true;
+  colord.enable = true;
+  fprintd.enable = true;
 }

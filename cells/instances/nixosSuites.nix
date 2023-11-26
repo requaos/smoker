@@ -55,7 +55,7 @@ in
       linuxapps
       ++ home-printers
       ++ [
-        xps9320pro
+        #xps9320pro
         pretty-boot
 
         display-xserver
