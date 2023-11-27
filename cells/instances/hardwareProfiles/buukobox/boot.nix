@@ -50,7 +50,7 @@
 
   plymouth = {
     extraConfig = ''
-      DeviceScale=4
+      DeviceScale=0.5
     '';
   };
 

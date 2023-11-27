@@ -72,99 +72,102 @@
       url = "github:ymatsiuk/awsvpnclient";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    pw-viz = {
+      url = "github:olafklingt/pw-viz-flaked/nix-cargo-integration-cargo-toml";
+    };
   };
 
-  outputs =
-    { self
-    , hive
-    , fenix
-    , ...
-    } @ inputs:
-    let
-      # I don't need to worry about name collisions.
-      # If you think you might, don't do this.
-      collect = hive.collect // { renamer = cell: target: "${target}"; };
-      lib = inputs.nixpkgs.lib // builtins;
-    in
+  outputs = {
+    self,
+    hive,
+    fenix,
+    ...
+  } @ inputs: let
+    # I don't need to worry about name collisions.
+    # If you think you might, don't do this.
+    collect = hive.collect // {renamer = cell: target: "${target}";};
+    lib = inputs.nixpkgs.lib // builtins;
+  in
     hive.growOn
-      {
-        inherit inputs;
+    {
+      inherit inputs;
 
-        cellsFrom = ./cells;
-        cellBlocks = with hive.blockTypes; [
-          {
-            name = "configProfiles";
-            type = "functions";
-          }
-          # library
-          {
-            name = "lib";
-            type = "functions";
-          }
+      cellsFrom = ./cells;
+      cellBlocks = with hive.blockTypes; [
+        {
+          name = "configProfiles";
+          type = "functions";
+        }
+        # library
+        {
+          name = "lib";
+          type = "functions";
+        }
 
-          # profiles
-          {
-            name = "hardwareProfiles";
-            type = "functions";
-          }
-          {
-            name = "nixosProfiles";
-            type = "functions";
-          }
-          {
-            name = "homeProfiles";
-            type = "functions";
-          }
+        # profiles
+        {
+          name = "hardwareProfiles";
+          type = "functions";
+        }
+        {
+          name = "nixosProfiles";
+          type = "functions";
+        }
+        {
+          name = "homeProfiles";
+          type = "functions";
+        }
 
-          # suites
-          {
-            name = "nixosSuites";
-            type = "functions";
-          }
-          {
-            name = "homeSuites";
-            type = "functions";
-          }
+        # suites
+        {
+          name = "nixosSuites";
+          type = "functions";
+        }
+        {
+          name = "homeSuites";
+          type = "functions";
+        }
 
-          # configurations
-          nixosConfigurations
-          colmenaConfigurations
+        # configurations
+        nixosConfigurations
+        colmenaConfigurations
 
-          # pkgs
-          {
-            name = "pkgs";
-            type = "pkgs";
-          }
+        # pkgs
+        {
+          name = "pkgs";
+          type = "pkgs";
+        }
 
-          # devshells
-          {
-            name = "devshells";
-            type = "devshells";
-          }
+        # devshells
+        {
+          name = "devshells";
+          type = "devshells";
+        }
+      ];
+
+      # To keep proprietary software to a minimum:
+      # allowUnfreePredicate
+      # Forces us to keep track of proprietary software.
+      nixpkgsConfig = {
+        allowUnfree = true;
+        permittedInsecurePackages = [
+          "openssl-1.1.1w"
+          "electron-21.4.0"
+          "electron-12.2.3"
+          "qtwebkit-5.212.0-alpha4"
         ];
-
-        # To keep proprietary software to a minimum:
-        # allowUnfreePredicate
-        # Forces us to keep track of proprietary software.
-        nixpkgsConfig = {
-          allowUnfree = true;
-          permittedInsecurePackages = [
-            "openssl-1.1.1w"
-            "electron-21.4.0"
-            "electron-12.2.3"
-            "qtwebkit-5.212.0-alpha4"
-          ];
-        };
-      }
-      {
-        lib = hive.pick self [ "system" "lib" ];
-        devShells = hive.harvest self [ "system" "devshells" ];
-      }
-      {
-        nixosConfigurations = collect self "nixosConfigurations";
-        colmenaHive = collect self "colmenaConfigurations";
-        # TODO: implement
-        # nixosModules = collect self "nixosModules";
-        # hmModules = collect self "homeModules";
       };
+    }
+    {
+      lib = hive.pick self ["system" "lib"];
+      devShells = hive.harvest self ["system" "devshells"];
+    }
+    {
+      nixosConfigurations = collect self "nixosConfigurations";
+      colmenaHive = collect self "colmenaConfigurations";
+      # TODO: implement
+      # nixosModules = collect self "nixosModules";
+      # hmModules = collect self "homeModules";
+    };
 }
