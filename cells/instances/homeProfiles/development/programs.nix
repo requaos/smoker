@@ -50,7 +50,7 @@ in {
         zhuangtongfa.material-theme
         hashicorp.terraform
 
-        joaompinto.vscode-graphviz
+        # joaompinto.vscode-graphviz
         thenuprojectcontributors.vscode-nushell-lang
       ];
   };
