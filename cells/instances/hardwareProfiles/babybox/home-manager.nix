@@ -133,7 +133,7 @@ in {
                   click = [
                     {
                       button = "left";
-                      cmd = ''${inputs.pw-viz.packages.pw-viz}/bin/pw-viz'';
+                      cmd = ''pw-viz'';
                     }
                   ];
                   step_width = 5;
@@ -147,7 +147,7 @@ in {
                   click = [
                     {
                       button = "left";
-                      cmd = ''${inputs.pw-viz.packages.pw-viz}/bin/pw-viz'';
+                      cmd = ''pw-viz'';
                     }
                   ];
                   step_width = 5;

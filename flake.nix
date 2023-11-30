@@ -72,10 +72,6 @@
       url = "github:ymatsiuk/awsvpnclient";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    pw-viz = {
-      url = "github:olafklingt/pw-viz-flaked/nix-cargo-integration-cargo-toml";
-    };
   };
 
   outputs = {
