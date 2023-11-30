@@ -53,7 +53,13 @@
     };
 
     # default graph lua script to automatically link audio output to the docking station
-    "wireplumber/main.lua.d/51-auto-connect-ports.lua" = {
+    "wireplumber/main.lua.d/91-user-scripts.lua" = {
+      text = ''
+        load_script("/etc/wireplumber/scripts/auto-connect-ports.lua")
+      '';
+      mode = "0755";
+    };
+    "wireplumber/scripts/auto-connect-ports.lua" = {
       text = ''
         -- As explained on: https://bennett.dev/auto-link-pipewire-ports-wireplumber/
         --
@@ -242,29 +248,6 @@
               ["FR"] = "FR"
             }
           }
-
-        --   -- Auto connect the stereo null sink to the jack_sink for when the jack server gets started
-        --   auto_connect_ports {
-        --     output = Constraint { "object.path", "matches", "stereo-null-sink:*" },
-        --     input = Constraint { "object.path", "matches", "alsa:pcm:*" },
-        --     connect = {
-        --       ["FL"] = "FL",
-        --       ["FR"] = "FR"
-        --     },
-
-        --     -- Don't connect to speakers if there are bluetooth headphones plugged in
-        --     unless = Constraint { "object.path", "matches", "bluez_output.*" }
-        --   }
-
-        --   -- Auto connect the stereo null sink to bluetooth headphones
-        --   auto_connect_ports {
-        --     output = Constraint { "object.path", "matches", "stereo-null-sink:*" },
-        --     input = Constraint { "object.path", "matches", "bluez_output.*" },
-        --     connect = {
-        --       ["FL"] = "FL",
-        --       ["FR"] = "FR"
-        --     }
-        --   }
       '';
       mode = "0755";
     };
