@@ -8,7 +8,6 @@
 in {
   vscode = {
     extensions =
-      /*
         (with extensions.open-vsx; [
         jnoortheen.nix-ide
         antyos.openscad
@@ -26,17 +25,9 @@ in {
         tamasfe.even-better-toml
         yzhang.markdown-all-in-one
         zhuangtongfa.material-theme
-        hashicorp.terraform
       ])
       ++
-      */
       (with extensions.vscode-marketplace; [
-        # put these back after open-vsx comes back online
-        antyos.openscad
-        gruntfuggly.todo-tree
-        serayuzgur.crates
-        sourcegraph.cody-ai
-
         humao.rest-client
         jscearcy.rust-doc-viewer
         mitsuhiko.insta
@@ -47,6 +38,7 @@ in {
         vscjava.vscode-maven
         vscjava.vscode-java-test
         vscjava.vscode-java-dependency
+        hashicorp.terraform
       ])
       ++ [
         inputs.fenix.packages.rust-analyzer-vscode-extension

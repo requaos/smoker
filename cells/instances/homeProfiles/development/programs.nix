@@ -12,7 +12,6 @@ in {
     #userSettings = cell.lib.mkForce {};
 
     extensions =
-      /*
         (with extensions.open-vsx; [
         jnoortheen.nix-ide
         antyos.openscad
@@ -30,29 +29,13 @@ in {
         tamasfe.even-better-toml
         yzhang.markdown-all-in-one
         zhuangtongfa.material-theme
-        hashicorp.terraform
       ])
       ++
-      */
-      with extensions.vscode-marketplace; [
-        # put these back after open-vsx comes back online
-        jnoortheen.nix-ide
-        bierner.markdown-mermaid
-        bpruitt-goddard.mermaid-markdown-syntax-highlighting
-        christian-kohler.path-intellisense
-        kamadorueda.alejandra
-        mhutchie.git-graph
-        mkhl.direnv
-        moshfeu.compare-folders
-        pkief.material-icon-theme
-        tamasfe.even-better-toml
-        yzhang.markdown-all-in-one
-        zhuangtongfa.material-theme
+      (with extensions.vscode-marketplace; [
         hashicorp.terraform
 
-        # joaompinto.vscode-graphviz
         thenuprojectcontributors.vscode-nushell-lang
-      ];
+      ]);
   };
   starship = {
     enable = true;

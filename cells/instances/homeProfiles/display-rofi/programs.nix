@@ -11,6 +11,6 @@ in {
     enable = true;
     terminal = "${nixpkgs.alacritty}/bin/alacritty";
     # Gonna match i3wn iconic appeal
-    theme = ./theme.rasi;
+    theme = /etc/rofi/theme.rasi;
   };
 }
