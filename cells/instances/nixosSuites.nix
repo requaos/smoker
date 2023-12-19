@@ -27,6 +27,13 @@ in
         utilities-tio
       ];
 
+    gui = [
+      display-xserver
+      display-signal
+      display-sway
+      display-i3
+    ];
+
     home-printers = [
       devices-lexmarkC3224dw
     ];
@@ -34,13 +41,9 @@ in
     babybox =
       linuxapps
       ++ home-printers
+      ++ gui
       ++ [
         pretty-boot
-
-        display-xserver
-        display-signal
-        display-sway
-        display-i3
 
         devices-bluetooth
         devices-cdburn
@@ -54,14 +57,9 @@ in
     teeniebox =
       linuxapps
       ++ home-printers
+      ++ gui
       ++ [
-        #xps9320pro
         pretty-boot
-
-        display-xserver
-        display-signal
-        display-sway
-        display-i3
 
         devices-thunderbolt
         devices-bluetooth
@@ -78,13 +76,9 @@ in
     buukobox =
       linuxapps
       ++ home-printers
+      ++ gui
       ++ [
         pretty-boot
-
-        display-xserver
-        display-signal
-        display-sway
-        display-i3
 
         devices-thunderbolt
         devices-bluetooth
@@ -113,12 +107,8 @@ in
 
     nixvmbox =
       linuxapps
+      ++ gui
       ++ [
-        display-xserver
-        display-signal
-        display-sway
-        display-i3
-
         users-req
       ];
   }
