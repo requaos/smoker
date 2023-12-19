@@ -149,6 +149,7 @@
         allowUnfree = true;
         permittedInsecurePackages = [
           "openssl-1.1.1w"
+          "electron-25.9.0"
           "electron-21.4.0"
           "electron-12.2.3"
           "qtwebkit-5.212.0-alpha4"

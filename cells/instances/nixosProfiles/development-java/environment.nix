@@ -5,7 +5,7 @@
   inherit (inputs) nixpkgs;
 in {
   systemPackages = with nixpkgs; [
-    jetbrains.jdk
+    jdk17
     lombok
   ];
 }

@@ -9,7 +9,7 @@
   )
   ["withComponents"]; [
     cargo
-    clippy
+    (cell.lib.lowPrio clippy)
     rust-src
     rustc
     rustfmt
