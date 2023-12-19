@@ -3,12 +3,10 @@
   cell,
 }: {
   # bleeding-edge kernel: inputs.nixpkgs.linuxPackages_testing
-  kernelPackages = inputs.nixpkgs.linuxPackages_latest;
+  kernelPackages = inputs.nixpkgs.linuxPackages_6_5;
 
   extraModulePackages = with inputs.nixpkgs; [
-    #linuxPackages_latest.ipu6-drivers
-    (cell.lib.lowPrio linuxPackages_latest.ivsc-driver)
-    linuxPackages_latest.v4l2loopback
+    linuxPackages_6_5.v4l2loopback
   ];
 
   kernelModules = [
