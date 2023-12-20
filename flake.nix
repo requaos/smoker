@@ -53,6 +53,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixgl = {
+      url = "github:guibou/nixGL";
+    };
+
     from-yaml = {
       url = "github:pegasust/fromYaml";
       flake = false;
