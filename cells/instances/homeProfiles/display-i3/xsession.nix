@@ -1,18 +1,17 @@
-{ inputs
-, cell
-,
+{
+  inputs,
+  cell,
 }:
 with cell.lib.lists; let
   inherit (inputs) nixpkgs;
   inherit (cell) lib;
 
-  mod = "Mod1";
+  mod = "Mod4";
   fonts = {
-    names = [ "Hack Nerd Font" ];
+    names = ["Hack Nerd Font"];
     size = 12.0;
   };
-in
-{
+in {
   enable = true;
   windowManager.i3 = {
     enable = true;
@@ -44,7 +43,7 @@ in
       bars = [
         {
           statusCommand = "i3status-rs ~/.config/i3status-rust/config-default.toml";
-          fonts = fonts // { size = 10.0; };
+          fonts = fonts // {size = 10.0;};
           position = "bottom";
           # height = "16";
           # status_padding = 0;
@@ -83,10 +82,10 @@ in
 
       keybindings = lib.mkOptionDefault {
         #"${mod}+Return" = "exec ${nixpkgs.alacritty}/bin/alacritty";
-        "${mod}+space" = "exec ${nixpkgs.rofi}/bin/rofi -show drun -dpi 0";
+        "${mod}+space" = "exec ${nixpkgs.strace}/bin/strace ${nixpkgs.rofi}/bin/rofi -show drun -dpi 0 -theme theme.rasi 2>&1 | ${nixpkgs.gnugrep}/bin/grep theme >> ~/rofi-strace-theme.out";
         #"${mod}+l" = "exec sh -c '${nixpkgs.i3lock}/bin/i3lock -c 222222 & sleep 5 && xset dpms force of'";
         "${mod}+l" = "exec ${nixpkgs.betterlockscreen}/bin/betterlockscreen --lock --off 5";
-        "Mod4+l" = "exec ${nixpkgs.betterlockscreen}/bin/betterlockscreen --lock --off 5";
+        #"Mod4+l" = "exec ${nixpkgs.betterlockscreen}/bin/betterlockscreen --lock --off 5";
         # TODO: migrate to https://github.com/lgmys/savr soon?
         "${mod}+x" = "exec sh -c '${nixpkgs.maim}/bin/maim -s | xclip -selection clipboard -t image/png'";
 
@@ -97,12 +96,12 @@ in
         "${mod}+Shift+q" = "kill";
 
         # Applications
-        "Mod4+f" = ''[class="(?i)^firefox$"] focus'';
-        "Mod4+c" = ''[class="(?i)^vscodium$"] focus'';
-        "Mod4+d" = ''[class="(?i)^discord$"] focus'';
-        "Mod4+n" = ''[class="(?i)^notion"] focus'';
-        "Mod4+t" = ''[class="(?i)^alacritty$"] focus'';
-        "Mod4+a" = ''[class="(?i)^alacritty$"] focus'';
+        # "Mod4+f" = ''[class="(?i)^firefox$"] focus'';
+        # "Mod4+c" = ''[class="(?i)^vscodium$"] focus'';
+        # "Mod4+d" = ''[class="(?i)^discord$"] focus'';
+        # "Mod4+n" = ''[class="(?i)^notion"] focus'';
+        # "Mod4+t" = ''[class="(?i)^alacritty$"] focus'';
+        # "Mod4+a" = ''[class="(?i)^alacritty$"] focus'';
 
         # Focus
         "${mod}+Up" = "focus up";
@@ -134,7 +133,6 @@ in
         "XF86MonBrightnessUp" = ''exec brightnessctl s +5%''; # increase screen brightness
         "XF86MonBrightnessDown" = ''exec brightnessctl s 5%-''; # decrease screen brightness
       };
-
     };
   };
 }

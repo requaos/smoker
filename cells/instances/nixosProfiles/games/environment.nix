@@ -10,19 +10,20 @@
     xivlauncher
     gamescope
     scanmem
+    libselinux
     #(lutris.override {
-    #  extraPkgs = pkgs: [
-    #    innoextract
-    #    p7zip
-    #    SDL2
-    #    SDL2_ttf
-    #    SDL2_gfx
-    #    SDL2_image
-    #    SDL2_mixer
-    #    SDL2_net
-    #    winetricks
-    #    lib32-vulkan-intel
-    #  ];
+    # extraPkgs = pkgs: [
+    #   innoextract
+    #   p7zip
+    #   SDL2
+    #   SDL2_ttf
+    #   SDL2_gfx
+    #   SDL2_image
+    #   SDL2_mixer
+    #   SDL2_net
+    #   winetricks
+    #   lib32-vulkan-intel
+    # ];
     #})
   ];
 }
