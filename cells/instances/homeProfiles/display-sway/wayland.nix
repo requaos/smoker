@@ -5,7 +5,7 @@
   inherit (inputs) nixpkgs;
   inherit (cell) lib;
 
-  mod = "Mod1";
+  mod = "Mod4";
   fonts = {
     names = ["Hack Nerd Font"];
     size = lib.mkForce 11.0;
@@ -95,22 +95,22 @@ in {
           #"${mod}+Return" = "exec ${nixpkgs.alacritty}/bin/alacritty";
           "${mod}+space" = "exec ${nixpkgs.rofi}/bin/rofi -show drun -dpi 0";
           "${mod}+l" = "exec ${nixpkgs.swaylock}/bin/swaylock";
-          "Mod4+l" = "exec ${nixpkgs.swaylock}/bin/swaylock";
+          #"Mod4+l" = "exec ${nixpkgs.swaylock}/bin/swaylock";
           # TODO: migrate to https://github.com/lgmys/savr soon?
           # "${mod}+x" = "exec sh -c '${nixpkgs.maim}/bin/maim -s | xclip -selection clipboard -t image/png'";
           # "Mod4+Shift+3" = ''${nixpkgs.grim}/bin/grim'';
           # "Mod4+Shift+4" = ''exec sh -c "${nixpkgs.grim}/bin/grim -g '$(${nixpkgs.slurp}/bin/slurp)'"'';
-          "Mod4+Shift+3" = ''exec sh -c "${nixpkgs.grim}/bin/grim - | ${saveAndCopyScreenshot}"'';
-          "Mod4+Shift+4" = ''exec sh -c "${nixpkgs.grim}/bin/grim -g '$(${nixpkgs.slurp}/bin/slurp)' - | ${saveAndCopyScreenshot}"'';
-          "Mod4+Shift+5" = ''exec sh -c "${nixpkgs.grim}/bin/grim -g '${currentWindowRect}' - | ${saveAndCopyScreenshot}"'';
+          "Mod1+Shift+3" = ''exec sh -c "${nixpkgs.grim}/bin/grim - | ${saveAndCopyScreenshot}"'';
+          "Mod1+Shift+4" = ''exec sh -c "${nixpkgs.grim}/bin/grim -g '$(${nixpkgs.slurp}/bin/slurp)' - | ${saveAndCopyScreenshot}"'';
+          "Mod1+Shift+5" = ''exec sh -c "${nixpkgs.grim}/bin/grim -g '${currentWindowRect}' - | ${saveAndCopyScreenshot}"'';
           "${mod}+Shift+q" = "kill";
           # Applications
-          "Mod4+f" = ''[class="(?i)^firefox$"] focus'';
-          "Mod4+c" = ''[class="(?i)^vscodium$"] focus'';
-          "Mod4+d" = ''[class="(?i)^discord$"] focus'';
-          "Mod4+n" = ''[class="(?i)^notion"] focus'';
-          "Mod4+t" = ''[class="(?i)^alacritty$"] focus'';
-          "Mod4+a" = ''[class="(?i)^alacritty$"] focus'';
+          # "Mod4+f" = ''[class="(?i)^firefox$"] focus'';
+          # "Mod4+c" = ''[class="(?i)^vscodium$"] focus'';
+          # "Mod4+d" = ''[class="(?i)^discord$"] focus'';
+          # "Mod4+n" = ''[class="(?i)^notion"] focus'';
+          # "Mod4+t" = ''[class="(?i)^alacritty$"] focus'';
+          # "Mod4+a" = ''[class="(?i)^alacritty$"] focus'';
           # Focus
           "${mod}+Up" = "focus up";
           "${mod}+Left" = "focus left";
