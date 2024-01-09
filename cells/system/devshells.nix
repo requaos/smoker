@@ -2,9 +2,10 @@
   inputs,
   cell,
 }: let
+  inherit (inputs.std.lib.dev) mkShell;
   lib = inputs.nixpkgs.lib // builtins;
 in
-  lib.mapAttrs (_: inputs.devshell.legacyPackages.mkShell) {
+  lib.mapAttrs (_: mkShell) {
     default = {...}: {
       name = "Hive";
       commands = let

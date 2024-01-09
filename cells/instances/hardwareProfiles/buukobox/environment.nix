@@ -2,6 +2,9 @@
   inputs,
   cell,
 }: {
+  systemPackages = with inputs.nixpkgs; [
+    linuxPackages_6_5.nvidiabl
+  ];
   variables = {
     GDK_SCALE = "2";
     GDK_DPI_SCALE = "0.5";
@@ -24,7 +27,7 @@
     "pipewire/pipewire.conf.d/92-low-latency.conf".source = json.generate "92-low-latency.conf" {
       context = {
         properties = {
-          default.clock.rate = 48000;
+          default.clock.rate = 44000;
           default.clock.quantum = 256;
           default.clock.min-quantum = 256;
           default.clock.max-quantum = 256;
@@ -37,17 +40,17 @@
           {
             name = "libpipewire-module-protocol-pulse";
             args = {
-              pulse.min.req = "256/48000";
-              pulse.default.req = "256/48000";
-              pulse.max.req = "256/48000";
-              pulse.min.quantum = "256/48000";
-              pulse.max.quantum = "256/48000";
+              pulse.min.req = "256/44000";
+              pulse.default.req = "256/44000";
+              pulse.max.req = "256/44000";
+              pulse.min.quantum = "256/44000";
+              pulse.max.quantum = "256/44000";
             };
           }
         ];
       };
       stream.properties = {
-        node.latency = "256/48000";
+        node.latency = "256/44000";
         resample.quality = 1;
       };
     };

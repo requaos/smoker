@@ -17,7 +17,23 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
-    devshell.url = "github:numtide/devshell";
+    std = {
+      url = "github:divnix/std";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.devshell.follows = "devshell";
+      inputs.nixago.follows = "nixago";
+    };
+
+    devshell = {
+      url = "github:numtide/devshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixago = {
+      url = "github:nix-community/nixago";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixago-exts.follows = "";
+    };
 
     hive = {
       url = "github:divnix/hive";
@@ -147,6 +163,7 @@
       # Forces us to keep track of proprietary software.
       nixpkgsConfig = {
         allowUnfree = true;
+        allowBroken = true;
         permittedInsecurePackages = [
           "openssl-1.1.1w"
           "electron-25.9.0"

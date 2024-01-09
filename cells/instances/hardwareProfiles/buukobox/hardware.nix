@@ -1,6 +1,6 @@
-{ inputs
-, cell
-,
+{
+  inputs,
+  cell,
 }: {
   cpu.intel.updateMicrocode = true;
   enableRedistributableFirmware = true;
