@@ -1,12 +1,11 @@
-{ inputs
-, cell
-,
+{
+  inputs,
+  cell,
 }: {
   xserver = {
     # host-based hardwareProfile is the appropriate place to set drivers.
     videoDrivers = [
       "nvidia"
-      "displaylink"
       "modesetting"
     ];
     dpi = 144;

@@ -5,7 +5,7 @@
   cpu.intel.updateMicrocode = true;
   enableRedistributableFirmware = true;
 
-  nvidia.package = inputs.nixpkgs.linuxPackages_6_5.nvidiaPackages.vulkan_beta;
+  nvidia.package = inputs.nixpkgs.linuxPackages_latest.nvidiaPackages.vulkan_beta;
 
   opengl = {
     enable = true;

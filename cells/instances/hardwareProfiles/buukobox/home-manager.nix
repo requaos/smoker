@@ -175,24 +175,6 @@ in {
                 }
                 {
                   block = "sound";
-                  name = "alsa_output.usb-DisplayLink_USB3.0_5K_Graphic_Docking_4310338626955-02.analog-stereo";
-                  format = " $icon $output_name {$volume|MUTED} ";
-                  click = [
-                    {
-                      button = "left";
-                      cmd = ''pw-viz'';
-                    }
-                  ];
-                  step_width = 5;
-                  max_vol = 120;
-                  headphones_indicator = true;
-                  mappings_use_regex = false;
-                  mappings = {
-                    "alsa_output.usb-DisplayLink_USB3.0_5K_Graphic_Docking_4310338626955-02.analog-stereo" = "🖥️";
-                  };
-                }
-                {
-                  block = "sound";
                   device_kind = "source";
                   format = " $icon {$volume|MUTED} ";
                   click = [

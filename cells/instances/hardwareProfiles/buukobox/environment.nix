@@ -3,7 +3,7 @@
   cell,
 }: {
   systemPackages = with inputs.nixpkgs; [
-    linuxPackages_6_5.nvidiabl
+    linuxPackages_latest.nvidiabl
   ];
   variables = {
     GDK_SCALE = "2";
@@ -28,9 +28,9 @@
       context = {
         properties = {
           default.clock.rate = 44000;
-          default.clock.quantum = 256;
-          default.clock.min-quantum = 256;
-          default.clock.max-quantum = 256;
+          default.clock.quantum = 512;
+          default.clock.min-quantum = 512;
+          default.clock.max-quantum = 512;
         };
       };
     };
@@ -40,17 +40,17 @@
           {
             name = "libpipewire-module-protocol-pulse";
             args = {
-              pulse.min.req = "256/44000";
-              pulse.default.req = "256/44000";
-              pulse.max.req = "256/44000";
-              pulse.min.quantum = "256/44000";
-              pulse.max.quantum = "256/44000";
+              pulse.min.req = "512/44000";
+              pulse.default.req = "512/44000";
+              pulse.max.req = "512/44000";
+              pulse.min.quantum = "512/44000";
+              pulse.max.quantum = "512/44000";
             };
           }
         ];
       };
       stream.properties = {
-        node.latency = "256/44000";
+        node.latency = "512/44000";
         resample.quality = 1;
       };
     };
@@ -231,16 +231,6 @@
               unless:activate()
             end
           end
-
-          -- Auto connect the stereo sink to the docking station
-          auto_connect_ports {
-            output = Constraint { "object.path", "matches", "alsa:pcm:1:hw:sofhdadsp:playback:monitor*" },
-            input = Constraint { "port.alias", "matches", "USB3.0 5K Graphic Docking:playback*" },
-            connect = {
-              ["FL"] = "FL",
-              ["FR"] = "FR"
-            }
-          }
 
           -- Auto connect the stereo sink to the hdmi center dock screen
           auto_connect_ports {
