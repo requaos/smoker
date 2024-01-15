@@ -27,7 +27,6 @@
               if [ "$CD" == "$DOCK_CENTER" ]
               then
                       xrandr --output HDMI-0 --brightness 1 --gamma 0.7:0.7:0.7
-                      sleep 0.2
                       DCF="1"
                       xrandr 2>&1 >/dev/null
                       LOG+="Center";
@@ -48,7 +47,6 @@
       then
               LOG+="\nSetting DP-5 to the Right"
               xrandr --output DP-5 --mode 2560x1440 --right-of HDMI-0 --auto --brightness 0.6 --gamma 0.7:0.7:0.7
-              sleep 0.2
               xrandr 2>&1 >/dev/null;
       fi
 
@@ -56,7 +54,6 @@
       then
               LOG+="\nSetting DP-0 to the Left"
               xrandr --output DP-0 --mode 2560x1440 --left-of HDMI-0 --auto --brightness 0.6 --gamma 0.7:0.7:0.7
-              sleep 0.2
               xrandr 2>&1 >/dev/null;
       fi
 
