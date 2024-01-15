@@ -12,7 +12,6 @@
         repo = "ivsc-firmware";
         rev = "main";
         sha256 = "sha256-kEoA0yeGXuuB+jlMIhNm+SBljH+Ru7zt3PzGb+EPBPw=";
-
       };
 
       installPhase = ''
@@ -28,7 +27,7 @@ in {
   enableAllFirmware = true;
 
   firmware = [
-    inputs.nixpkgs.ipu6-camera-bin
+    inputs.nixpkgs.ipu6-camera-bins
     ivsc-firmware
   ];
 
