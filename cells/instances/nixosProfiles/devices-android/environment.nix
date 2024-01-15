@@ -11,6 +11,7 @@ in {
           buildPythonPackage rec {
             pname = "unisoc_unlock";
             version = "0.0.2";
+            format = "pyproject";
             src = fetchPypi {
               inherit pname version;
               sha256 = "sha256-vi4C45Xo/mWG5/ZFAz2EdRaHheUsRt37p5pj/R5rfBE=";
@@ -19,6 +20,7 @@ in {
             propagatedBuildInputs = [
               # Specify dependencies
               nixpkgs.python3Packages.pycryptodome
+              nixpkgs.python3Packages.hatchling
               nixpkgs.python3Packages.libusb1
             ];
           }
