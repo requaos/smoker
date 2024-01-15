@@ -9,11 +9,11 @@ in {
       with ps; [
         (
           buildPythonPackage rec {
-            pname = "unisoc-unlock";
+            pname = "unisoc_unlock";
             version = "0.0.2";
             src = fetchPypi {
               inherit pname version;
-              sha256 = "sha256-0aozmQ4Eb5zL4rtNHSFjEynfObUkYlid1PgMDVmRkwY=";
+              sha256 = "sha256-vi4C45Xo/mWG5/ZFAz2EdRaHheUsRt37p5pj/R5rfBE=";
             };
             doCheck = false;
             propagatedBuildInputs = [
