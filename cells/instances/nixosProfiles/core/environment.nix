@@ -27,6 +27,7 @@
     whois
     graphviz
     unzip
+    p7zip
 
     # debug info
     dmidecode
