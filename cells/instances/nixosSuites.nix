@@ -64,6 +64,7 @@ in
         devices-thunderbolt
         devices-bluetooth
         devices-fingerprint
+        devices-cdburn
 
         utilities-libvirtd
         utilities-fwupd
@@ -80,6 +81,7 @@ in
       ++ [
         pretty-boot
 
+        devices-android
         devices-thunderbolt
         devices-bluetooth
         devices-fingerprint
@@ -89,13 +91,12 @@ in
         utilities-fwupd
 
         display-nvidia
-        display-displaylink
 
         communication-slack
         communication-zoom
 
         # development-java
-        development-cody
+        # development-cody
         development-rust
 
         corporate-vpn
