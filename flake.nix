@@ -19,25 +19,16 @@
 
     std = {
       url = "github:divnix/std";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.devshell.follows = "devshell";
-      inputs.nixago.follows = "nixago";
-    };
-
-    devshell = {
-      url = "github:numtide/devshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixago = {
-      url = "github:nix-community/nixago";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixago-exts.follows = "";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        devshell.url = "github:numtide/devshell";
+      };
     };
 
     hive = {
       url = "github:divnix/hive";
       inputs = {
+        std.follows = "std";
         nixpkgs.follows = "nixpkgs";
         colmena.follows = "colmena";
       };

@@ -95,7 +95,7 @@ in
         communication-slack
         communication-zoom
 
-        # development-java
+        development-java
         # development-cody
         development-rust
 
