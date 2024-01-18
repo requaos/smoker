@@ -28,9 +28,9 @@
       context = {
         properties = {
           default.clock.rate = 44000;
-          default.clock.quantum = 512;
-          default.clock.min-quantum = 512;
-          default.clock.max-quantum = 512;
+          default.clock.quantum = 1024;
+          default.clock.min-quantum = 1024;
+          default.clock.max-quantum = 1024;
         };
       };
     };
@@ -40,17 +40,17 @@
           {
             name = "libpipewire-module-protocol-pulse";
             args = {
-              pulse.min.req = "512/44000";
-              pulse.default.req = "512/44000";
-              pulse.max.req = "512/44000";
-              pulse.min.quantum = "512/44000";
-              pulse.max.quantum = "512/44000";
+              pulse.min.req = "1024/44000";
+              pulse.default.req = "1024/44000";
+              pulse.max.req = "1024/44000";
+              pulse.min.quantum = "1024/44000";
+              pulse.max.quantum = "1024/44000";
             };
           }
         ];
       };
       stream.properties = {
-        node.latency = "512/44000";
+        node.latency = "1024/44000";
         resample.quality = 1;
       };
     };
