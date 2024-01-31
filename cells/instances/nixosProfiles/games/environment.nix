@@ -11,6 +11,14 @@
     gamescope
     scanmem
     libselinux
+
+    proton-caller
+    jdk
+    wine64
+    jdk8
+    # retroarchFull
+    # libretro.parallel-n64
+    vulkan-tools
     #(lutris.override {
     # extraPkgs = pkgs: [
     #   innoextract
