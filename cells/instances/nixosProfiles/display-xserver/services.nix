@@ -12,8 +12,10 @@
     };
 
     # Configure keymap in X11
-    layout = "us";
-    xkbVariant = "";
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
 
     # https://nixos.wiki/wiki/Using_X_without_a_Display_Manager
     # displayManager.startx.enable = true;
