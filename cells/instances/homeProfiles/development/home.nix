@@ -15,7 +15,7 @@
     # nix
     #std
     nix-diff
-    rnix-lsp
+    # rnix-lsp
     nixpkgs-fmt
     alejandra
     treefmt
