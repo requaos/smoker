@@ -27,7 +27,11 @@
 
     # .Net
     jetbrains.rider
-    dotnet-sdk_8
+    (with dotnetCorePackages;
+      combinePackages [
+        sdk_7_0
+        sdk_8_0
+      ])
     protobuf
 
     # java
