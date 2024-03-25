@@ -13,9 +13,9 @@
     libselinux
 
     proton-caller
-    jdk
+    # jdk
     wine64
-    jdk8
+    # jdk8
     # retroarchFull
     # libretro.parallel-n64
     vulkan-tools

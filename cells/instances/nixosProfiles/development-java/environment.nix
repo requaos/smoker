@@ -7,5 +7,6 @@ in {
   systemPackages = with nixpkgs; [
     jdk11
     lombok
+    maven
   ];
 }
