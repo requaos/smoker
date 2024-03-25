@@ -17,7 +17,7 @@ in {
         helper = "libsecret";
       };
       core = {
-        autocrlf = "input";
+        autocrlf = "false";
       };
       pull = {
         # https://blog.sffc.xyz/post/185195398930/why-you-should-use-git-pull-ff-only-git-is-a
