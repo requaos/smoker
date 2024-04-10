@@ -3,10 +3,10 @@
   cell,
 }: {
   # bleeding-edge kernel: inputs.nixpkgs.linuxPackages_testing
-  kernelPackages = inputs.nixpkgs.linuxPackages_6_5;
+  kernelPackages = inputs.nixpkgs.linuxPackages_latest;
 
   extraModulePackages = with inputs.nixpkgs; [
-    linuxPackages_6_5.v4l2loopback
+    linuxPackages_latest.v4l2loopback
   ];
 
   kernelModules = [
