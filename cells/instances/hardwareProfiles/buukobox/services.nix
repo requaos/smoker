@@ -6,7 +6,7 @@
     # host-based hardwareProfile is the appropriate place to set drivers.
     videoDrivers = [
       "nvidia"
-      "modesetting"
+      #"modesetting"
     ];
     dpi = 144;
     displayManager.sessionCommands = ''

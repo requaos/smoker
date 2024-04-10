@@ -2,9 +2,9 @@
   inputs,
   cell,
 }: {
+  displayManager.defaultSession = "i3";
   xserver = {
     displayManager = {
-      defaultSession = "i3";
       session = [
         {
           name = "i3";

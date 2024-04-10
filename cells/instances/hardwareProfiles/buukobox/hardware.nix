@@ -1,11 +1,12 @@
 {
+  config,
   inputs,
   cell,
 }: {
   cpu.intel.updateMicrocode = true;
   enableRedistributableFirmware = true;
 
-  nvidia.package = inputs.nixpkgs.linuxPackages_latest.nvidiaPackages.vulkan_beta;
+  nvidia.package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
 
   opengl = {
     enable = true;

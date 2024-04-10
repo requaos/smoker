@@ -29,6 +29,10 @@
     unzip
     p7zip
 
+    # magic shell history
+    atuin
+    blesh
+
     # debug info
     dmidecode
 

@@ -31,6 +31,7 @@ in {
     nssmdns4 = true;
     openFirewall = true;
   };
+  nscd.enableNsncd = true;
 
   # Service that makes Out of Memory Killer more effective
   earlyoom.enable = true;

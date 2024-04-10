@@ -24,8 +24,8 @@
     # thunderbird
     # thunderbird-wayland
     # thunderbird-bin
-    bitwarden
-    bitwarden-cli
+    # bitwarden
+    # bitwarden-cli
     betterlockscreen
     maim
     #rbw
@@ -45,9 +45,9 @@
     # jami-daemon
     # jitsi
     # NOTES AND PRODUCTIVITY
-    super-productivity
-    obsidian
-    notion-app-enhanced
+    # super-productivity
+    # obsidian
+    # notion-app-enhanced
     # logseq
     # appflowy
     # anytype

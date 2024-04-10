@@ -12,6 +12,6 @@
     package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
 
     # only needed for optimus-enabled configurations, conflicts with modesetting driver for displaylink
-    #modesetting.enable = true;
+    modesetting.enable = true;
   };
 }

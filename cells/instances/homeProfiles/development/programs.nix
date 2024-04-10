@@ -12,7 +12,7 @@ in {
     #userSettings = cell.lib.mkForce {};
 
     extensions =
-        (with extensions.open-vsx; [
+      (with extensions.open-vsx; [
         jnoortheen.nix-ide
         antyos.openscad
         bierner.markdown-mermaid
@@ -30,8 +30,7 @@ in {
         yzhang.markdown-all-in-one
         zhuangtongfa.material-theme
       ])
-      ++
-      (with extensions.vscode-marketplace; [
+      ++ (with extensions.vscode-marketplace; [
         hashicorp.terraform
 
         thenuprojectcontributors.vscode-nushell-lang
@@ -80,5 +79,9 @@ in {
       rust.symbol = " ";
       status.disabled = false;
     };
+  };
+  atuin = {
+    enable = true;
+    enableBashIntegration = true;
   };
 }
