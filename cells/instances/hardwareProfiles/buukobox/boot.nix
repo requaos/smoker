@@ -38,7 +38,8 @@
     #"module_blacklist=i915" # in bios it's set to only use the nvidia gpu
 
     # acpi_backlight=none allows the backlight save/load systemd service to work.
-    "acpi_backlight=none"
+    # "acpi_backlight=none"
+    "acpi_osi=Linux"
 
     # #isolate the GPU
     # ("vfio-pci.ids="
@@ -51,7 +52,7 @@
   # Fancy Boot
   plymouth = {
     extraConfig = ''
-      DeviceScale=3
+      DeviceScale=4
     '';
   };
 
