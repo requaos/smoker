@@ -10,6 +10,9 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
+    # TODO: remove after [this](https://github.com/NixOS/nixpkgs/pull/308355) PR is merged to unstable
+    nixpkgs-awscli.url = "github:endocrimes/nixpkgs/dani/awscli";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

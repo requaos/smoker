@@ -6,6 +6,6 @@
 in {
   java = {
     enable = true;
-    package = nixpkgs.jdk11;
+    package = nixpkgs.jdk17;
   };
 }

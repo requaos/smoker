@@ -2,14 +2,13 @@
   inputs,
   cell,
 }: {
+  libinput = {
+    enable = true;
+    mouse.accelProfile = "flat";
+    touchpad.clickMethod = "clickfinger";
+  };
   xserver = {
     enable = true;
-
-    libinput = {
-      enable = true;
-      mouse.accelProfile = "flat";
-      touchpad.clickMethod = "clickfinger";
-    };
 
     # Configure keymap in X11
     xkb = {

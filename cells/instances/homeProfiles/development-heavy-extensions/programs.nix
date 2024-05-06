@@ -8,7 +8,7 @@
 in {
   vscode = {
     extensions =
-        (with extensions.open-vsx; [
+      (with extensions.open-vsx; [
         jnoortheen.nix-ide
         antyos.openscad
         bierner.markdown-mermaid
@@ -17,6 +17,7 @@ in {
         gruntfuggly.todo-tree
         kamadorueda.alejandra
         mhutchie.git-graph
+        redhat.java
         mkhl.direnv
         moshfeu.compare-folders
         pkief.material-icon-theme
@@ -26,14 +27,12 @@ in {
         yzhang.markdown-all-in-one
         zhuangtongfa.material-theme
       ])
-      ++
-      (with extensions.vscode-marketplace; [
+      ++ (with extensions.vscode-marketplace; [
         humao.rest-client
         jscearcy.rust-doc-viewer
         mitsuhiko.insta
         ms-vsliveshare.vsliveshare
         vscjava.vscode-java-pack
-        redhat.java
         vscjava.vscode-java-debug
         vscjava.vscode-maven
         vscjava.vscode-java-test

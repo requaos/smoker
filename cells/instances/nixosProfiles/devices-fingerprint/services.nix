@@ -10,6 +10,8 @@ in {
       mesonCheckFlags = [
         "--no-suite"
         "fprintd:TestPamFprintd"
+        "--no-suite"
+        "fprintd:TestFprintdUtilsVerify"
       ];
     };
   };
