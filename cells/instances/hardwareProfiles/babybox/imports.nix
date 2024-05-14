@@ -1,5 +1,8 @@
-{ inputs, cell, }:
+{
+  inputs,
+  cell,
+}:
 with inputs.nixos-hardware.nixosModules; [
   common-cpu-intel
-  common-gpu-intel
+  # common-gpu-intel
 ]

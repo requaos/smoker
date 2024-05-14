@@ -9,6 +9,7 @@
   extraModprobeConfig = "options kvm_intel nested=1";
 
   kernelModules = ["kvm-intel"];
+
   initrd.kernelModules = ["i915"];
 
   # graphics fix from dell for 'iris' opengl support
