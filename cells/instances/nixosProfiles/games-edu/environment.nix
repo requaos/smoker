@@ -8,7 +8,7 @@
     tuxpaint
     extremetuxracer
     freedroidrpg
-    supertuxkart
-    supertux
+    superTuxKart
+    superTux
   ];
 }
