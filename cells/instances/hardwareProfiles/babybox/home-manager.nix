@@ -12,7 +12,7 @@ with cell.lib.lists; let
 
   colors = fromYaml (builtins.readFile "${base16-schemes}/onedark.yaml");
 
-  mod = "Mod1";
+  mod = "Mod4";
   background = colors.base00; #base01???
   indicator = colors.base0B; # what is this? it's green...
   text = colors.base05;

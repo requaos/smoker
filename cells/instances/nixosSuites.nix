@@ -16,6 +16,21 @@ in
         users-root
       ];
 
+    thin-client =
+      base
+      ++ [
+        linux
+        sound
+
+        utilities-nethogs
+        utilities-tio
+
+        display-xserver
+        display-awesome
+
+        users-nixos
+      ];
+
     linuxapps =
       base
       ++ [
@@ -39,17 +54,16 @@ in
     ];
 
     babybox =
-      linuxapps
-      ++ home-printers
-      ++ gui
+      thin-client
       ++ [
         pretty-boot
 
         devices-bluetooth
         devices-cdburn
 
-        utilities-libvirtd
         utilities-fwupd
+
+        games-edu
 
         users-req
       ];

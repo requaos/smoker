@@ -28,9 +28,13 @@ in rec {
 
   thin = with homeProfiles;
     [
+      display-xserver
+      display-common
+      display-dunst
+      display-awesome
       development
     ]
-    ++ gui;
+    ++ base;
 
   thick = with homeProfiles;
     [

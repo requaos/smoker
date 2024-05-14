@@ -82,7 +82,8 @@ in {
 
       keybindings = lib.mkOptionDefault {
         #"${mod}+Return" = "exec ${nixpkgs.alacritty}/bin/alacritty";
-        "${mod}+space" = "exec ${nixpkgs.strace}/bin/strace ${nixpkgs.rofi}/bin/rofi -show drun -dpi 0 -theme theme.rasi 2>&1 | ${nixpkgs.gnugrep}/bin/grep theme >> ~/rofi-strace-theme.out";
+        # "${mod}+space" = "exec ${nixpkgs.strace}/bin/strace ${nixpkgs.rofi}/bin/rofi -show drun -dpi 0 -theme theme.rasi 2>&1 | ${nixpkgs.gnugrep}/bin/grep theme >> ~/rofi-strace-theme.out";
+        "${mod}+space" = "exec ${nixpkgs.rofi}/bin/rofi -show drun -dpi 0 -theme theme.rasi 2>&1";
         #"${mod}+l" = "exec sh -c '${nixpkgs.i3lock}/bin/i3lock -c 222222 & sleep 5 && xset dpms force of'";
         "${mod}+l" = "exec ${nixpkgs.betterlockscreen}/bin/betterlockscreen --lock --off 5";
         #"Mod4+l" = "exec ${nixpkgs.betterlockscreen}/bin/betterlockscreen --lock --off 5";
