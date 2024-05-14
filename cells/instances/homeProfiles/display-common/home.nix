@@ -35,10 +35,6 @@
 
     ## SOCIAL
     # see discord.nix
-    zulip
-    zulip-term
-    element-desktop
-    signal-desktop
     # zoom-usawds
     # teams
     # jami-client-qt

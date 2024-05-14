@@ -19,12 +19,19 @@ in rec {
       display-common
       display-pidgin
       display-signal
+      display-social
       display-dunst
       display-rofi
       display-sway
       display-i3
     ]
     ++ base;
+
+  thick = with homeProfiles;
+    [
+      development-heavy-extensions
+    ]
+    ++ gui;
 
   thin = with homeProfiles;
     [
@@ -35,12 +42,6 @@ in rec {
       development
     ]
     ++ base;
-
-  thick = with homeProfiles;
-    [
-      development-heavy-extensions
-    ]
-    ++ thin;
 
   nixos = base;
 }
