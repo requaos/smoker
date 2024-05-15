@@ -5,7 +5,7 @@
   inherit (inputs) nixpkgs;
 in {
   displayManager = {
-    defaultSession = "awesome";
+    defaultSession = "xfce";
     autoLogin = {
       user = "nixos";
       enable = true;
@@ -23,13 +23,6 @@ in {
         autoLogin.timeout = 0;
         enable = true;
       };
-      session = [
-        {
-          name = "awesome";
-          manage = "desktop";
-          start = ''exec $HOME/.xsession'';
-        }
-      ];
     };
   };
   tumbler.enable = true;
