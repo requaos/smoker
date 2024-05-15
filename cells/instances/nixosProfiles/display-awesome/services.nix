@@ -12,7 +12,7 @@ in {
     };
   };
   xserver = {
-    desktopManaer = {
+    desktopManager = {
       xfce = {
         enable = true;
       };
