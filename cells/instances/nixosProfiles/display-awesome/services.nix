@@ -15,6 +15,7 @@ in {
     desktopManager = {
       xfce = {
         enable = true;
+	enableScreensaver = false;
       };
     };
     displayManager = {
