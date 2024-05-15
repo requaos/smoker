@@ -6,7 +6,8 @@
   systemPackages = with inputs.nixpkgs; [
     config.boot.kernelPackages.nvidiaPackages.vulkan_beta
     config.boot.kernelPackages.nvidia_x11_vulkan_beta
-    config.boot.kernelPackages.nvidiabl
+    # Abandonded
+    # config.boot.kernelPackages.nvidiabl
     vulkan-tools
     pciutils
     cudatoolkit

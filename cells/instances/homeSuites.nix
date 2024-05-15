@@ -29,6 +29,7 @@ in rec {
 
   thick = with homeProfiles;
     [
+      development
       development-heavy-extensions
     ]
     ++ gui;

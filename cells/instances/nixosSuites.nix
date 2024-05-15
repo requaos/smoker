@@ -105,6 +105,7 @@ in
         utilities-fwupd
 
         display-nvidia
+        design
 
         communication-slack
         communication-zoom

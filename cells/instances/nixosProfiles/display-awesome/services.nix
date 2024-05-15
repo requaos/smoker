@@ -12,6 +12,11 @@ in {
     };
   };
   xserver = {
+    desktopManaer = {
+      xfce = {
+        enable = true;
+      };
+    };
     displayManager = {
       lightdm = {
         greeter.enable = false;
