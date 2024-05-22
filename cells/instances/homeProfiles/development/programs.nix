@@ -80,8 +80,8 @@ in {
       status.disabled = false;
     };
   };
-  atuin = {
-    enable = true;
-    enableBashIntegration = true;
-  };
+  # atuin = {
+  #   enable = true;
+  #   enableBashIntegration = true;
+  # };
 }

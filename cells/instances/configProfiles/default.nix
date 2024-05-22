@@ -12,6 +12,8 @@
   loopback = "127.0.0.1";
 
   secretNames = [
+    "postgres-initial-script"
+    "windmill-database-url"
     # "authelia-jwt-secret"
     # "authelia-oidc-hmac-secret"
     # "authelia-oidc-issuer-private-key"
@@ -44,7 +46,7 @@
     })
     secretNames);
 in {
-  inherit username domain lookback fullname secrets;
+  inherit username domain loopback fullname secrets;
 
   email = "${emailuser}@${domain}";
 }

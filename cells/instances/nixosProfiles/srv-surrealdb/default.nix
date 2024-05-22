@@ -17,13 +17,13 @@ in {
     # surrealist
   ];
 
-  services.authelia.instances.main.settings.access_control.rules = [
-    {
-      domain = host;
-      networks = ["internal"];
-      policy = "bypass";
-    }
-  ];
+  # services.authelia.instances.main.settings.access_control.rules = [
+  #   {
+  #     domain = host;
+  #     networks = ["internal"];
+  #     policy = "bypass";
+  #   }
+  # ];
 
   services.traefik.dynamicConfigOptions.http = {
     routers = {

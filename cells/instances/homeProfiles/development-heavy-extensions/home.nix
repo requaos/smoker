@@ -40,9 +40,7 @@
     terraform
 
     # aws
-    #awscli
-    # TODO: remove after [this](https://github.com/NixOS/nixpkgs/pull/308355) PR is merged to unstable
-    inputs.nixpkgs-awscli.legacyPackages.awscli
+    awscli
 
     # awscli2 seems to be having some python/font problems, let's check back later since awscli v1 works fine
     #awscli2

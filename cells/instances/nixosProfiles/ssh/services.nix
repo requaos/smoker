@@ -10,6 +10,7 @@ in {
     openFirewall = lib.mkDefault true;
     startWhenNeeded = true;
     settings = {
+      PermitRootLogin = lib.mkDefault "no";
       PasswordAuthentication = true;
       X11Forwarding = true;
     };

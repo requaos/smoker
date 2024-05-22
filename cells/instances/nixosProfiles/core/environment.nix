@@ -30,7 +30,7 @@
     p7zip
 
     # magic shell history
-    atuin
+    # atuin
     blesh
 
     # debug info
