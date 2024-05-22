@@ -1,5 +1,7 @@
-{ inputs, cell }:
-let
+{
+  inputs,
+  cell,
+}: let
   # load = cell.lib.load inputs cell;
   lib = inputs.nixpkgs.lib // builtins;
 
@@ -7,6 +9,7 @@ let
   username = "req";
   emailuser = "req";
   domain = "requaos.com";
+  loopback = "127.0.0.1";
 
   secretNames = [
     # "authelia-jwt-secret"
@@ -40,9 +43,8 @@ let
       };
     })
     secretNames);
-in
-{
-  inherit username domain fullname secrets;
+in {
+  inherit username domain lookback fullname secrets;
 
   email = "${emailuser}@${domain}";
 }

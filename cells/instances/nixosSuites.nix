@@ -107,6 +107,10 @@ in
         display-nvidia
         design
 
+        srv-postgres
+        srv-surrealdb
+        srv-windmill
+
         communication-slack
         communication-zoom
 
