@@ -17,6 +17,10 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
+    windmill = {
+      url = "git+ssh://git@github.com/hanleym/windmill";
+    };
+
     std = {
       url = "github:divnix/std";
       inputs = {

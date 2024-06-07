@@ -109,6 +109,7 @@ in
 
         srv-postgres
         srv-surrealdb
+        srv-ollama
         srv-windmill
 
         communication-slack

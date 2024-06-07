@@ -59,10 +59,10 @@ in {
     extraFlags = [
       "--allow-all"
       "--auth"
-      # "--username"
-      # "root"
-      # "--password"
-      # "root"
+      "--username"
+      "root"
+      "--password"
+      "2pJgs83BHh899C4BX4k5TGAX"
     ];
   };
 
@@ -93,27 +93,27 @@ in {
   #   };
   # };
 
-  virtualisation.oci-containers.containers = {
-    surrealdb = {
-      image = "docker.io/surrealdb/surrealdb:latest";
-      user = "62428:62428";
-      # extraOptions = [ "--network=host" ];
-      entrypoint = "/surreal";
-      cmd = [
-        "start"
-        # "--log" "trace"
-        "--allow-all"
-        "--auth"
-        # "--user" "root"
-        # "--pass" "root"
-        "file:///var/lib/surrealdb/"
-      ];
-      volumes = [
-        "${volumePath}:/var/lib/surrealdb"
-      ];
-      ports = [
-        "${loopback}:${toString port}:8000"
-      ];
-    };
-  };
+  # virtualisation.oci-containers.containers = {
+  #   surrealdb = {
+  #     image = "docker.io/surrealdb/surrealdb:latest";
+  #     user = "62428:62428";
+  #     # extraOptions = [ "--network=host" ];
+  #     entrypoint = "/surreal";
+  #     cmd = [
+  #       "start"
+  #       # "--log" "trace"
+  #       "--allow-all"
+  #       "--auth"
+  #       # "--user" "root"
+  #       # "--pass" "root"
+  #       "file:///var/lib/surrealdb/"
+  #     ];
+  #     volumes = [
+  #       "${volumePath}:/var/lib/surrealdb"
+  #     ];
+  #     ports = [
+  #       "${loopback}:${toString port}:8000"
+  #     ];
+  #   };
+  # };
 }

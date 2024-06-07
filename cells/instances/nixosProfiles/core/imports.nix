@@ -1,0 +1,3 @@
+[
+  ../../nixosOverrides/versions.nix
+]
