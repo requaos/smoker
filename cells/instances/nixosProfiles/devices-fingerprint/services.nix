@@ -12,6 +12,8 @@ in {
         "fprintd:TestPamFprintd"
         "--no-suite"
         "fprintd:TestFprintdUtilsVerify"
+        "--no-suite"
+        "fprintd:FPrintdVirtualDeviceClaimedTest"
       ];
     };
   };

@@ -7,6 +7,7 @@
 
   settings = {
     sandbox = true;
+    show-trace = true;
 
     trusted-users = ["root" "@wheel"];
     allowed-users = ["@wheel"];
@@ -15,7 +16,7 @@
   };
 
   extraOptions = ''
-    experimental-features = nix-command flakes
+    experimental-features = nix-command flakes dynamic-derivations fetch-closure
     min-free = 536870912
     keep-outputs = true
     keep-derivations = true
