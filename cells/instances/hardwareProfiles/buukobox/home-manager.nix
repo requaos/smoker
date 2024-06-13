@@ -50,7 +50,7 @@ in {
                 }
                 {
                   block = "custom";
-                  command = "echo `uname` `uname -r | tr - . | cut -d. -f1-3`";
+                  command = "uname | $\"($in.kernel-name) ($in.kernel-release)\"";
                   interval = "once";
                 }
                 {

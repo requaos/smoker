@@ -1,4 +1,8 @@
-{...}: let
+{
+  inputs,
+  cell,
+}: let
+  inherit (inputs) nixpkgs;
   inherit (cell.configProfiles) username fullname;
 in {
   users.${username} = {
@@ -7,5 +11,17 @@ in {
     isNormalUser = true;
     createHome = true;
     extraGroups = ["wheel"];
+
+    # default shell
+    useDefaultShell = false;
+    shell = nixpkgs.nushell;
+
+    packages = with nixpkgs; [
+      nushellPlugins.net
+      nushellPlugins.query
+      nushellPlugins.gstat
+      nushellPlugins.polars
+      nushellPlugins.formats
+    ];
   };
 }

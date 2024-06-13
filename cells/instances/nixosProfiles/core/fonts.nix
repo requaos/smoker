@@ -15,7 +15,7 @@
   ];
 
   fontconfig.defaultFonts = {
-    monospace = ["DejaVuSansMono"];
-    sansSerif = ["Hack"];
+    monospace = ["DejaVuSansM Nerd Font Mono"];
+    sansSerif = ["Hack Nerd Font"];
   };
 }

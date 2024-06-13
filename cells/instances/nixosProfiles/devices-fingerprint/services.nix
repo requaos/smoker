@@ -13,7 +13,7 @@ in {
         "--no-suite"
         "fprintd:TestFprintdUtilsVerify"
         "--no-suite"
-        "fprintd:FPrintdVirtualDeviceClaimedTest"
+        "fprintd:daemon+fprintd+FPrintdVirtualDeviceStorageClaimedTest"
       ];
     };
   };

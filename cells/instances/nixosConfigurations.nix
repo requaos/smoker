@@ -1,8 +1,7 @@
-{ inputs
-, cell
-,
-}:
-let
+{
+  inputs,
+  cell,
+}: let
   inherit (cell) nixosSuites nixosProfiles homeSuites homeProfiles;
   lib = inputs.nixpkgs.lib // builtins;
   bee = {
@@ -10,62 +9,48 @@ let
     pkgs = inputs.nixpkgs;
     home = inputs.home-manager;
   };
+  home-manager = profile: {
+    users.req = {
+      imports = profile;
+      home.stateVersion = "23.11";
+    };
+    backupFileExtension = "bckup";
+  };
   time.timeZone = "America/New_York";
 in
-cell.lib.mkNixosConfigurations cell {
-  babybox = {
-    inherit bee time;
-    imports = with nixosSuites;
-      with nixosProfiles; babybox;
+  cell.lib.mkNixosConfigurations cell {
+    babybox = {
+      inherit bee time;
+      imports = with nixosSuites; with nixosProfiles; babybox;
 
-    home-manager = {
-      users.req = {
-        imports = with homeSuites; thin;
-        home.stateVersion = "23.11";
-      };
+      home-manager = with homeSuites; home-manager thin;
+      system.stateVersion = "23.11";
     };
-    system.stateVersion = "23.11";
-  };
 
-  teeniebox = {
-    inherit bee time;
-    imports = with nixosSuites;
+    teeniebox = {
+      inherit bee time;
+      imports = with nixosSuites;
       with nixosProfiles; teeniebox;
 
-    home-manager = {
-      users.req = {
-        imports = with homeSuites; thick;
-        home.stateVersion = "23.11";
-      };
+      home-manager = with homeSuites; home-manager thick;
+      system.stateVersion = "23.11";
     };
-    system.stateVersion = "23.11";
-  };
 
-  buukobox = {
-    inherit bee time;
-    imports = with nixosSuites;
+    buukobox = {
+      inherit bee time;
+      imports = with nixosSuites;
       with nixosProfiles; buukobox;
 
-    home-manager = {
-      users.req = {
-        imports = with homeSuites; thick;
-        home.stateVersion = "23.11";
-      };
+      home-manager = with homeSuites; home-manager thick;
+      system.stateVersion = "23.11";
     };
-    system.stateVersion = "23.11";
-  };
 
-  nixvmbox = {
-    inherit bee time;
-    imports = with nixosSuites;
+    nixvmbox = {
+      inherit bee time;
+      imports = with nixosSuites;
       with nixosProfiles; nixvmbox;
 
-    home-manager = {
-      users.req = {
-        imports = with homeSuites; thin;
-        home.stateVersion = "23.11";
-      };
+      home-manager = with homeSuites; home-manager thin;
+      system.stateVersion = "23.11";
     };
-    system.stateVersion = "23.11";
-  };
-}
+  }
