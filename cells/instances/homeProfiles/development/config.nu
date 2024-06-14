@@ -280,9 +280,21 @@ $env.config = {
         plugins: {
             # alternate configuration for specific plugins, by name, for example:
             #
-            # gstat: {
-            #     enabled: false
-            # }
+            net: {
+                enabled: true
+            }
+            query: {
+                enabled: true
+            }
+            gstat: {
+                enabled: true
+            }
+            polars: {
+                enabled: true
+            }
+            formats: {
+                enabled: true
+            }
         }
     }
 

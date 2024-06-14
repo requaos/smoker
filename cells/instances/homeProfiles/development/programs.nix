@@ -36,11 +36,21 @@ in {
         thenuprojectcontributors.vscode-nushell-lang
       ]);
   };
+  nushell = {
+    enable = true;
+    configFile = {
+      source = ./config.nu;
+    };
+    envFile = {
+      source = ./env.nu;
+    };
+  };
   starship = {
     enable = true;
     settings = {
       character = {
         success_symbol = "[❯](bold purple)";
+        error_symbol = "[❯](bold red)";
         vicmd_symbol = "[❮](bold purple)";
       };
       directory.style = "cyan";
@@ -78,6 +88,7 @@ in {
       python.symbol = " ";
       rust.symbol = " ";
       status.disabled = false;
+      add_newline = true;
     };
   };
   # atuin = {
