@@ -4,8 +4,6 @@
 }: {
   # Selection of sysadmin tools that can come in handy
   systemPackages = with inputs.nixpkgs; [
-    nushell
-
     # niff tool, rust port of nvd should be used instead, but...
     nvd
 

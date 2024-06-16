@@ -1,6 +1,6 @@
 # Nushell Config File
 #
-# version = "0.94.1"
+# version = "0.94.3"
 
 # For more information on defining custom themes, see
 # https://www.nushell.sh/book/coloring_and_theming.html
@@ -189,12 +189,7 @@ $env.config = {
             warn: {}
             info: {}
         },
-        table: {
-            split_line: { fg: "#404040" },
-            selected_cell: { bg: light_blue },
-            selected_row: {},
-            selected_column: {},
-        },
+        selected_cell: { bg: light_blue },
     }
 
     history: {
@@ -280,31 +275,14 @@ $env.config = {
         plugins: {
             # alternate configuration for specific plugins, by name, for example:
             #
-            net: {
-                enabled: true
-            }
-            query: {
-                enabled: true
-            }
-            gstat: {
-                enabled: true
-            }
-            polars: {
-                enabled: true
-            }
-            formats: {
-                enabled: true
-            }
+            # gstat: {
+            #     enabled: false
+            # }
         }
     }
 
     hooks: {
-        pre_prompt: [{ ||
-            if (which direnv | is-empty) {
-                return
-            }
-            direnv export json | from json | default {} | load-env
-        }] # run before the prompt is shown
+        pre_prompt: [{ null }] # run before the prompt is shown
         pre_execution: [{ null }] # run before the repl input is run
         env_change: {
             PWD: [{|before, after| null }] # run if the PWD environment is different since the last repl input
@@ -910,4 +888,3 @@ $env.config = {
         }
     ]
 }
-use ~/.cache/starship/init.nu
