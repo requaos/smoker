@@ -2,8 +2,7 @@
   inputs,
   cell,
 }: {
-  opengl = {
+  graphics = {
     enable = true;
-    # driSupport = true;
   };
 }
