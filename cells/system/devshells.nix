@@ -48,7 +48,7 @@ in
         }
         {
           category = "nix";
-          name = "update";
+          name = "updates";
           help = "Update inputs";
           command = "nix flake update $PRJ_ROOT $@";
         }
