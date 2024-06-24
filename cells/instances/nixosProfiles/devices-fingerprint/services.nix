@@ -18,6 +18,8 @@ in {
         "fprintd:FPrintdVirtualDeviceStorageClaimedTest"
         "--no-suite"
         "fprintd:FPrintdVirtualDeviceNoStorageVerificationTests"
+        "--no-suite"
+        "fprintd:FPrintdVirtualDeviceStorageIdentificationTests"
       ];
     };
   };
