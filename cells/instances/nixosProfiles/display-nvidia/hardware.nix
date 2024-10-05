@@ -3,7 +3,7 @@
   inputs,
   cell,
 }: {
-  opengl.extraPackages = with inputs.nixpkgs; [
+  graphics.extraPackages = with inputs.nixpkgs; [
     config.boot.kernelPackages.nvidiaPackages.vulkan_beta
     config.boot.kernelPackages.nvidia_x11_vulkan_beta
   ];

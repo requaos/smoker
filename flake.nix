@@ -160,12 +160,18 @@
         allowUnfree = true;
         allowBroken = true;
         permittedInsecurePackages = [
+          "olm-3.2.16"
           "openssl-1.1.1w"
           "electron-25.9.0"
           "electron-21.4.0"
           "electron-12.2.3"
+          "jitsi-meet-1.0.8043"
           "qtwebkit-5.212.0-alpha4"
         ];
+        # packageOverrides = nixpkgs: {
+        #   # python312 breaks nixpkgs.hplip, etc.
+        #   python3 = nixpkgs.python311;
+        # };
       };
     }
     {

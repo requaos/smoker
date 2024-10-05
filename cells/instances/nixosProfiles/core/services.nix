@@ -14,7 +14,7 @@ in {
     browsing = true;
     drivers = with inputs.nixpkgs; [
       gutenprint
-      hplip
+      # hplip
       postscript-lexmark
     ];
     browsedConf = ''

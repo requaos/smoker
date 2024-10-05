@@ -10,7 +10,7 @@
     usbutils
     utillinux
 
-    neofetch
+    # neofetch
     killall
   ];
 }

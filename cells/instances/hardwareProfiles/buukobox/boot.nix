@@ -4,6 +4,7 @@
 }: {
   # bleeding-edge kernel:
   kernelPackages = inputs.nixpkgs.linuxPackages_latest;
+  # defaults to stable kernel when unset
 
   # nested virtualization in qemu/kvm
   extraModprobeConfig = "options kvm_intel nested=1";

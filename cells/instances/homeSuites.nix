@@ -12,7 +12,7 @@ in rec {
 
   gui = with homeProfiles;
     [
-      display-rustdesk
+      # display-rustdesk
       display-discord
       display-espanso
       display-xserver

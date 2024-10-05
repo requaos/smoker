@@ -5,7 +5,7 @@
   inherit (inputs) nixpkgs;
 in {
   systemPackages = with nixpkgs; [
-    (python3.withPackages (ps:
+    (python311.withPackages (ps:
       with ps; [
         (
           buildPythonPackage rec {
@@ -19,9 +19,9 @@ in {
             doCheck = false;
             propagatedBuildInputs = [
               # Specify dependencies
-              nixpkgs.python3Packages.pycryptodome
-              nixpkgs.python3Packages.hatchling
-              nixpkgs.python3Packages.libusb1
+              nixpkgs.python311Packages.pycryptodome
+              nixpkgs.python311Packages.hatchling
+              nixpkgs.python311Packages.libusb1
             ];
           }
         )

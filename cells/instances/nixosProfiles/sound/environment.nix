@@ -16,6 +16,7 @@
     # utilities to support pulseaudio stuff under pipewire
     pulseaudio
     pamixer
+    pavucontrol
 
     # alsa stuff
     alsa-utils

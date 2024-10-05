@@ -8,9 +8,8 @@
 
   nvidia.package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
 
-  opengl = {
+  graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true; # for wine with openGL
   };
 }

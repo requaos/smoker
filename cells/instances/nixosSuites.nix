@@ -5,16 +5,14 @@
   inherit (cell) nixosProfiles;
 in
   with nixosProfiles; rec {
-    base =
-      [inputs.cells.system.nixosSuites.overrides]
-      ++ [
-        core
-        cachix
-        ssh
-        dns
+    base = [
+      core
+      cachix
+      ssh
+      dns
 
-        users-root
-      ];
+      users-root
+    ];
 
     thin-client =
       base
@@ -107,10 +105,10 @@ in
         display-nvidia
         design
 
-        srv-postgres
-        srv-surrealdb
-        srv-ollama
-        srv-windmill
+        # srv-postgres
+        # srv-surrealdb
+        # srv-ollama
+        # srv-windmill
 
         communication-slack
         communication-zoom

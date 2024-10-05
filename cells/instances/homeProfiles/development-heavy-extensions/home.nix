@@ -6,8 +6,8 @@
     # tools
     imagemagick
     pango
-    gnome.zenity
-
+    zenity
+    # surrealist
     # TODO: Runtime dependencies for mitmproxy-10.2.1-py3-none-any.whl:
     #       - aioquic not installed
     #mitmproxy

@@ -17,6 +17,7 @@
     git
     bottom
     jq
+    libxml2
     manix
     moreutils
     nix-index

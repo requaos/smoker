@@ -12,7 +12,7 @@ in {
     ...
   }: {
     imports = [
-      nixos-generators.nixosModules.install-iso
+      # nixos-generators.nixosModules.install-iso
     ];
 
     nix = {

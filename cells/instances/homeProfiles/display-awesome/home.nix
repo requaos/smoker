@@ -5,7 +5,7 @@
   inherit (inputs) nixpkgs;
 in {
   packages = with nixpkgs; [
-    neofetch
+    # neofetch
     #zenith
     htop
     nethogs
