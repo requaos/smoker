@@ -47,7 +47,7 @@ in {
     package = nixpkgs.nushell;
     extraEnv = ''
       plugin add ${nixpkgs.nushellPlugins.polars}/bin/nu_plugin_polars
-      # plugin add ${nixpkgs.nushellPlugins.net}/bin/nu_plugin_net # seems to come from unstable and not 24.05
+      # plugin add {nixpkgs.nushellPlugins.net}/bin/nu_plugin_net # seems to come from unstable and not 24.05
       plugin add ${nixpkgs.nushellPlugins.query}/bin/nu_plugin_query
       plugin add ${nixpkgs.nushellPlugins.gstat}/bin/nu_plugin_gstat
       plugin add ${nixpkgs.nushellPlugins.formats}/bin/nu_plugin_formats

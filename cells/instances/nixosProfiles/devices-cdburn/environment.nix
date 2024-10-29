@@ -7,6 +7,6 @@ in {
   systemPackages = with nixpkgs; [
     cdrkit
     cdrdao
-    libsForQt5.k3b
+    kdePackages.k3b
   ];
 }
