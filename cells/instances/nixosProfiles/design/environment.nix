@@ -9,7 +9,7 @@
 
     # coms
     mumble
-    mumble_overlay
+    # mumble_overlay
 
     # oversight
     lens

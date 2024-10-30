@@ -88,7 +88,7 @@ in
 
     buukobox =
       linuxapps
-      ++ home-printers
+      # ++ home-printers
       ++ gui
       ++ [
         pretty-boot

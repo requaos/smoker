@@ -60,6 +60,12 @@ in
         }
         {
           category = "nix";
+          name = "interact";
+          help = "Interact with dependency tree";
+          command = "HOSTNAME=`${inputs.nixpkgs.hostname}/bin/hostname` nix run github:utdemir/nix-tree -- .#nixosConfigurations.$HOSTNAME.config.system.build.toplevel --derivation $@";
+        }
+        {
+          category = "nix";
           name = "check";
           help = "Check flake";
           command = "nix flake check $PRJ_ROOT $@";
