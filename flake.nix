@@ -165,8 +165,13 @@
           "electron-25.9.0"
           "electron-21.4.0"
           "electron-12.2.3"
+          "dotnet-sdk-7.0.410"
           "jitsi-meet-1.0.8043"
+          "dotnet-core-combined"
           "qtwebkit-5.212.0-alpha4"
+          "dotnet-sdk-wrapped-7.0.410"
+          "dotnet-wrapped-combined"
+          "dotnet-combined"
         ];
         # packageOverrides = nixpkgs: {
         #   # python312 breaks nixpkgs.hplip, etc.

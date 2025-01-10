@@ -12,7 +12,7 @@
   home-manager = profile: {
     users.req = {
       imports = profile;
-      home.stateVersion = "23.11";
+      home.stateVersion = "25.05";
     };
     backupFileExtension = "bckup";
   };

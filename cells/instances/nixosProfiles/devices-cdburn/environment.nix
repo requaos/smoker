@@ -7,6 +7,6 @@ in {
   systemPackages = with nixpkgs; [
     cdrkit
     cdrdao
-    kdePackages.k3b
+    (kdePackages.k3b.override {transcode = null;})
   ];
 }

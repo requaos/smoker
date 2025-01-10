@@ -11,7 +11,7 @@ in {
         pidgin-window-merge
         purple-discord
         purple-matrix
-        purple-signald
+        # purple-signald
         # pidgin-indicator
         # pidgin-latex
         # pidgin-xmpp-receipts

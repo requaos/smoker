@@ -3,7 +3,7 @@
   cell,
 }: {
   # bleeding-edge kernel:
-  kernelPackages = inputs.nixpkgs.linuxPackages_latest;
+  # kernelPackages = inputs.nixpkgs.linuxPackages_latest;
   # defaults to stable kernel when unset
 
   # nested virtualization in qemu/kvm

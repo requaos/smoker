@@ -40,7 +40,7 @@ in {
         hashicorp.terraform
       ])
       ++ [
-        inputs.fenix.packages.rust-analyzer-vscode-extension
+        # inputs.fenix.packages.rust-analyzer-vscode-extension
       ];
   };
 }
