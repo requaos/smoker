@@ -27,7 +27,7 @@
     # bitwarden
     # bitwarden-cli
     betterlockscreen
-    maim
+    inputs.maimpkgs.legacyPackages.x86_64-linux.maim
     #rbw
 
     # icons for lutris

@@ -9,6 +9,7 @@
     blank.url = "github:divnix/blank";
 
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    maimpkgs.url = "github:5225225/nixpkgs/fix-maim";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -165,6 +166,7 @@
           "electron-25.9.0"
           "electron-21.4.0"
           "electron-12.2.3"
+          "archiver-3.5.1"
           "dotnet-sdk-7.0.410"
           "jitsi-meet-1.0.8043"
           "dotnet-core-combined"

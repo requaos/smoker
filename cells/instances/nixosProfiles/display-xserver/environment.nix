@@ -8,7 +8,7 @@
     libnotify
     xterm
     xclip
-    maim
+    inputs.maimpkgs.legacyPackages.x86_64-linux.maim
     pciutils
     file
 

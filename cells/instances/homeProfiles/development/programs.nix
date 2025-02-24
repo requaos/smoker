@@ -11,7 +11,7 @@ in {
 
     #userSettings = cell.lib.mkForce {};
 
-    extensions =
+    profiles.default.extensions =
       (with extensions.open-vsx; [
         jnoortheen.nix-ide
         antyos.openscad

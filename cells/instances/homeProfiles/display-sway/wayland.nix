@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs;
+  inherit (inputs) nixpkgs maimpkgs;
   inherit (cell) lib;
 
   mod = "Mod4";
@@ -10,6 +10,7 @@
     names = ["Hack Nerd Font"];
     size = lib.mkForce 11.0;
   };
+  mpkgs = maimpkgs.legacyPackages.x86_64-linux;
 in {
   windowManager.sway = {
     enable = true;
@@ -97,7 +98,7 @@ in {
           "${mod}+l" = "exec ${nixpkgs.swaylock}/bin/swaylock";
           #"Mod4+l" = "exec ${nixpkgs.swaylock}/bin/swaylock";
           # TODO: migrate to https://github.com/lgmys/savr soon?
-          # "${mod}+x" = "exec sh -c '${nixpkgs.maim}/bin/maim -s | xclip -selection clipboard -t image/png'";
+          # "${mod}+x" = "exec sh -c '${mpkgs.maim}/bin/maim -s | xclip -selection clipboard -t image/png'";
           # "Mod4+Shift+3" = ''${nixpkgs.grim}/bin/grim'';
           # "Mod4+Shift+4" = ''exec sh -c "${nixpkgs.grim}/bin/grim -g '$(${nixpkgs.slurp}/bin/slurp)'"'';
           "Mod1+Shift+3" = ''exec sh -c "${nixpkgs.grim}/bin/grim - | ${saveAndCopyScreenshot}"'';
