@@ -2,6 +2,7 @@
   description = "Required Professionals NixOS Configurations";
 
   nixConfig = {
+    download-buffer-size = 500000000;
     extra-experimental-features = "nix-command flakes";
   };
 
@@ -9,7 +10,7 @@
     blank.url = "github:divnix/blank";
 
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    maimpkgs.url = "github:5225225/nixpkgs/fix-maim";
+    # maimpkgs.url = "github:5225225/nixpkgs/fix-maim";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -163,6 +164,7 @@
         permittedInsecurePackages = [
           "olm-3.2.16"
           "openssl-1.1.1w"
+          "electron-32.3.3"
           "electron-25.9.0"
           "electron-21.4.0"
           "electron-12.2.3"
@@ -175,6 +177,10 @@
           "dotnet-wrapped-combined"
           "dotnet-combined"
         ];
+        # allowUnfreePredicate = pkg:
+        #   builtins.elem (lib.getName pkg) [
+        #     "vscode-extension-mhutchie-git-graph"
+        #   ];
         # packageOverrides = nixpkgs: {
         #   # python312 breaks nixpkgs.hplip, etc.
         #   python3 = nixpkgs.python311;

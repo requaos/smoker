@@ -18,7 +18,7 @@ in rec {
       display-xserver
       display-common
       display-pidgin
-      display-signal
+      # display-signal
       display-social
       display-dunst
       display-rofi

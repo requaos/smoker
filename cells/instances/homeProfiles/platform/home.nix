@@ -18,7 +18,7 @@
     gi = "grep -i";
 
     # internet ip
-    myip = "dig +short myip.opendns.com @208.67.222.222 2>&1";
+    # myip = "dig +short myip.opendns.com @208.67.222.222 2>&1";
 
     # nix
     n = "nix";

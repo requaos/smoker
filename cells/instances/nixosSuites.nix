@@ -42,7 +42,7 @@ in
 
     gui = [
       display-xserver
-      display-signal
+      # display-signal
       display-sway
       display-i3
     ];
@@ -56,6 +56,7 @@ in
       ++ [
         pretty-boot
 
+        devices-t1000-e
         devices-bluetooth
         devices-cdburn
 
@@ -68,11 +69,11 @@ in
 
     teeniebox =
       linuxapps
-      ++ home-printers
       ++ gui
       ++ [
         pretty-boot
 
+        devices-t1000-e
         devices-thunderbolt
         devices-bluetooth
         devices-fingerprint
@@ -93,6 +94,7 @@ in
       ++ [
         pretty-boot
 
+        devices-t1000-e
         devices-android
         devices-thunderbolt
         devices-bluetooth
@@ -113,7 +115,7 @@ in
         communication-slack
         communication-zoom
 
-        development-java
+        # development-java
         # development-cody
         development-rust
 

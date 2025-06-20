@@ -3,7 +3,7 @@
   cell,
 }:
 with cell.lib.lists; let
-  inherit (inputs) nixpkgs maimpkgs;
+  inherit (inputs) nixpkgs;
   inherit (cell) lib;
 
   mod = "Mod4";
@@ -11,7 +11,7 @@ with cell.lib.lists; let
     names = ["Hack Nerd Font"];
     size = 12.0;
   };
-  mpkgs = maimpkgs.legacyPackages.x86_64-linux;
+  # mpkgs = maimpkgs.legacyPackages.x86_64-linux;
 in {
   enable = true;
   windowManager.i3 = {
@@ -89,7 +89,7 @@ in {
         "${mod}+l" = "exec ${nixpkgs.betterlockscreen}/bin/betterlockscreen --lock --off 5";
         #"Mod4+l" = "exec ${nixpkgs.betterlockscreen}/bin/betterlockscreen --lock --off 5";
         # TODO: migrate to https://github.com/lgmys/savr soon?
-        "${mod}+x" = "exec sh -c '${mpkgs.maim}/bin/maim -s | xclip -selection clipboard -t image/png'";
+        "${mod}+x" = "exec sh -c '${nixpkgs.maim}/bin/maim -s | xclip -selection clipboard -t image/png'";
 
         # Screenshots
         "Print" = ''exec --no-startup-id maim --format=png | xclip -selection clipboard -t image/png'';

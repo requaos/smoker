@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs maimpkgs;
+  inherit (inputs) nixpkgs;
   inherit (cell) lib;
 
   mod = "Mod4";
@@ -10,7 +10,7 @@
     names = ["Hack Nerd Font"];
     size = lib.mkForce 11.0;
   };
-  mpkgs = maimpkgs.legacyPackages.x86_64-linux;
+  # mpkgs = maimpkgs.legacyPackages.x86_64-linux;
 in {
   windowManager.sway = {
     enable = true;

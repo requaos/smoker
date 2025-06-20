@@ -16,7 +16,10 @@ in {
       "swaylock"
       "gdm"
     ]
-    (name: {fprintAuth = lib.mkDefault true;});
+    (name: {
+      fprintAuth = lib.mkForce true;
+      enable = lib.mkForce true;
+    });
 }
 # {
 #   pam.services = {

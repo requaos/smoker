@@ -16,8 +16,8 @@ in {
         christian-kohler.path-intellisense
         gruntfuggly.todo-tree
         kamadorueda.alejandra
-        mhutchie.git-graph
-        redhat.java
+        # mhutchie.git-graph
+        # redhat.java
         mkhl.direnv
         moshfeu.compare-folders
         pkief.material-icon-theme
@@ -32,11 +32,11 @@ in {
         jscearcy.rust-doc-viewer
         mitsuhiko.insta
         ms-vsliveshare.vsliveshare
-        vscjava.vscode-java-pack
-        vscjava.vscode-java-debug
-        vscjava.vscode-maven
-        vscjava.vscode-java-test
-        vscjava.vscode-java-dependency
+        # vscjava.vscode-java-pack
+        # vscjava.vscode-java-debug
+        # vscjava.vscode-maven
+        # vscjava.vscode-java-test
+        # vscjava.vscode-java-dependency
         hashicorp.terraform
       ])
       ++ [

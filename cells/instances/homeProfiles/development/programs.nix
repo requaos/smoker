@@ -20,7 +20,7 @@ in {
         christian-kohler.path-intellisense
         gruntfuggly.todo-tree
         kamadorueda.alejandra
-        mhutchie.git-graph
+        # mhutchie.git-graph
         mkhl.direnv
         moshfeu.compare-folders
         pkief.material-icon-theme

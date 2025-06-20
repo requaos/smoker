@@ -7,6 +7,6 @@
     zulip
     zulip-term
     element-desktop
-    signal-desktop
+    signal-desktop-bin
   ];
 }
