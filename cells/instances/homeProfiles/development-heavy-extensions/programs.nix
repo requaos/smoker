@@ -7,7 +7,7 @@
   extensions = nix-vscode-extensions.extensions.x86_64-linux;
 in {
   vscode = {
-    extensions =
+    profiles.default.extensions =
       (with extensions.open-vsx; [
         jnoortheen.nix-ide
         antyos.openscad
@@ -16,7 +16,6 @@ in {
         christian-kohler.path-intellisense
         gruntfuggly.todo-tree
         kamadorueda.alejandra
-        mhutchie.git-graph
         redhat.java
         mkhl.direnv
         moshfeu.compare-folders

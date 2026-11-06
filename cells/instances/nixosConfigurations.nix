@@ -33,7 +33,7 @@ in
       with nixosProfiles; teeniebox;
 
       home-manager = with homeSuites; home-manager thick;
-      system.stateVersion = "23.11";
+      system.stateVersion = "26.05";
     };
 
     buukobox = {

@@ -3,7 +3,7 @@
   cell,
 }: {
   xserver = {
-    videoDrivers = ["iris"];
+    #videoDrivers = ["iris"];
     dpi = 192;
     displayManager.sessionCommands = ''
       ${inputs.nixpkgs.xorg.xrdb}/bin/xrdb -merge <<EOF

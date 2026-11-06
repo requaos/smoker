@@ -18,7 +18,9 @@
     gi = "grep -i";
 
     # internet ip
-    myip = "dig +short myip.opendns.com @208.67.222.222 2>&1";
+    # (no `2>&1` here: it is bash-only syntax and breaks nushell's parser;
+    # stderr from dig still shows on screen without it)
+    myip = "dig +short myip.opendns.com @208.67.222.222";
 
     # nix
     n = "nix";

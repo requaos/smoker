@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: {
-  extraConfig = ''
-    DefaultTimeoutStopSec=5s
-  '';
+  settings.Manager = {
+    DefaultTimeoutStopSec = "5s";
+  };
 }

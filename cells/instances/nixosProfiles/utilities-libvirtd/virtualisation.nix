@@ -11,16 +11,6 @@ in {
       package = nixpkgs.qemu_kvm;
       runAsRoot = true;
       swtpm.enable = true;
-      ovmf = {
-        enable = true;
-        packages = [
-          (nixpkgs.OVMFFull.override {
-            secureBoot = true;
-            tpmSupport = true;
-          })
-          .fd
-        ];
-      };
     };
   };
 

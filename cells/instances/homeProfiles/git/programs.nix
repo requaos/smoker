@@ -7,12 +7,14 @@ in {
   lazygit.enable = true;
   git = {
     enable = true;
-    package = inputs.nixpkgs.gitAndTools.gitFull;
+    package = inputs.nixpkgs.gitFull;
 
-    userName = fullname;
-    userEmail = email;
+    settings = {
+      user = {
+        name = fullname;
+        email = email;
+      };
 
-    extraConfig = {
       credential = {
         helper = "libsecret";
       };

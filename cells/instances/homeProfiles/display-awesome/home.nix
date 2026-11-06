@@ -12,5 +12,7 @@ in {
     baobab
 
     betterlockscreen
+
+    google-chrome
   ];
 }

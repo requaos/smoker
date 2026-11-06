@@ -15,12 +15,6 @@ in {
   # 0 = Emerg
   consoleLogLevel = 1;
 
-  initrd = {
-    systemd = {
-      enable = true;
-    };
-  };
-
   kernelParams = [
     "quiet"
   ];

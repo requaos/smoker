@@ -5,6 +5,6 @@
   inherit (inputs) nixpkgs;
 in {
   packages = with nixpkgs; [
-    signaldctl
+    # signaldctl
   ];
 }

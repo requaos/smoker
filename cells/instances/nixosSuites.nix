@@ -67,9 +67,7 @@ in
       ];
 
     teeniebox =
-      linuxapps
-      ++ home-printers
-      ++ gui
+      thin-client
       ++ [
         pretty-boot
 
@@ -80,8 +78,10 @@ in
 
         utilities-libvirtd
         utilities-fwupd
+        utilities-docker
 
-        communication-slack
+        games
+        games-edu
 
         users-req
       ];

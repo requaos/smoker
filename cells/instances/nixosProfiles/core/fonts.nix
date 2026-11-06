@@ -2,16 +2,12 @@
   inputs,
   cell,
 }: {
-  packages = with inputs.nixpkgs; [
-    (nerdfonts.override {
-      fonts = [
-        "Hack"
-        "Iosevka"
-        "RobotoMono"
-        "JetBrainsMono"
-        "DejaVuSansMono"
-      ];
-    })
+  packages = with inputs.nixpkgs.nerd-fonts; [
+    hack
+    iosevka
+    roboto-mono
+    jetbrains-mono
+    dejavu-sans-mono
   ];
 
   fontconfig.defaultFonts = {

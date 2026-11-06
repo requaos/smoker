@@ -10,7 +10,7 @@ in {
     description = fullname;
     isNormalUser = true;
     createHome = true;
-    extraGroups = ["wheel"];
+    extraGroups = ["wheel" "dialout" "uucp"];
 
     # default shell
     useDefaultShell = false;

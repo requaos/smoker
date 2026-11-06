@@ -16,7 +16,6 @@
     xfce.thunar
     xfce.thunar-volman
     xfce.thunar-archive-plugin
-    archiver
     # brave
     # chromium
     # firefox

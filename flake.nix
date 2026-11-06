@@ -17,15 +17,21 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
-    windmill = {
-      url = "git+ssh://git@github.com/hanleym/windmill";
-    };
+    #windmill = {
+    #  url = "git+ssh://git@github.com/hanleym/windmill";
+    #};
 
     std = {
       url = "github:divnix/std";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         devshell.url = "github:numtide/devshell";
+        # std is archived with paisano pinned at a rev whose default grow
+        # systems list includes x86_64-darwin, which nixpkgs-unstable has
+        # since removed from lib.systems.doubles.all. std's own (and hive's)
+        # aux grow uses that default, breaking all evaluation of these libs.
+        # Override to the rev that dropped x86_64-darwin (88739c8).
+        paisano.url = "github:paisano-nix/core/88739c84d308876714322eb9844ede6597c1a580";
       };
     };
 
@@ -83,6 +89,10 @@
       url = "github:ymatsiuk/awsvpnclient";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+    };
   };
 
   outputs = {
@@ -101,6 +111,10 @@
       inherit inputs;
 
       cellsFrom = ./cells;
+      # nixpkgs-unstable dropped x86_64-darwin from lib.systems.doubles.all,
+      # which paisano uses for its System enum, so the four-system default
+      # no longer validates. Everything in this repo is x86_64-linux anyway.
+      systems = ["x86_64-linux"];
       cellBlocks = with hive.blockTypes; [
         {
           name = "configProfiles";
@@ -161,10 +175,13 @@
         allowBroken = true;
         permittedInsecurePackages = [
           "olm-3.2.16"
+          "archiver-3.5.1"
           "openssl-1.1.1w"
+          "electron-39.8.10"
           "electron-25.9.0"
           "electron-21.4.0"
           "electron-12.2.3"
+          "dotnet-sdk-7.0.410"
           "jitsi-meet-1.0.8043"
           "qtwebkit-5.212.0-alpha4"
         ];

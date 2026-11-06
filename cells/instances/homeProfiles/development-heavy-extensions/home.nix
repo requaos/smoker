@@ -40,10 +40,9 @@
     terraform
 
     # aws
-    awscli
-
-    # awscli2 seems to be having some python/font problems, let's check back later since awscli v1 works fine
-    #awscli2
+    # awscli v1 is broken in nixpkgs-unstable (runtime-deps check fails against
+    # the newer botocore/s3transfer); awscli2 works fine now
+    awscli2
     #awslocal
     #aws-mfa
     #terraform

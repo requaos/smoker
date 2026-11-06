@@ -10,6 +10,11 @@
     usbutils
     utillinux
 
+    gh
+    claude-code
+    claude-monitor
+    claude-code-router
+
     # neofetch
     killall
   ];

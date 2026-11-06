@@ -12,7 +12,7 @@
     scanmem
     libselinux
 
-    proton-caller
+    # proton-caller
     # jdk
     wine64
     # jdk8
