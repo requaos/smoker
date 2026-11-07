@@ -25,8 +25,11 @@
   blacklistedKernelModules = ["psmouse"];
 
   # graphics fix from dell for 'iris' opengl support
+  # kvm-intel.enable_apicv=0 disables APIC virtualization (often needed for
+  # nested virtualization / passthrough stability)
   kernelParams = [
     "i915.force_probe=46a6"
+    "kvm-intel.enable_apicv=0"
   ];
 
   initrd = {
